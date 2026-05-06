@@ -1,0 +1,322 @@
+/* ClientsTechniciens.css */
+
+/* ===== Background global (comme autres pages) ===== */
+.page-bg{
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+  background: url("/assets/bbb.png") center/cover no-repeat;
+}
+.page-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(7,34,64,0.70);
+  z-index:0;
+}
+.page-bg ion-content{
+  --background: transparent !important;
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Container centré ===== */
+.app-container{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ===== Cards glass ===== */
+.card{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+  backdrop-filter: blur(8px);
+}
+
+/* ===== Segment ===== */
+ion-segment{
+  --background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 6px;
+}
+ion-segment-button{
+  --color: rgba(255,255,255,0.75);
+  --color-checked: #fff;
+  --indicator-color: rgba(255,255,255,0.18);
+  --border-radius: 12px;
+  font-weight: 800;
+}
+
+/* ===== Search ===== */
+.top-row{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-top: 10px;
+}
+.search{ flex: 1; }
+
+ion-searchbar{
+  --background: rgba(255,255,255,0.10);
+  --color: #fff;
+  --placeholder-color: rgba(255,255,255,0.70);
+  --icon-color: rgba(255,255,255,0.70);
+  --clear-button-color: rgba(255,255,255,0.85);
+  --border-radius: 14px;
+}
+
+/* ===== List style (comme Machines) ===== */
+ion-list{ background: transparent; padding: 0; }
+
+ion-item{
+  --background: rgba(255,255,255,0.05);
+  --border-color: rgba(255,255,255,0.10);
+  --color: #fff;
+  margin: 10px 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+ion-item::part(native){
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* ===== Modal (FIX DESIGN) ===== */
+.ct-modal{
+  --background: transparent;
+}
+
+/* backdrop sombre */
+.ct-modal::part(backdrop){
+  background: rgba(0,0,0,0.65);
+}
+
+/* content du modal centré + glass */
+.ct-modal::part(content){
+  background: rgba(15, 32, 55, 0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+
+  width: min(720px, 92vw);
+  height: auto;
+  max-height: 86vh;
+}
+
+/* toolbar du modal */
+.ct-modal ion-toolbar{
+  --background: rgba(255,255,255,0.06);
+  --color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+/* content interne (sinon ionic met du blanc) */
+.ct-modal ion-content{
+  --background: transparent !important;
+  background: transparent !important;
+}
+
+/* titres */
+.ct-modal h2,
+.ct-modal h3,
+.ct-modal ion-title{
+  color: #fff;
+}
+
+/* textes dans le détail */
+.ct-modal b{ color: rgba(255,255,255,0.92); }
+.ct-modal div{ color: rgba(255,255,255,0.86); }
+
+/* liste tissus dans modal */
+.ct-modal ion-item{
+  --background: rgba(255,255,255,0.06);
+  --border-color: rgba(255,255,255,0.10);
+}
+
+/* responsive */
+@media (max-width: 520px){
+  .app-container{ padding: 12px; }
+  .ct-modal::part(content){
+    width: 94vw;
+    max-height: 88vh;
+  }
+}
+/* zone liste */
+.list-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* carte user comme tissu card */
+.user-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 14px 16px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+  backdrop-filter: blur(8px);
+
+  cursor:pointer;
+  transition: 0.18s ease;
+}
+
+.user-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* partie gauche (avatar + texte) */
+.user-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* avatar rond */
+.user-avatar{
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.user-avatar ion-icon{
+  font-size:20px;
+  color:#fff;
+  opacity:0.92;
+}
+
+/* textes */
+.user-text{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.user-name{
+  font-size:16px;
+  font-weight:800;
+  color:#fff;
+}
+
+.user-sub{
+  font-size:13px;
+  color: rgba(255,255,255,0.72);
+}
+
+/* icône à droite comme "edit" tissus */
+.user-right{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.user-right ion-icon{
+  font-size:18px;
+  color: rgba(180,220,255,0.95);
+}
+
+
+/* ===== Modal details (comme Détails tissu) ===== */
+.details-modal::part(backdrop) {
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.details-modal::part(content){
+  width: min(760px, 92vw);
+  max-height: 88vh;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(15, 32, 55, 0.92); /* ✅ pas transparent */
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+}
+
+.details-modal-content{
+  --background:  url("/assets/n.JPG") center/cover no-repeat;;
+  background: transparent !important;
+  
+}
+
+.details-shell{
+  display:flex;
+  flex-direction:column;
+  height: 100%;
+}
+
+.details-head{
+  background: rgba(255,255,255,0.92);
+  color:#111;
+  padding: 14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.details-head h3{
+  margin:0;
+  font-size:18px;
+  font-weight:800;
+}
+
+.details-close{
+  border:none;
+  background:transparent;
+  font-size:18px;
+  cursor:pointer;
+  opacity:0.75;
+}
+
+.details-body{
+  padding: 14px;
+  overflow: auto;
+}
+
+.tissu-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:10px;
+}
+
+.tissu-row{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.tissu-code{
+  color:#fff;
+  font-weight:800;
+  font-size:15px;
+}
+
+.muted{
+  color: rgba(255,255,255,0.75);
+}

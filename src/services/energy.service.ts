@@ -1,0 +1,53 @@
+import { Client } from "@stomp/stompjs";
+import SockJS from "sockjs-client";
+import { APIform7 } from "../config/api";
+import { API_BASE } from "../config/api";
+
+export interface EnergyMeasurement {
+  id?: string;
+  deviceId: string;
+  voltage: number;
+  current: number;
+  power: number;
+  energy: number;
+  frequency: number;
+  powerFactor: number;
+  receivedAt: string;
+}
+
+export async function getEnergyHistoryByRange(start: string, end: string): Promise<EnergyMeasurement[]> {
+  const res = await fetch(
+    `${APIform7}/history?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`
+  );
+  if (!res.ok) throw new Error("Erreur chargement historique énergie");
+  return res.json();
+}
+
+export async function getEnergyStats(start: string, end: string) {
+  const res = await fetch(
+    `${APIform7}/stats?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`
+  );
+  if (!res.ok) throw new Error("Erreur chargement stats énergie");
+  return res.json();
+}
+
+export function connectEnergySocket(
+  onMessage: (data: EnergyMeasurement) => void,
+  onStateChange?: (connected: boolean) => void
+) {
+  const client = new Client({
+    webSocketFactory: () => new SockJS(`${API_BASE}/ws-water`),
+    reconnectDelay: 5000,
+    onConnect: () => {
+      onStateChange?.(true);
+      client.subscribe("/topic/energy", (message) => {
+        onMessage(JSON.parse(message.body));
+      });
+    },
+    onWebSocketClose: () => onStateChange?.(false),
+    onStompError: () => onStateChange?.(false),
+  });
+
+  client.activate();
+  return client;
+}

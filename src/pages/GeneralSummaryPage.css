@@ -1,0 +1,114 @@
+.general-page {
+ 
+--background: transparent;
+  position: relative;
+  min-height: 100vh;
+
+  background: url("/assets/bbb.png") center/cover no-repeat;
+
+}
+.general-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 34, 64, 0.70);
+}
+
+.general-container {
+  padding: 20px;
+  color: white;
+}
+
+.general-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.multiplier-box {
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 12px;
+  backdrop-filter: blur(8px);
+}
+
+.multiplier-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #d9ecff;
+}
+
+.multiplier-input {
+  --background: rgba(255,255,255,0.08);
+  --color: white;
+  --padding-start: 10px;
+  border-radius: 10px;
+}
+
+.table-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 14px;
+  overflow-x: auto;
+  backdrop-filter: blur(10px);
+}
+
+.general-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.general-table th,
+.general-table td {
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 12px;
+  text-align: center;
+}
+
+.general-table th {
+  background: rgba(89, 178, 255, 0.16);
+  color: #9fd0ff;
+  font-weight: 700;
+}
+
+.general-table td:nth-child(2),
+.general-table th:nth-child(2) {
+  text-align: left;
+}
+
+.total-row td {
+  background: rgba(174, 255, 0, 0.14);
+  font-weight: bold;
+  color: #f6ffb2;
+}
+
+.center-box {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+.simple-table {
+  min-width: 700px;
+}
+
+.simple-table th,
+.simple-table td {
+  text-align: left;
+}
+
+.simple-table th:nth-child(3),
+.simple-table th:nth-child(4),
+.simple-table th:nth-child(5),
+.simple-table td:nth-child(3),
+.simple-table td:nth-child(4),
+.simple-table td:nth-child(5) {
+  text-align: center;
+}

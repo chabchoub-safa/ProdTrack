@@ -1,0 +1,74 @@
+
+.hj-page {
+ 
+--background: transparent;
+  position: relative;
+  min-height: 100vh;
+
+  background: url("/assets/bbb.png") center/cover no-repeat;
+
+}
+.hj-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 34, 64, 0.70);
+}
+
+.hj-container {
+  padding: 20px;
+}
+
+.hj-topbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hj-topbar ion-searchbar {
+  flex: 1;
+}
+
+.hj-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 240px;
+}
+
+.hj-table-wrap {
+  overflow-x: auto;
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.hj-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  color: white;
+}
+
+.hj-table th,
+.hj-table td {
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 12px;
+  text-align: center;
+}
+
+.hj-table thead th {
+  background: rgba(255,255,255,0.14);
+  font-weight: 700;
+}
+
+.hj-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.04);
+}
+
+.hj-table tfoot th {
+  background: rgba(0,0,0,0.25);
+  font-weight: 800;
+}

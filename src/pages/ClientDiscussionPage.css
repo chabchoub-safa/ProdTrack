@@ -1,0 +1,137 @@
+.client-chat-page {
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+
+  background: url("/assets/bbb.png") 
+}
+.client-chat-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 34, 64, 0.70);
+}
+
+.chat-toolbar {
+  --background: #102842;
+  --color: #ffffff;
+}
+
+.chat-back-btn,
+.chat-refresh-btn {
+  --color: #ffffff;
+}
+
+.client-chat-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.client-chat-header {
+  background: rgba(15, 40, 70, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  padding: 18px 22px;
+  color: white;
+  margin-bottom: 18px;
+}
+
+.client-chat-header h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.client-chat-header p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.client-messages-box {
+  min-height: calc(100vh - 330px);
+  padding: 16px;
+  background: rgba(8, 27, 52, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 22px;
+  margin-bottom: 16px;
+}
+
+.chat-row {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.client-row {
+  justify-content: flex-end;
+}
+
+.admin-row {
+  justify-content: flex-start;
+}
+
+.chat-bubble {
+  max-width: 75%;
+  padding: 12px 15px;
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.client-bubble {
+  background: linear-gradient(135deg, #0077ff, #00c6ff);
+  border-bottom-right-radius: 5px;
+}
+
+.admin-bubble {
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom-left-radius: 5px;
+}
+
+.chat-bubble p {
+  margin: 0 0 6px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.chat-bubble span {
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.client-send-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(8, 27, 52, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 12px;
+  border-radius: 20px;
+}
+
+.client-message-input {
+  flex: 1;
+  --background: rgba(15, 28, 48, 0.96);
+  --color: #ffffff;
+  --placeholder-color: #64748b;
+  border-radius: 14px;
+  padding-left: 12px;
+}
+
+.client-send-btn {
+  width: 52px;
+  height: 52px;
+  --border-radius: 50%;
+  --background: linear-gradient(135deg, #00d4ff, #0077ff);
+  --color: white;
+}
+
+.chat-empty-box {
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dbeafe;
+}

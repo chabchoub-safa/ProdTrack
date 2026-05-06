@@ -1,0 +1,786 @@
+.page-bg {
+
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+
+  background: url("/assets/bbb.png") center/cover no-repeat;
+
+}
+.page-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 34, 64, 0.70);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+
+  
+}
+
+.top-row{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.top-row ion-searchbar{
+  flex: 1; /* prend tout l'espace disponible */
+}
+
+.btn-main{
+  white-space: nowrap; /* empêche le texte de passer à la ligne */
+}
+
+.card{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.30);
+  cursor: pointer;
+}
+
+.card-title{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.muted{ color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.4; }
+
+.badge{
+  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge-ok{ background: rgba(46, 204, 113, .18); color:#b8ffd4; border:1px solid rgba(46,204,113,.30); }
+.badge-warn{ background: rgba(241, 196, 15, .18); color:#fff0b3; border:1px solid rgba(241,196,15,.30); }
+
+.btn-main{
+  --border-radius: 14px;
+
+  --background: transparent;
+ border-color: rgba(116, 199, 255, 0.7);
+  font-weight: 700;
+    --color: #ffffff;              /* texte blanc */
+
+  --border-color: #4da3ff;       /* couleur du cadre */
+  --border-width: 2px;           /* épaisseur du cadre */
+  --border-style: solid;         /* style du cadre */
+
+  border-radius: 20px;           /* arrondi */
+}
+
+ 
+.machine-card { position: relative; }
+
+.machine-actions{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.machine-toggle-btn{
+  margin-top: 10px;
+  width: fit-content;
+}
+
+.machine-toggle-btn::part(native){
+  border-radius: 14px;
+}
+
+.btn-outline::part(native){
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+.btn-outline{
+  --border-radius: 14px;
+  --background: transparent;
+  --border-color: rgba(255,255,255,.25);
+  --color: #fff;
+  font-weight: 700;
+}
+
+.row{ display:flex; gap:10px; margin-top: 10px; flex-wrap: wrap; }
+.file{ margin-top: 12px; }
+/* =========================================
+   GLASS MODAL DESIGN (compatible workflow route)
+========================================= */
+
+ion-modal.date-modal::part(content) {
+  width: min(560px, calc(100% - 28px));
+  max-height: 86vh;
+  border-radius: 22px;
+  overflow: hidden;
+
+  background: rgba(10, 18, 32, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+ion-modal.date-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* content */
+.date-modal-content {
+  /* --background: transparent !important; */
+    --background: #102342;
+  color: #fff !important;
+  padding: 18px;
+}
+
+/* header */
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 177px;
+}
+
+.modal-head h3 {
+  color: #fff;
+  font-weight: 800;
+  margin: 0;
+  font-size: 18px;
+}
+
+/* fields */
+.field {
+  margin-bottom: 14px;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 250;
+  padding-left: 10px;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ✅ Un style qui marche pour:
+   - IonInput (via className)
+   - input normal
+   - select normal
+   - file input
+*/
+.input-plain {
+  width: 98%;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+/* si c'est un select */
+.input-plain select,
+select.input-plain {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* placeholder IonInput */
+.input-plain::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* IonInput: parfois il faut forcer le texte interne */
+ion-input.input-plain,
+ion-textarea.input-plain {
+  --background: transparent;
+  --color: #fff;
+  --placeholder-color: rgba(255,255,255,0.55);
+  --padding-start: 17px;
+  --padding-end: 12px;
+}
+
+/* row buttons */
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* main button */
+.go-btn {
+  --border-radius: 14px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+
+
+/* =========================================
+   ✅ Workflow Route UI
+========================================= */
+
+/* petite carte route (étape) */
+.erp-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+/* texte dans la carte */
+.erp-card b {
+  color: #fff;
+}
+
+/* zone des boutons ↑ ↓ supprimer */
+.route-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* IonButton fill="clear" : rendre visible sur fond sombre */
+.route-actions ion-button {
+  --color: rgba(255,255,255,0.9);
+  --padding-start: 6px;
+  --padding-end: 6px;
+  height: 28px;
+}
+
+/* disabled */
+.route-actions ion-button[disabled] {
+  opacity: 0.35;
+}
+
+/* petit texte info */
+.muted {
+  color: rgba(255,255,255,0.70);
+  font-size: 12.5px;
+}
+
+/* file input meilleur look */
+input[type="file"].input-plain {
+  padding: 8px 10px;
+}
+
+/* option list (dans select) */
+option {
+  color: #111; /* options affichées dans dropdown system */
+}
+/* Badge base */
+
+
+
+/* 🔵 En stock (nouveau style) */
+.badge-stock {
+  background: rgba(0, 150, 255, 0.18);
+  color: #4db8ff;
+  border: 1px solid rgba(0, 150, 255, 0.35);
+}
+/* Close button style (comme rappels) */
+.modal-close-btn {
+  --background: rgba(255, 255, 255, 0.08);
+  --color: #fff;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  transition: all 0.25s ease;
+}
+
+/* hover effect */
+.modal-close-btn:hover {
+  --background: rgba(255, 80, 80, 0.2);
+  border: 1px solid rgba(255, 80, 80, 0.5);
+  transform: scale(1.08);
+}
+.card-tissu {
+  position: relative;
+}
+
+.tissu-edit-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 5;
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  
+  color: #8fedfad3;
+}
+
+.tissu-edit-btnn {
+  color: #e4746c;
+  position: absolute;
+  top: 26px;
+  right: 6px;
+  z-index: 5;
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+}
+
+
+
+
+.confirm-modal {
+  padding: 20px;
+  background: rgba(7, 34, 64, 0.97);
+  color: white;
+
+  width: 380px;          /* largeur comme un alert */
+  max-width: 90%;
+  border-radius: 16px;
+
+  margin: auto;          /* centre horizontal */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* centre verticalement le contenu */
+
+
+.confirm-body {
+  margin: 20px 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+
+
+.btn-cancel {
+  --color: #e4746c;              /* texte vert */
+  --border-color: transparent;
+  --background:transparent ;
+  --border-radius: 10px;
+}
+ion-modal::part(content) {
+  /* background: transparent !important; */
+    --background: #102342;
+}
+
+ion-modal {
+  --background: transparent;
+  --box-shadow: none;
+}
+/* modal confirmation seulement */
+ion-modal.confirm-delete-modal::part(content) {
+  width: 420px;
+  max-width: calc(100% - 24px);
+  height: auto;
+  border-radius: 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+ion-modal.confirm-delete-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.confirm-delete-modal .confirm-modal {
+  padding: 20px;
+  background: rgba(7, 34, 64, 0.97);
+  color: white;
+  width: 100%;
+  border-radius: 16px;
+  margin: 0;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.confirm-delete-modal .confirm-body {
+  margin: 20px 0;
+  font-size: 15px;
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+}
+
+.confirm-delete-modal .confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.confirm-delete-modal .btn-cancel {
+  --color: #ffffff;
+  --border-color: rgba(255,255,255,0.25);
+  --background: transparent;
+  --border-radius: 10px;
+}
+
+.confirm-delete-modal .btn-confirm {
+  --background: rgba(255, 80, 80, 0.18);
+  --color: #fff;
+  --border-color: rgba(255, 80, 80, 0.45);
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 10px;
+}
+
+.confirm-delete-modal .modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.confirm-delete-modal .modal-head h3 {
+  color: #fff;
+  font-weight: 800;
+  margin: 0;
+  font-size: 18px;
+}
+
+.confirm-delete-modal .modal-close-btn {
+  --background: rgba(255, 255, 255, 0.08);
+  --color: #fff;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+/* ===== confirmation modification sans flou arrière ===== */
+
+ion-modal.confirm-update-modal {
+  --background: transparent;
+  --box-shadow: none;
+}
+
+ion-modal.confirm-update-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+ion-modal.confirm-update-modal::part(content) {
+  width: 420px;
+  max-width: calc(100% - 24px);
+  height: auto;
+  min-height: auto;
+  border-radius: 20px;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+}
+
+.confirm-update-modal .confirm-modal {
+  padding: 20px;
+  background: #0d2747;
+  color: white;
+  width: 100%;
+  border-radius: 16px;
+  margin: 0;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.confirm-update-modal .modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.confirm-update-modal .modal-head h3 {
+  color: #fff;
+  font-weight: 800;
+  margin: 0;
+  font-size: 18px;
+}
+
+.confirm-update-modal .confirm-body {
+  margin: 20px 0;
+  font-size: 15px;
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+}
+
+.confirm-update-modal .confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.confirm-update-modal .btn-cancel {
+  --color: #ffffff;
+  --border-color: rgba(255,255,255,0.25);
+  --background: transparent;
+  --border-radius: 10px;
+}
+
+.confirm-update-modal .btn-confirm {
+  --background: rgba(65, 46, 172, 0.678);
+  --color: #fff;
+  --border-color: rgba(3, 2, 37, 0.678);
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 10px;
+}
+
+.confirm-update-modal .modal-close-btn {
+  --background: rgba(255, 255, 255, 0.08);
+  --color: #fff;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+
+
+
+
+/* ===== confirmation done sans flou arrière ===== */
+
+ion-modal.confirm-done-modal {
+  --background: transparent;
+  --box-shadow: none;
+}
+
+ion-modal.confirm-done-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+ion-modal.confirm-done-modal::part(content) {
+  width: 420px;
+  max-width: calc(100% - 24px);
+  height: auto;
+  min-height: auto;
+  border-radius: 20px;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+}
+
+.confirm-done-modal .confirm-modal {
+  padding: 20px;
+  background: #0d2747;
+  color: white;
+  width: 100%;
+  border-radius: 16px;
+  margin: 0;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.confirm-done-modal .modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.confirm-done-modal .modal-head h3 {
+  color: #fff;
+  font-weight: 800;
+  margin: 0;
+  font-size: 18px;
+}
+
+.confirm-done-modal .confirm-body {
+  margin: 20px 0;
+  font-size: 15px;
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+}
+
+.confirm-done-modal .confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.confirm-done-modal .btn-cancel {
+  --color: #ffffff;
+  --border-color: rgba(255,255,255,0.25);
+  --background: transparent;
+  --border-radius: 10px;
+}
+
+.confirm-done-modal .btn-confirm {
+  --background: rgba(63, 201, 75, 0.678);
+  --color: #fff;
+  --border-color: rgba(140, 218, 88, 0.678);
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 10px;
+}
+
+.confirm-done-modal .modal-close-btn {
+  --background: rgba(255, 255, 255, 0.08);
+  --color: #fff;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.details-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.details-grid p {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 14px;
+}
+
+.details-grid strong {
+  color: #6ee7ff;
+}
+.rgb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.rgb-input {
+  width: 70px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.12);
+  color: white;
+  text-align: center;
+  outline: none;
+}
+
+.color-preview {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 2px solid white;
+}
+
+.rgb-text {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #dbeafe;
+}
+.combo-box {
+  position: relative;
+  width: 100%;
+}
+
+.combo-input {
+  padding-right: 45px !important;
+}
+
+.combo-arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7dd3fc;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.combo-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: rgba(13, 32, 63, 0.96);
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px);
+  z-index: 99999;
+  padding: 6px;
+}
+
+.combo-item {
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #eaf6ff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.combo-item:hover {
+  background: rgba(56, 189, 248, 0.18);
+  color: #ffffff;
+}
+
+.combo-add {
+  color: #7dd3fc;
+  font-weight: 600;
+}

@@ -1,0 +1,278 @@
+.home-header {
+  --background: transparent;
+}
+
+.home-toolbar {
+  --background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;            /* espace entre logo et texte */
+}
+
+.brand-logo {
+  height: 60px;         /* ajuste selon ton header */
+  width: auto;
+}
+
+.navBtn {
+  
+  font-size: 0.95rem;
+  text-transform: none;
+  opacity: 0.9;
+}
+
+.loginBtn {
+  margin-left: 8px;
+  text-transform: none;
+  font-weight: 600;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 34, 64, 0.70);
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 2;
+  padding: 48px 16px;
+  color: #fff;
+}
+
+.heroKicker {
+  margin: 0 0 10px;
+  opacity: 0.9;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.heroTitle {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+}
+
+.heroSubtitle {
+  max-width: 700px;
+  margin: 0 0 18px;
+  opacity: 0.92;
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
+
+.secondaryCta {
+    /*padding-left: 40%;*/
+    margin: auto;
+  --border-radius: 10px;
+  text-transform: none;
+  color: #fff;
+  --color: #fff;
+  --border-color: rgba(255,255,255,0.7);
+}
+
+.contact-inline {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .contact-inline {
+    gap: 40px;
+  }
+}
+
+
+.contact-title {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 42px 8px;
+}
+
+.sectionAlt {
+  background: #f3f3f3;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 18px;
+  padding: 0 12px;
+}
+
+.sectionHeader h2 {
+  margin: 0 0 8px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.sectionHeader p {
+  margin: 0;
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+.cardsRow {
+  margin-top: 10px;
+}
+
+/* WELCOME CARDS */
+.welcomeCard {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+.welcomeImage{
+  height:130px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  
+}
+
+
+.welcomeContent {
+  text-align: center;
+  padding-top: 16px;
+}
+
+.circleIcon {
+  width: 56px;
+  height: 56px;
+  margin: -38px auto 10px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.circleIcon ion-icon {
+  font-size: 24px;
+  color: #1c7ed6;
+}
+
+.welcomeContent h3 {
+  margin: 8px 0 6px;
+  font-weight: 800;
+}
+
+.welcomeContent p {
+  margin: 0;
+  opacity: 0.75;
+  line-height: 1.55;
+}
+
+/* SERVICE CARDS */
+.serviceCard {
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+}
+
+.serviceIcon {
+  width: 54px;
+  height: 54px;
+  margin: 4px auto 10px;
+  border-radius: 12px;
+  background: rgba(28,126,214,0.08);
+  display: grid;
+  place-items: center;
+}
+
+.serviceIcon ion-icon {
+  font-size: 24px;
+  color: #1c7ed6;
+}
+
+.serviceCard h3 {
+  margin: 6px 0;
+  font-weight: 800;
+}
+
+.serviceCard p {
+  margin: 0 0 12px;
+  opacity: 0.75;
+  line-height: 1.55;
+}
+
+.serviceBtn {
+  --border-radius: 10px;
+  text-transform: none;
+  font-weight: 700;
+}
+
+/* CTA */
+.cta {
+  position: relative;
+  padding: 54px 10px;
+  background: #0b4f82;
+  color: #fff;
+  overflow: hidden;
+}
+
+.ctaWave {
+  position: absolute;
+  right: -80px;
+  bottom: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+}
+
+.ctaGrid {
+  position: relative;
+  z-index: 2;
+}
+
+.cta h2 {
+  margin: 0 0 8px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.cta p {
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.ctaRight {
+  display: flex;
+  justify-content: flex-end;
+}

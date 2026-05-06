@@ -1,0 +1,90 @@
+/* For information on how to create your own theme, please refer to:
+http://ionicframework.com/docs/theming/ */
+/*.hero {
+  padding: 50px;
+}*/
+
+.hero {
+  background-image: url('src/assets/aa.pn'); /* ton image */
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.ion-align-items-center {
+  background-color: rgba(0, 0, 0, 0.5); /* ombre sur l'image */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    padding: 0 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+
+.hero img {
+  width: 100%;
+   
+}
+
+.section {
+  padding: 40px 20px;
+}
+
+.section.light {
+  background: #f5f7fa;
+}
+
+.center {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.stats {
+  background: #0b5ed7;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
