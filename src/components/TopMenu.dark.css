@@ -1,11 +1,11 @@
-.topbar {
+body.dark-theme  .topbar {
   position: sticky;
   top: 0;
   z-index: 50;
   padding: 14px 14px 8px;
 }
 
-.topbar-glass {
+body.dark-theme  .topbar-glass {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,20 +22,20 @@
   -webkit-backdrop-filter: blur(14px);
 }
 
-.topbar-left {
+body.dark-theme  .topbar-left {
   display: flex;
   align-items: center;
   gap: 8px;
   min-width: 210px;
 }
 
-.topbar-title {
+body.dark-theme  .topbar-title {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.topbar-badge {
+body.dark-theme  .topbar-badge {
   width: 10px;
   height: 10px;
   border-radius: 999px;
@@ -43,14 +43,14 @@
   box-shadow: 0 0 0 6px rgba(116, 199, 255, 0.16);
 }
 
-.topbar-text {
+body.dark-theme  .topbar-text {
   color: #fff;
   font-weight: 900;
   font-size: 16px;
   letter-spacing: 0.2px;
 }
 
-.topbar-icon {
+body.dark-theme  .topbar-icon {
   --color: #fff;
   --padding-start: 8px;
   --padding-end: 8px;
@@ -59,12 +59,12 @@
   background: rgba(0, 0, 0, 0.12);
 }
 
-.topbar-icon.danger {
+body.dark-theme  .topbar-icon.danger {
   --color: rgba(255, 107, 107, 0.95);
 }
 
 /* NAV */
-.topbar-nav {
+body.dark-theme  .topbar-nav {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -72,7 +72,7 @@
   justify-content: center;
 }
 
-.topnav-btn {
+body.dark-theme  .topnav-btn {
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(0, 0, 0, 0.10);
   color: rgba(255, 255, 255, 0.9);
@@ -90,16 +90,16 @@
   transition: transform 120ms ease, border-color 150ms ease, background 150ms ease;
 }
 
-.topnav-btn ion-icon {
+body.dark-theme  .topnav-btn ion-icon {
   font-size: 18px;
 }
 
-.topnav-btn:hover {
+body.dark-theme  .topnav-btn:hover {
   transform: translateY(-1px);
   border-color: rgba(116, 199, 255, 0.7);
 }
 
-.topnav-btn.active {
+body.dark-theme  .topnav-btn.active {
   border-color: rgba(116, 199, 255, 0.95);
   background: rgba(116, 199, 255, 0.12);
   color: #fff;
@@ -107,29 +107,29 @@
 
 /* Responsive : sur mobile on garde juste les icônes */
 @media (max-width: 650px) {
-  .topbar-left {
+  body.dark-theme  .topbar-left {
     min-width: auto;
   }
-  .topnav-btn span {
+  body.dark-theme  .topnav-btn span {
     display: none;
   }
-  .topbar-text {
+  body.dark-theme  .topbar-text {
     display: none;
   }
 }
 
 
-.discussion-btn {
+body.dark-theme  .discussion-btn {
   position: relative;
 }
 
-.icon-badge-wrap {
+body.dark-theme  .icon-badge-wrap {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.msg-badge {
+body.dark-theme  .msg-badge {
   position: absolute;
   top: -9px;
   right: -11px;
@@ -148,5 +148,61 @@
 }
 
 
+body.dark-theme  .theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+}
 
+body.dark-theme  .toggle-icon {
+  font-size: 16px;
+  color: white;
+}
 
+@media (max-width: 900px) {
+  body.dark-theme .topbar-glass {
+    flex-wrap: wrap;
+  }
+
+  body.dark-theme .topbar-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  body.dark-theme .topbar-nav {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 6px;
+  }
+
+  body.dark-theme .topnav-btn {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 650px) {
+  body.dark-theme .topbar {
+    padding: 10px 8px;
+  }
+
+  body.dark-theme .topbar-glass {
+    border-radius: 14px;
+  }
+
+  body.dark-theme .topbar-nav {
+    gap: 6px;
+  }
+
+  body.dark-theme .topnav-btn {
+    padding: 9px 10px;
+    min-width: 42px;
+    justify-content: center;
+  }
+
+  body.dark-theme .topnav-btn span,
+  body.dark-theme .topbar-text {
+    display: none;
+  }
+}

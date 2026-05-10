@@ -11,9 +11,14 @@ import {
   waterOutline,
   flashOutline,
 } from "ionicons/icons";
+import {  IonToggle } from '@ionic/react';
+import { sunny, moon } from 'ionicons/icons';
+import { useTheme } from '../context/ThemeContext';
+import './ThemeToggle.css';
 import { useLocation } from "react-router";
 import { useIonRouter } from "@ionic/react";
-import "./TopMenu.css";
+import "./TopMenu.dark.css";
+import "./TopMenu.light.css";
 import { personAddOutline } from "ionicons/icons";
 import { documentTextOutline, chatbubblesOutline } from "ionicons/icons";
 import { useEffect, useState } from "react";
@@ -27,6 +32,7 @@ type Props = {
 const TopMenu: React.FC<Props> = ({ title, onMenuClick, showLogout = true }) => {
   const router = useIonRouter();
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const go = (path: string) => {
     if (location.pathname !== path) router.push(path, "root", "replace");
@@ -162,16 +168,28 @@ useEffect(() => {
   <span>Discussion</span>
 </button>
         </div>
+ <div className="theme-toggle-wrapper">
+      <IonIcon icon={sunny} className="toggle-icon" />
+      <IonToggle
+        checked={theme === 'dark'}
+        onIonChange={toggleTheme}
+      />
+      <IonIcon icon={moon} className="toggle-icon" />
+    </div>
 
+   
         {showLogout && (
           <div className="topbar-right">
+            
             <IonButton fill="clear" className="topbar-icon danger" onClick={logout}>
               <IonIcon icon={logOutOutline} />
             </IonButton>
           </div>
         )}
       </div>
+      
     </div>
+    
   );
 };
 

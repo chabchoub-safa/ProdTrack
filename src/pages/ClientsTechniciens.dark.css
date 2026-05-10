@@ -1,20 +1,23 @@
+ClientsTechniciens.css
+
+/* ===== Background global (comme autres pages) ===== */
 /* ClientsTechniciens.css */
 
 /* ===== Background global (comme autres pages) ===== */
-.page-bg{
+body.dark-theme .page-bg{
   --background: transparent;
   position: relative;
   min-height: 100vh;
   background: url("/assets/bbb.png") center/cover no-repeat;
 }
-.page-bg::before{
+body.dark-theme .page-bg::before{
   content:"";
   position:absolute;
   inset:0;
   background: rgba(7,34,64,0.70);
   z-index:0;
 }
-.page-bg ion-content{
+body.dark-theme .page-bg ion-content{
   --background: transparent !important;
   background: transparent !important;
   position: relative;
@@ -22,14 +25,14 @@
 }
 
 /* ===== Container centré ===== */
-.app-container{
+body.dark-theme .app-container{
   max-width: 980px;
   margin: 0 auto;
   padding: 16px;
 }
 
 /* ===== Cards glass ===== */
-.card{
+body.dark-theme .card{
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 18px;
@@ -40,12 +43,12 @@
 }
 
 /* ===== Segment ===== */
-ion-segment{
+body.dark-theme ion-segment{
   --background: rgba(255,255,255,0.08);
   border-radius: 14px;
   padding: 6px;
 }
-ion-segment-button{
+body.dark-theme ion-segment-button{
   --color: rgba(255,255,255,0.75);
   --color-checked: #fff;
   --indicator-color: rgba(255,255,255,0.18);
@@ -54,15 +57,15 @@ ion-segment-button{
 }
 
 /* ===== Search ===== */
-.top-row{
+body.dark-theme .top-row{
   display:flex;
   gap:12px;
   align-items:center;
   margin-top: 10px;
 }
-.search{ flex: 1; }
+body.dark-theme .search{ flex: 1; }
 
-ion-searchbar{
+body.dark-theme ion-searchbar{
   --background: rgba(255,255,255,0.10);
   --color: #fff;
   --placeholder-color: rgba(255,255,255,0.70);
@@ -71,10 +74,13 @@ ion-searchbar{
   --border-radius: 14px;
 }
 
-/* ===== List style (comme Machines) ===== */
-ion-list{ background: transparent; padding: 0; }
+/* ===== List style ===== */
+body.dark-theme ion-list{
+  background: transparent;
+  padding: 0;
+}
 
-ion-item{
+body.dark-theme ion-item{
   --background: rgba(255,255,255,0.05);
   --border-color: rgba(255,255,255,0.10);
   --color: #fff;
@@ -82,112 +88,106 @@ ion-item{
   border-radius: 16px;
   overflow: hidden;
 }
-ion-item::part(native){
+body.dark-theme ion-item::part(native){
   padding-top: 12px;
   padding-bottom: 12px;
 }
 
-/* ===== Modal (FIX DESIGN) ===== */
-.ct-modal{
+/* ===== Modal ===== */
+body.dark-theme .ct-modal{
   --background: transparent;
 }
 
-/* backdrop sombre */
-.ct-modal::part(backdrop){
+body.dark-theme .ct-modal::part(backdrop){
   background: rgba(0,0,0,0.65);
 }
 
-/* content du modal centré + glass */
-.ct-modal::part(content){
+body.dark-theme .ct-modal::part(content){
   background: rgba(15, 32, 55, 0.92);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 18px;
   box-shadow: 0 18px 45px rgba(0,0,0,0.45);
   backdrop-filter: blur(10px);
-
   width: min(720px, 92vw);
   height: auto;
   max-height: 86vh;
 }
 
-/* toolbar du modal */
-.ct-modal ion-toolbar{
+body.dark-theme .ct-modal ion-toolbar{
   --background: rgba(255,255,255,0.06);
   --color: #fff;
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
-/* content interne (sinon ionic met du blanc) */
-.ct-modal ion-content{
+body.dark-theme .ct-modal ion-content{
   --background: transparent !important;
   background: transparent !important;
 }
 
-/* titres */
-.ct-modal h2,
-.ct-modal h3,
-.ct-modal ion-title{
+body.dark-theme .ct-modal h2,
+body.dark-theme .ct-modal h3,
+body.dark-theme .ct-modal ion-title{
   color: #fff;
 }
 
-/* textes dans le détail */
-.ct-modal b{ color: rgba(255,255,255,0.92); }
-.ct-modal div{ color: rgba(255,255,255,0.86); }
+body.dark-theme .ct-modal b{
+  color: rgba(255,255,255,0.92);
+}
 
-/* liste tissus dans modal */
-.ct-modal ion-item{
+body.dark-theme .ct-modal div{
+  color: rgba(255,255,255,0.86);
+}
+
+body.dark-theme .ct-modal ion-item{
   --background: rgba(255,255,255,0.06);
   --border-color: rgba(255,255,255,0.10);
 }
 
 /* responsive */
 @media (max-width: 520px){
-  .app-container{ padding: 12px; }
-  .ct-modal::part(content){
+  body.dark-theme .app-container{ padding: 12px; }
+
+  body.dark-theme .ct-modal::part(content){
     width: 94vw;
     max-height: 88vh;
   }
 }
+
 /* zone liste */
-.list-wrap{
+body.dark-theme .list-wrap{
   display:flex;
   flex-direction:column;
   gap:12px;
 }
 
-/* carte user comme tissu card */
-.user-card{
+/* carte user */
+body.dark-theme .user-card{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
-
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 18px;
   padding: 14px 16px;
-
   box-shadow: 0 10px 25px rgba(0,0,0,0.22);
   backdrop-filter: blur(8px);
-
   cursor:pointer;
   transition: 0.18s ease;
 }
 
-.user-card:hover{
+body.dark-theme .user-card:hover{
   transform: translateY(-2px);
   border-color: rgba(255,255,255,0.18);
 }
 
-/* partie gauche (avatar + texte) */
-.user-left{
+body.dark-theme .user-left{
   display:flex;
   align-items:center;
   gap:12px;
 }
 
-/* avatar rond */
-.user-avatar{
+body.dark-theme .user-avatar{
   width:44px;
   height:44px;
   border-radius:999px;
@@ -197,32 +197,30 @@ ion-item::part(native){
   border: 1px solid rgba(255,255,255,0.14);
 }
 
-.user-avatar ion-icon{
+body.dark-theme .user-avatar ion-icon{
   font-size:20px;
   color:#fff;
   opacity:0.92;
 }
 
-/* textes */
-.user-text{
+body.dark-theme .user-text{
   display:flex;
   flex-direction:column;
   gap:3px;
 }
 
-.user-name{
+body.dark-theme .user-name{
   font-size:16px;
   font-weight:800;
   color:#fff;
 }
 
-.user-sub{
+body.dark-theme .user-sub{
   font-size:13px;
   color: rgba(255,255,255,0.72);
 }
 
-/* icône à droite comme "edit" tissus */
-.user-right{
+body.dark-theme .user-right{
   width:34px;
   height:34px;
   border-radius:12px;
@@ -232,43 +230,41 @@ ion-item::part(native){
   border: 1px solid rgba(255,255,255,0.10);
 }
 
-.user-right ion-icon{
+body.dark-theme .user-right ion-icon{
   font-size:18px;
   color: rgba(180,220,255,0.95);
 }
 
-
-/* ===== Modal details (comme Détails tissu) ===== */
-.details-modal::part(backdrop) {
+/* ===== Modal details ===== */
+body.dark-theme .details-modal::part(backdrop){
   background: rgba(0,0,0,0.35);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-.details-modal::part(content){
+body.dark-theme .details-modal::part(content){
   width: min(760px, 92vw);
   max-height: 88vh;
   border-radius: 18px;
   overflow: hidden;
-  background: rgba(15, 32, 55, 0.92); /* ✅ pas transparent */
+  background: rgba(15, 32, 55, 0.92);
   border: 1px solid rgba(255,255,255,0.12);
   box-shadow: 0 18px 45px rgba(0,0,0,0.45);
   backdrop-filter: blur(10px);
 }
 
-.details-modal-content{
-  --background:  url("/assets/n.JPG") center/cover no-repeat;;
+body.dark-theme .details-modal-content{
+  --background: url("/assets/n.JPG") center/cover no-repeat;
   background: transparent !important;
-  
 }
 
-.details-shell{
+body.dark-theme .details-shell{
   display:flex;
   flex-direction:column;
   height: 100%;
 }
 
-.details-head{
+body.dark-theme .details-head{
   background: rgba(255,255,255,0.92);
   color:#111;
   padding: 14px 16px;
@@ -278,13 +274,13 @@ ion-item::part(native){
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-.details-head h3{
+body.dark-theme .details-head h3{
   margin:0;
   font-size:18px;
   font-weight:800;
 }
 
-.details-close{
+body.dark-theme .details-close{
   border:none;
   background:transparent;
   font-size:18px;
@@ -292,31 +288,44 @@ ion-item::part(native){
   opacity:0.75;
 }
 
-.details-body{
+body.dark-theme .details-body{
   padding: 14px;
   overflow: auto;
 }
 
-.tissu-list{
+body.dark-theme .tissu-list{
   display:flex;
   flex-direction:column;
   gap:10px;
   margin-top:10px;
 }
 
-.tissu-row{
+body.dark-theme .tissu-row{
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 14px;
   padding: 12px 14px;
 }
 
-.tissu-code{
+body.dark-theme .tissu-code{
   color:#fff;
   font-weight:800;
   font-size:15px;
 }
 
-.muted{
+body.dark-theme .muted{
   color: rgba(255,255,255,0.75);
+}
+body.dark-theme .details-modal h1,
+body.dark-theme .details-modal h2,
+
+body.dark-theme .details-modal .detail-title,
+body.dark-theme .details-modal .article-title {
+  color: #ffffff !important;
+}
+
+body.dark-theme .details-modal p,
+body.dark-theme .details-modal span,
+body.dark-theme .details-modal strong {
+  color: #e5e7eb !important;
 }

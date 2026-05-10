@@ -4,7 +4,8 @@ import {
   IonHeader, IonToolbar, IonTitle, IonButton, IonIcon, IonToast
 } from "@ionic/react";
 import { closeOutline, downloadOutline } from "ionicons/icons";
-import "./CommonDesign.css";
+import "./CommonDesign.dark.css";
+import "./CommonDesign.light.css";
 import TopMenu from "../components/Menuclient";
 import { listMyTissus, getTissuDetailsClient, generateDemandePdf } from "../services/tissus.service";
 import Menuclient from "../components/Menuclient";

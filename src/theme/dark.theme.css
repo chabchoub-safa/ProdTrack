@@ -1,0 +1,35 @@
+/* ===== THÈME NUIT ===== */
+body.dark-theme {
+
+  /* --- Tes couleurs custom --- */
+  --custom-bg-primary: #0f0f1a;
+  --custom-bg-secondary: #1a1a2e;
+  --custom-bg-card: #1e1e32;
+  --custom-text-primary: #e8e8f0;
+  --custom-text-secondary: #9090b0;
+  --custom-accent: #818cf8;
+  --custom-accent-light: #1e1b4b;
+  --custom-border: #2a2a45;
+  --custom-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+
+  /* --- Surcharge des variables Ionic --- */
+  --ion-background-color: var(--custom-bg-primary);
+  --ion-background-color-rgb: 15, 15, 26;
+
+  --ion-text-color: var(--custom-text-primary);
+  --ion-text-color-rgb: 232, 232, 240;
+
+  --ion-card-background: var(--custom-bg-card);
+  --ion-item-background: var(--custom-bg-secondary);
+  --ion-toolbar-background: var(--custom-bg-secondary);
+  --ion-tab-bar-background: var(--custom-bg-secondary);
+
+  --ion-color-primary: #818cf8;
+  --ion-color-primary-rgb: 129, 140, 248;
+  --ion-color-primary-contrast: #0f0f1a;
+  --ion-color-primary-shade: #6366f1;
+  --ion-color-primary-tint: #a5b4fc;
+
+  --ion-border-color: var(--custom-border);
+  --ion-item-border-color: var(--custom-border);
+}

@@ -18,7 +18,9 @@ import {
   getAllDiscussions,
   replyToClient,
 } from "../services/discussionService";
-import "./AdminDiscussionPage.css";
+import "./AdminDiscussionPage.dark.css";
+import "./AdminDiscussionPage.light.css";
+
 import TopMenu from "../components/TopMenu";
 import { markAdminMessagesRead } from "../services/discussionService";
 

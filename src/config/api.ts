@@ -1,5 +1,5 @@
 // src/config/api.ts
-export const API_HOST = "http://192.168.100.71";
+export const API_HOST = "http://192.168.0.71";
 export const API_PORT = 8081;
 
 export const API_BASE = `${API_HOST}:${API_PORT}`;
@@ -13,6 +13,7 @@ export const APIform5 = `${API_BASE}/api/general-resume`;
 export const APIform6 = `${API_BASE}/api/hj-summary`;
 export const APIform7 = `${API_BASE}/api/energy`;
 export const APIform8 = `${API_BASE}/api/water/prediction`;
+export const APIform9 = `${API_BASE}/api`;
 
 export const APIScan = `${API_BASE}/api/scan`;
 export const ENDPOINTS = {

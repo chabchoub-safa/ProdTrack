@@ -26,7 +26,8 @@ import {
   checkmarkCircleOutline,
 } from "ionicons/icons";
 
-import "./Register.css";
+import "./Register.dark.css";
+import "./Register.light.css";
 import { register, Role } from "../services/auth";
 import TopMenu from "../components/TopMenu";
 // ✅ même regex que backend (mdp fort)
@@ -291,11 +292,11 @@ if (!form.role) return showToast("Veuillez choisir un rôle");
                     value={form.password}
                     onIonInput={(e) => set("password", e.detail.value ?? "")}
                   />
-                  <IonIcon
+                  {/* <IonIcon
                     icon={showPwd ? eyeOffOutline : eyeOutline}
                     className="icon-eye"
                     onClick={() => setShowPwd(!showPwd)}
-                  />
+                  /> */}
                 </div>
                 {form.password && !pwdOk && (
                   <IonText className="hint-warn">⚠️ Mot de passe trop faible</IonText>
@@ -313,11 +314,11 @@ if (!form.role) return showToast("Veuillez choisir un rôle");
                     value={form.confirmPassword}
                     onIonInput={(e) => set("confirmPassword", e.detail.value ?? "")}
                   />
-                  <IonIcon
+                  {/* <IonIcon
                     icon={showConfirmPwd ? eyeOffOutline : eyeOutline}
                     className="icon-eye"
                     onClick={() => setShowConfirmPwd(!showConfirmPwd)}
-                  />
+                  /> */}
                 </div>
               </div>
 

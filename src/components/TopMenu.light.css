@@ -1,0 +1,207 @@
+body.light-theme .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 14px 14px 8px;
+}
+
+body.light-theme .topbar-glass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 10px 10px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.14);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body.light-theme .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 210px;
+}
+
+body.light-theme .topbar-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body.light-theme .topbar-badge {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.95);
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.14);
+}
+
+body.light-theme .topbar-text {
+  color: #0f172a;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+body.light-theme .topbar-icon {
+  --color: #0f172a;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  height: 36px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.06);
+}
+
+body.light-theme .topbar-icon.danger {
+  --color: rgba(220, 38, 38, 0.95);
+}
+
+/* NAV */
+body.light-theme .topbar-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+body.light-theme .topnav-btn {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(241, 245, 249, 0.9);
+  color: #0f172a;
+  border-radius: 14px;
+  padding: 8px 10px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+
+  transition: transform 120ms ease, border-color 150ms ease, background 150ms ease;
+}
+
+body.light-theme .topnav-btn ion-icon {
+  font-size: 18px;
+}
+
+body.light-theme .topnav-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.65);
+}
+
+body.light-theme .topnav-btn.active {
+  border-color: rgba(37, 99, 235, 0.95);
+  background: rgba(37, 99, 235, 0.12);
+  color: #0f172a;
+}
+
+/* Responsive : sur mobile on garde juste les icônes */
+@media (max-width: 650px) {
+  body.light-theme .topbar-left {
+    min-width: auto;
+  }
+
+  body.light-theme .topnav-btn span {
+    display: none;
+  }
+
+  body.light-theme .topbar-text {
+    display: none;
+  }
+}
+
+body.light-theme .discussion-btn {
+  position: relative;
+}
+
+body.light-theme .icon-badge-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+body.light-theme .msg-badge {
+  position: absolute;
+  top: -9px;
+  right: -11px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #dc2626;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+}
+
+body.light-theme .theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+}
+
+body.light-theme .toggle-icon {
+  font-size: 16px;
+  color: #0f172a;
+}
+@media (max-width: 900px) {
+  body.light-theme .topbar-glass {
+    flex-wrap: wrap;
+  }
+
+  body.light-theme .topbar-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  body.light-theme .topbar-nav {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 6px;
+  }
+
+  body.light-theme .topnav-btn {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 650px) {
+  body.light-theme .topbar {
+    padding: 10px 8px;
+  }
+
+  body.light-theme .topbar-glass {
+    border-radius: 14px;
+  }
+
+  body.light-theme .topbar-nav {
+    gap: 6px;
+  }
+
+  body.light-theme .topnav-btn {
+    padding: 9px 10px;
+    min-width: 42px;
+    justify-content: center;
+  }
+
+  body.light-theme .topnav-btn span,
+  body.light-theme .topbar-text {
+    display: none;
+  }
+}

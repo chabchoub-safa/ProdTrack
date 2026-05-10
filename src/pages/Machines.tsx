@@ -4,7 +4,11 @@ import {
   IonInput, IonToast, IonHeader, IonToolbar, IonTitle
 } from "@ionic/react";
 import { addOutline, closeOutline, createOutline, trashOutline, powerOutline, waterOutline, flashOutline } from "ionicons/icons";
-import "./CommonDesign.css";
+import "./CommonDesign.dark.css";
+import "./CommonDesign.light.css";
+import "../services/energy.service";
+import "../services/water.service";
+
 import TopMenu from "../components/TopMenu";
 import { IonButtons } from "@ionic/react";
 import { downloadBlob } from '../utils/downloadHelper';
@@ -23,8 +27,25 @@ import {
 import { downloadOutline } from "ionicons/icons";
 import { downloadMachineQr } from "../services/machines.service";
 import { trashBinOutline, refreshOutline } from "ionicons/icons";
-
+import { getWaterHistoryByRange } from "../services/water.service";
+import { getEnergyHistoryByRange } from "../services/energy.service";
 export default function Machines() {
+
+ const [selectedYear, setSelectedYear] = useState<number>(2026);
+const [selectedMonth, setSelectedMonth] = useState<number>(5);
+
+const [monthlyWater, setMonthlyWater] = useState<number>(0);
+const [monthlyEnergy, setMonthlyEnergy] = useState<number>(0);
+const getMonthRange = (year: number, month: number) => {
+  const start = `${year}-${String(month).padStart(2, "0")}-01T00:00:00`;
+
+  const nextMonth = month === 12 ? 1 : month + 1;
+  const nextYear = month === 12 ? year + 1 : year;
+
+  const end = `${nextYear}-${String(nextMonth).padStart(2, "0")}-01T00:00:00`;
+
+  return { start, end };
+};
   const [q, setQ] = useState("");
   const [items, setItems] = useState<any[]>([]);
   const [toast, setToast] = useState({ open: false, msg: "" });
@@ -57,7 +78,38 @@ const [deletedItems, setDeletedItems] = useState<any[]>([]);
     const data = await listMachines(q.trim() ? q.trim() : undefined);
     setItems(data);
   };
+useEffect(() => {
+  const loadMonthlyConsumption = async () => {
+    try {
+      const { start, end } = getMonthRange(selectedYear, selectedMonth);
 
+      const waterHistory = await getWaterHistoryByRange(start, end);
+      const energyHistory = await getEnergyHistoryByRange(start, end);
+
+      const totalWater =
+  waterHistory.length > 0
+    ? waterHistory[waterHistory.length - 1].totalLiters ?? 0
+    : 0;
+
+const totalEnergy =
+  energyHistory.length > 0
+    ? energyHistory[energyHistory.length - 1].energy ?? 0
+    : 0;
+
+      const current =
+        energyHistory.length > 0
+          ? energyHistory[energyHistory.length - 1].current ?? 0
+          : 0;
+
+      setMonthlyWater(totalWater);
+      setMonthlyEnergy(totalEnergy);
+    } catch (error) {
+      console.error("Erreur consommation mensuelle:", error);
+    }
+  };
+
+  loadMonthlyConsumption();
+}, [selectedYear, selectedMonth]);
   useEffect(() => { load(); }, []);
   useEffect(() => { const t = setTimeout(load, 300); return () => clearTimeout(t); }, [q]);
 
@@ -217,6 +269,10 @@ const askRestore = (m: any) => {
   setSelectedMachine(m);
   setConfirmRestoreOpen(true);
 };
+const [lastCurrent, setLastCurrent] = useState<number>(0);
+const isTriger1 =
+  selected?.nom === "triger1" ||
+  selected?.code === "triger1";
   return (
     <IonPage>
       <IonContent className="page-bg">
@@ -267,14 +323,7 @@ const askRestore = (m: any) => {
                 {m.actif ? "ON" : "OFF"}
               </div>
 
-              <IonButton
-                className="machine-toggle-btn"
-                fill="outline"
-                onClick={(e) => { e.stopPropagation(); onToggle(m.id); }}
-              >
-                <IonIcon icon={powerOutline} slot="start" />
-                {m.actif ? "Éteindre" : "Allumer"}
-              </IonButton>
+             
             </div>
           ))}
         </div>
@@ -529,47 +578,30 @@ const askRestore = (m: any) => {
   <IonIcon icon={downloadOutline} slot="start" />
   Télécharger QR Code
 </IonButton>
-                  <div className="card">
-                    <div className="card-title">Consommation (test manuel)</div>
+                 <div className="card">
+  <div className="card-title">Consommation réelle machine</div>
 
-                    <div className="field">
-                      <label className="label">
-                        <IonIcon icon={waterOutline} /> Eau (L)
-                      </label>
-                      <IonInput
-                        className="input-plain"
-                        value={water}
-                        type="number"
-                        placeholder="ex: 12.5"
-                        onIonInput={(e) => setWater(String(e.detail.value ?? ""))}
-                      />
-                      
-                    </div>
+  {isTriger1 ? (
+    <div className="sensor-grid">
+      <div className="sensor-box">
+        <IonIcon icon={waterOutline} />
+        <span>Eau</span>
+        <strong>{monthlyWater?.toFixed(2) ?? "0.00"} L</strong>
+      </div>
 
-                    <div className="field">
-                      <label className="label">
-                        <IonIcon icon={flashOutline} /> Courant (W)
-                      </label>
-                      <IonInput
-                        className="input-plain"
-                        value={current}
-                        type="number"
-                        placeholder="ex: 850"
-                        onIonInput={(e) => setCurrent(String(e.detail.value ?? ""))}
-                      />
-                    </div>
+      <div className="sensor-box">
+        <IonIcon icon={flashOutline} />
+        <span>Électricité</span>
+        <strong>{monthlyEnergy?.toFixed(2) ?? "0.00"} A</strong>
+      </div>
+    </div>
+  ) : (
+    <p className="no-consumption">
+      Consommation non disponible pour cette machine
+    </p>
+  )}
+</div> 
 
-                    <div className="row">
-                      <IonButton className="btn-main" onClick={onSaveConsumption}>
-                        Enregistrer
-                      </IonButton>
-                    </div>
-
-                    <div className="muted" style={{ marginTop: 10 }}>
-                      Dernier eau: {details?.lastWaterLiters ?? "-"} L <br />
-                      Dernier courant: {details?.lastCurrentWatts ?? "-"} W
-                    </div>
-                  </div>
                 </>
               )}
             </div>

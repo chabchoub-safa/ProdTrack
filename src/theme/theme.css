@@ -1,0 +1,54 @@
+/* MODE JOUR */
+body.light {
+  --bg-main: #f4f7fb;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text-main: #1f2937;
+  --text-secondary: #6b7280;
+  --primary: #2563eb;
+  --border: #e5e7eb;
+
+  background: linear-gradient(135deg, #eef6ff, #ffffff);
+  color: var(--text-main);
+}
+
+/* MODE NUIT */
+body.dark {
+  --bg-main: #0f172a;
+  --bg-card: rgba(30, 41, 59, 0.9);
+  --text-main: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --primary: #38bdf8;
+  --border: #334155;
+
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: var(--text-main);
+}
+
+/* Exemple général pour tes pages */
+.page {
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition: 0.3s ease;
+}
+
+.card {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+}

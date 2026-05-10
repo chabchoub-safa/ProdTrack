@@ -80,8 +80,38 @@ export type User = {
   email: string;
   numero?: string;
   role: string; // ROLE_CLIENT | ROLE_TECH | ...
+  deleted?: boolean;
 };
+// export async function listUsersByRole(role: string, p0: boolean) {
+//   const res = await http.get(`${API}`, { params: { role } });
+//   return res.data;
+// }
 export async function listUsersByRole(role: string) {
-  const res = await http.get(`${API}`, { params: { role } });
+  const res = await http.get(`${API}`, {
+    params: { role },
+  });
   return res.data;
 }
+export async function softDeleteUser(id: string) {
+  const res = await http.put(`${API}/users/${id}/soft-delete`);
+  return res.data;
+}
+
+export async function restoreUser(id: string) {
+  const res = await http.put(`${API}/users/${id}/restore`);
+  return res.data;
+}
+export async function listDeletedUsers(role: string) {
+  const res = await http.get(`${API}/users/deleted`, { params: { role } });
+  return res.data;
+}
+
+// export async function listUsers(role?: string, includeDeleted = false) {
+//   const res = await http.get(`${API}`, {
+//     params: {
+//       role: role || undefined,
+//       includeDeleted,
+//     },
+//   });
+//   return res.data;
+// }

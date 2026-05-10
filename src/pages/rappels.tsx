@@ -20,9 +20,10 @@ import {
 } from "ionicons/icons";
 
 import TopMenu from "../components/TopMenu";
-import "./CommonDesign.css"; // ✅ même design que Tissus :contentReference[oaicite:1]{index=1}
-import "./Rappels.css";  // (optionnel) juste pour "done" etc.
-
+import "./CommonDesign.dark.css";
+import "./CommonDesign.light.css"; // ✅ même design que Tissus :contentReference[oaicite:1]{index=1}
+// import "./rappels.dark.css";  // (optionnel) juste pour "done" etc.
+import "./rappels.light.css";
 import {
   createRappel,
   deleteRappel,

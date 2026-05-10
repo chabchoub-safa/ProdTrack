@@ -13,7 +13,8 @@ import {
 } from "recharts";
 
 import { useEnergyDashboard } from "../hook/useEnergyDashboard";
-import "./WaterRealtimePage.css";
+import "./WaterRealtimePage.light.css";
+import "./WaterRealtimePage.dark.css";
 import TopMenu from "../components/TopMenu";
 
 

@@ -1,24 +1,24 @@
-/* Register.css */
-/* Même design que Login.css (fond + card glass + inputs + bouton outline) */
+/* Registerbody.dark-theme .css */
+/* Même design que Loginbody.dark-theme .css (fond + card glass + inputs + bouton outline) */
 
 
 
 
-.page-bg {
+body.dark-theme .login-bg {
    --background: transparent;
   position: relative;
   min-height: 100vh;
 
   background: url("/assets/bbb.png") center/cover no-repeat;
 }
-.page-bg::before {
+body.dark-theme .login-bg::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(7, 34, 64, 0.70);
 }
 /* Centre */
-.login-shell {
+body.dark-theme .login-shell {
   min-height: 100%;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
 }
 
 /* Carte register */
-.register-card {
+body.dark-theme .register-card {
   width: min(480px, 100%);
   background: var(--card);
   border: 1px solid var(--card-border);
@@ -42,17 +42,17 @@
 }
 
 /* Titre */
-.form-head {
+body.dark-theme .form-head {
   margin-bottom: 14px;
 }
-.form-title {
+body.dark-theme .form-title {
   margin: 0;
   color: var(--text);
   font-size: 1px;
   font-weight: 5px;
   letter-spacing: 0.2px;
 }
-.form-sub {
+body.dark-theme .form-sub {
   margin: 6px 0 0;
   color: var(--muted);
   font-size: 13px;
@@ -60,19 +60,19 @@
 }
 
 /* Form */
-.form {
+body.dark-theme .form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.field {
+body.dark-theme .field {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.label {
+body.dark-theme .label {
   color: var(--muted);
   font-size: 13px;
   font-weight: 60;
@@ -81,13 +81,13 @@
   gap: 6px;
 }
 
-.req {
+body.dark-theme .req {
   color: var(--danger);
   font-weight: 800;
 }
 
 /* Ligne input */
-.input-line {
+/* body.dark-theme .input-line {
   position: relative;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -96,35 +96,42 @@
   background: rgba(0, 0, 0, 0.12);
 }
 
-.input-line:focus-within {
+body.dark-theme .input-line:focus-within {
+  border-color: var(--line-focus);
+  box-shadow: 0 0 0 4px rgba(116, 199, 255, 0.16);
+} */
+body.dark-theme .input-line {
+  background: rgba(0, 0, 0, 0.12) !important;
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 12px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+body.dark-theme .input-line:focus-within {
   border-color: var(--line-focus);
   box-shadow: 0 0 0 4px rgba(116, 199, 255, 0.16);
 }
-
-/* IonInput look */
-.input-plain {
-  width: 100%;
-  color: var(--text);
-  font-size: 14px;
-  --padding-start: 0px;
-  --padding-end: 0px;
-  --padding-top: 0px;
-  --padding-bottom: 0px;
-  --placeholder-color: rgba(232, 240, 255, 0.55);
-  --placeholder-opacity: 1;
+body.dark-theme .input-plain {
+  --background: transparent !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  
 }
+
+
 
 /* Fix Ionic internal */
-.input-plain input {
+body.dark-theme .input-plain input {
   color: var(--text) !important;
 }
-.input-plain input::placeholder {
+body.dark-theme .input-plain input::placeholder {
   color: rgba(232, 240, 255, 0.55) !important;
 }
 
 /* Icônes dans input */
-.icon-eye,
-.icon-ok {
+body.dark-theme .icon-eye,
+body.dark-theme .icon-ok {
   position: absolute;
   right: 12px;
   top: 50%;
@@ -135,13 +142,13 @@
   user-select: none;
 }
 
-.icon-ok {
+body.dark-theme .icon-ok {
   cursor: default;
   color: rgba(120, 255, 190, 0.95);
 }
 
 /* Hint warn */
-.hint-warn {
+body.dark-theme .hint-warn {
   display: block;
   margin-top: 6px;
   color: rgba(255, 107, 107, 0.95);
@@ -149,14 +156,14 @@
 }
 
 /* Radios (ROLE) */
-.roleRow {
+body.dark-theme .roleRow {
   display: flex;
   gap: 14px;
   align-items: center;
   margin-top: 4px;
 }
 
-.roleChoice {
+body.dark-theme .roleChoice {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -169,17 +176,17 @@
   transition: border-color 160ms ease, transform 120ms ease;
 }
 
-.roleChoice:active {
+body.dark-theme .roleChoice:active {
   transform: scale(0.99);
 }
 
-.roleChoice ion-radio {
+body.dark-theme .roleChoice ion-radio {
   --color: rgba(232, 240, 255, 0.55);
   --color-checked: rgba(116, 199, 255, 0.95);
 }
 
 /* Checkbox "robot" */
-.robot-item {
+body.dark-theme .robot-item {
   --background: transparent;
   --inner-padding-end: 0px;
   --inner-padding-start: 0px;
@@ -191,13 +198,13 @@
   background: rgba(0, 0, 0, 0.10);
 }
 
-.robot-item ion-label {
+body.dark-theme .robot-item ion-label {
   color: var(--text);
   font-size: 13.5px;
   font-weight: 600;
 }
 
-.robot-item ion-checkbox {
+body.dark-theme .robot-item ion-checkbox {
   --size: 18px;
   --checkbox-background: rgba(0, 0, 0, 0.14);
   --border-color: rgba(232, 240, 255, 0.38);
@@ -207,13 +214,13 @@
 }
 
 /* Bouton Go (outline comme login) */
-.row {
+body.dark-theme .row {
   margin-top: 6px;
   display: flex;
   justify-content: center;
 }
 
-.go-btn {
+body.dark-theme .go-btn {
   width: 100%;
   max-width: 280px;
   height: 44px;
@@ -227,23 +234,23 @@
   --background: transparent;
 }
 
-.go-btn.button-disabled {
+body.dark-theme .go-btn.button-disabled {
   opacity: 0.6;
 }
 
 /* Responsive */
 @media (max-width: 380px) {
-  .register-card {
+  body.dark-theme .register-card {
     padding: 18px 14px;
   }
-  .form-title {
+  body.dark-theme .form-title {
     font-size: 20px;
   }
-  .roleRow {
+  body.dark-theme .roleRow {
     flex-direction: column;
     align-items: stretch;
   }
-  .roleChoice {
+  body.dark-theme .roleChoice {
     width: 100%;
     justify-content: flex-start;
   }
@@ -253,43 +260,43 @@
 /* ============================= */
 
 /* Titre principal */
-.register-card .form-title {
+body.dark-theme .register-card .form-title {
   color: #ffffff !important;
 }
 
 /* Sous-titre */
-.register-card .form-sub {
+body.dark-theme .register-card .form-sub {
   color: #ffffff !important;
 }
 
 /* Tous les labels (Nom, Prénom, Email, etc.) */
-.register-card .label {
+body.dark-theme .register-card .label {
   color: #ffffff !important;
 }
 
 /* Texte des rôles (Admin / Utilisateur) */
-.register-card .roleChoice span {
+body.dark-theme .register-card .roleChoice span {
   color: #ffffff !important;
 }
 
 /* Label "Rôle" au-dessus des radios */
-.register-card > label,
-.register-card .field > label {
+body.dark-theme .register-card > label,
+body.dark-theme .register-card  .field > label {
   color: #ffffff !important;
 }
 
 /* Texte checkbox "Je ne suis pas un robot" */
-.register-card .robot-item ion-label {
+body.dark-theme .register-card .robot-item ion-label {
   color: #ffffff !important;
 }
 
 /* Tous les titres HTML si jamais ajoutés */
-.register-card h1,
-.register-card h2,
-.register-card h3,
-.register-card h4,
-.register-card h5,
-.register-card h6 {
+body.dark-theme .register-card h1,
+body.dark-theme .register-card h2,
+body.dark-theme .register-card h3,
+body.dark-theme .register-card h4,
+body.dark-theme .register-card h5,
+body.dark-theme .register-card h6 {
   color: #ffffff !important;
 }
 

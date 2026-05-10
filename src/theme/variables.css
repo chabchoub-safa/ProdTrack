@@ -1,0 +1,64 @@
+/* === déjà dans le fichier === */
+:root {
+  --ion-color-primary: #3880ff;
+  /* ... tout ce qui est déjà là ... */
+}
+
+/* === TU AJOUTES ÇA À LA FIN === */
+
+/* THÈME JOUR */
+body.light-theme {
+  --custom-bg-primary: #f5f5f0;
+  --custom-bg-card: #ffffff;
+  --custom-text-primary: #1a1a2e;
+  --custom-text-secondary: #4a4a6a;
+  --custom-accent: #4f46e5;
+  --custom-border: #e2e2e8;
+  --custom-shadow: 0 2px 12px rgba(0,0,0,0.08);
+
+  --ion-background-color: var(--custom-bg-primary);
+  --ion-card-background: var(--custom-bg-card);
+  --ion-toolbar-background: #ffffff;
+  --ion-text-color: var(--custom-text-primary);
+  --card: rgba(7, 34, 64, 0.5);
+  --card-border: rgba(116, 199, 255, 0.2);
+  --line: rgba(116, 199, 255, 0.25);
+  --line-focus: rgba(116, 199, 255, 0.8);
+  --danger: #ff6b6b;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.75);
+}
+
+/* THÈME NUIT */
+body.dark-theme {
+  --custom-bg-primary: #0f0f1a;
+  --custom-bg-card: #1e1e32;
+  --custom-text-primary: #e8e8f0;
+  --custom-text-secondary: #9090b0;
+  --custom-accent: #818cf8;
+  --custom-border: #2a2a45;
+  --custom-shadow: 0 2px 12px rgba(0,0,0,0.4);
+
+  --ion-background-color: var(--custom-bg-primary);
+  --ion-card-background: var(--custom-bg-card);
+  --ion-toolbar-background: #1a1a2e;
+  --ion-text-color: var(--custom-text-primary);
+    --card: rgba(7, 34, 64, 0.5);
+  --card-border: rgba(116, 199, 255, 0.2);
+  --line: rgba(116, 199, 255, 0.25);
+  --line-focus: rgba(116, 199, 255, 0.8);
+  --danger: #ff6b6b;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.75);
+}
+/* THÈME JOUR */
+body.light-theme {
+  --card: rgba(255, 255, 255, 0.15);
+  --card-border: rgba(255, 255, 255, 0.25);
+  --line: rgba(255, 255, 255, 0.3);
+  --line-focus: rgba(116, 199, 255, 0.8);
+  --danger: #ff6b6b;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.75);
+}
+

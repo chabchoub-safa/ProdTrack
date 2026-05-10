@@ -1,6 +1,7 @@
 import { Client } from "@stomp/stompjs";
 import SockJS from "sockjs-client";
 import { API_BASE } from "../config/api";
+import { APIform9} from "../config/api";
 
 export interface WaterMeasurement {
   id?: string;
@@ -61,3 +62,27 @@ export function connectWaterSocket(
   client.activate();
   return client;
 }
+// export const getMonthlyWaterTotal = async (
+//   year: number,
+//   month: number
+// ) => {
+
+//   const token = localStorage.getItem("token");
+
+//   const response = await fetch(
+//     `${APIform9}/water/monthly?year=${year}&month=${month}`,
+//     {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${token}`,
+//       },
+//     }
+//   );
+
+//   if (!response.ok) {
+//     throw new Error("Erreur API water monthly");
+//   }
+
+//   return response.json();
+// };

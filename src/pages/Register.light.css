@@ -1,0 +1,259 @@
+/* Register body.light-theme.css */
+
+body.light-theme .login-bg {
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+  background: url("/assets/bbb.png") center/cover no-repeat;
+}
+
+body.light-theme .login-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 248, 255, 0.78);
+}
+
+body.light-theme .login-shell {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+}
+
+body.light-theme .register-card {
+  width: min(480px, 100%);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 22px;
+  padding: 22px 18px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  --text: #1f2937;
+  --muted: #64748b;
+  --line: #cbd5e1;
+  --line-focus: #2563eb;
+  --danger: #ef4444;
+  --card: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(148, 163, 184, 0.35);
+}
+
+body.light-theme .form-head {
+  margin-bottom: 14px;
+}
+
+body.light-theme .form-title {
+  margin: 0;
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+body.light-theme .form-sub {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+body.light-theme .form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+body.light-theme .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+body.light-theme .label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body.light-theme .req {
+  color: var(--danger);
+  font-weight: 800;
+}
+
+body.light-theme .input-line {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 12px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+  background: rgba(248, 250, 252, 0.9);
+}
+
+body.light-theme .input-line:focus-within {
+  border-color: var(--line-focus);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+body.light-theme .input-plain {
+  width: 100%;
+  color: var(--text);
+  font-size: 14px;
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+  --placeholder-color: #94a3b8;
+  --placeholder-opacity: 1;
+}
+
+body.light-theme .input-plain input {
+  color: var(--text) !important;
+}
+
+body.light-theme .input-plain input::placeholder {
+  color: #94a3b8 !important;
+}
+
+body.light-theme .icon-eye,
+body.light-theme .icon-ok {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #64748b;
+  cursor: pointer;
+  user-select: none;
+}
+
+body.light-theme .icon-ok {
+  cursor: default;
+  color: #22c55e;
+}
+
+body.light-theme .hint-warn {
+  display: block;
+  margin-top: 6px;
+  color: #ef4444;
+  font-size: 12.5px;
+}
+
+body.light-theme .roleRow {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+body.light-theme .roleChoice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 9px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #f8fafc;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 120ms ease;
+}
+
+body.light-theme .roleChoice:active {
+  transform: scale(0.99);
+}
+
+body.light-theme .roleChoice ion-radio {
+  --color: #94a3b8;
+  --color-checked: #2563eb;
+}
+
+body.light-theme .robot-item {
+  --background: transparent;
+  --inner-padding-end: 0px;
+  --inner-padding-start: 0px;
+  --padding-start: 0px;
+  --padding-end: 0px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 6px 10px;
+  background: #f8fafc;
+}
+
+body.light-theme .robot-item ion-label {
+  color: var(--text);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+body.light-theme .robot-item ion-checkbox {
+  --size: 18px;
+  --checkbox-background: #ffffff;
+  --border-color: #94a3b8;
+  --checkmark-color: #ffffff;
+  --background-checked: #2563eb;
+  --border-color-checked: #2563eb;
+}
+
+body.light-theme .row {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+body.light-theme .go-btn {
+  width: 100%;
+  max-width: 280px;
+  height: 44px;
+  border-radius: 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  --border-radius: 14px;
+  --border-color: #2563eb;
+  --color: #2563eb;
+  --background: transparent;
+}
+
+body.light-theme .go-btn.button-disabled {
+  opacity: 0.6;
+}
+
+body.light-theme .register-card .form-title,
+body.light-theme .register-card .form-sub,
+body.light-theme .register-card .label,
+body.light-theme .register-card .roleChoice span,
+body.light-theme .register-card .robot-item ion-label,
+body.light-theme .register-card h1,
+body.light-theme .register-card h2,
+body.light-theme .register-card h3,
+body.light-theme .register-card h4,
+body.light-theme .register-card h5,
+body.light-theme .register-card h6 {
+  color: #1f2937 !important;
+}
+
+@media (max-width: 380px) {
+  body.light-theme .register-card {
+    padding: 18px 14px;
+  }
+
+  body.light-theme .form-title {
+    font-size: 20px;
+  }
+
+  body.light-theme .roleRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.light-theme .roleChoice {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

@@ -1696,7 +1696,8 @@ import {
 import { downloadBlob } from "../utils/downloadHelper";
 import { listClients, ClientUser } from "../services/tissus.service";
 import { addOutline, closeOutline, createOutline, downloadOutline } from "ionicons/icons";
-import "./CommonDesign.css";
+import "./CommonDesign.dark.css";
+import "./CommonDesign.light.css";
 import TopMenu from "../components/TopMenu";
 import { listMachines } from "../services/machines.service";
 import {

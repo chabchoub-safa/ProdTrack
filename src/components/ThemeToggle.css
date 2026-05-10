@@ -1,0 +1,10 @@
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 8px;
+}
+
+.toggle-icon {
+  font-size: 18px;
+}

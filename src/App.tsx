@@ -33,7 +33,7 @@ import '@ionic/react/css/display.css';
 
 /* import '@ionic/react/css/palettes/dark.always.css'; */
 /* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
+// import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/home.css';
@@ -41,7 +41,7 @@ import Machines from './pages/Machines';
 import ClientsTechniciens from './pages/ClientsTechniciens';
 import ClientTissus from './pages/ClientTissus';
 import ScanTechnicien from './pages/ScanTechnicien';
-
+import { ThemeProvider } from './context/ThemeContext';
 import SuiviITPP from './pages/SuiviITPP';
 import SuiviPlanAction from './pages/SuiviPlanAction';
 import AssTech from './pages/AssTech';
@@ -57,6 +57,7 @@ setupIonicReact();
 const isElectron = window.location.protocol === 'file:';
 const Router = isElectron ? IonReactHashRouter : IonReactRouter;
 const App: React.FC = () => (
+  <ThemeProvider>
   <IonApp>
        <Router>
 
@@ -91,6 +92,7 @@ const App: React.FC = () => (
       </IonRouterOutlet>
    </Router>
   </IonApp>
+  </ThemeProvider>
 );
 
 export default App;

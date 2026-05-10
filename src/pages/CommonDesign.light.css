@@ -1,0 +1,1130 @@
+body.light-theme .page-bg {
+
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+
+  background: url("/assets/bbb.png") center/cover no-repeat;
+
+}
+body.light-theme .page-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 247, 255, 0.74);
+}
+
+body.light-theme .container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+
+  
+}
+
+body.light-theme .top-row{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+body.light-theme .top-row ion-searchbar{
+  flex: 1; /* prend tout l'espace disponible */
+}
+
+body.light-theme .btn-main{
+  white-space: nowrap; /* empêche le texte de passer à la ligne */
+}
+
+body.light-theme .card{
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 25px rgba(80,120,160,0.16);
+  cursor: pointer;
+}
+
+body.light-theme .card-title{
+  color: #000000;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+body.light-theme .muted{ color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.4; }
+
+body.light-theme .badge{
+  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+body.light-theme .badge-ok{ background: rgba(46, 204, 113, .18); color:#15803d; border:1px solid rgba(46,204,113,.30); }
+body.light-theme .badge-warn{ background: rgba(241, 196, 15, .18); color:#b45309; border:1px solid rgba(241,196,15,.30); }
+
+body.light-theme .btn-main{
+  --border-radius: 14px;
+
+  --background: transparent;
+ border-color: rgba(116, 199, 255, 0.7);
+  font-weight: 700;
+    --color: #000000;              /* texte blanc */
+
+  --border-color: #4da3ff;       /* couleur du cadre */
+  --border-width: 2px;           /* épaisseur du cadre */
+  --border-style: solid;         /* style du cadre */
+
+  border-radius: 20px;           /* arrondi */
+}
+
+ 
+body.light-theme .machine-card { position: relative; }
+
+body.light-theme .machine-actions{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+body.light-theme .machine-toggle-btn{
+  margin-top: 10px;
+  width: fit-content;
+}
+
+body.light-theme .machine-toggle-btn::part(native){
+  border-radius: 14px;
+}
+
+body.light-theme .btn-outline::part(native){
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,0.45);
+  color: #000000;
+}
+
+
+
+
+
+
+
+
+body.light-theme .btn-outline{
+  --border-radius: 14px;
+  --background: transparent;
+  --border-color: rgba(255,255,255,.25);
+  --color: #000000;
+  font-weight: 700;
+}
+
+body.light-theme .row{ display:flex; gap:10px; margin-top: 10px; flex-wrap: wrap; }
+body.light-theme .file{ margin-top: 12px; }
+/* =========================================
+   GLASS MODAL DESIGN (compatible workflow route)
+========================================= */
+
+ion-modal.date-modal::part(content) {
+  width: min(560px, calc(100% - 28px));
+  max-height: 86vh;
+  border-radius: 22px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 40px rgba(80, 120, 160, 0.22);
+}
+
+ion-modal.date-modal::part(backdrop) {
+  background: rgba(30, 41, 59, 0.18);
+}
+
+/* content */
+body.light-theme .date-modal-content {
+  /* --background: transparent !important; */
+    --background: #f8fbff;
+  color: #000000 !important;
+  padding: 18px;
+}
+
+/* header */
+body.light-theme .modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 177px;
+}
+
+body.light-theme .modal-head h3 {
+  color: #000000;
+  font-weight: 800;
+  margin: 0;
+  font-size: 18px;
+}
+
+/* fields */
+body.light-theme .field {
+  margin-bottom: 14px;
+}
+
+body.light-theme .label {
+  display: block;
+  font-size: 13px;
+  font-weight: 250;
+  padding-left: 10px;
+  margin-bottom: 6px;
+  color: #000103;
+}
+
+/* ✅ Un style qui marche pour:
+   - IonInput (via className)
+   - input normal
+   - select normal
+   - file input
+*/
+body.light-theme .input-plain {
+  width: 98%;
+  background: rgba(255, 255, 255, 0.88) !important;
+  color: #1e293b !important;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  border-radius: 14px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+/* si c'est un select */
+body.light-theme .input-plain select,
+select.input-plain {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* placeholder IonInput */
+body.light-theme .input-plain::placeholder {
+  color: #000000;
+}
+
+/* IonInput: parfois il faut forcer le texte interne */
+ion-input body.light-theme .input-plain,
+ion-textarea body.light-theme .input-plain {
+  --background: transparent;
+  --color: #1e293b;
+  --placeholder-color: #000d20;
+  --padding-start: 17px;
+  --padding-end: 12px;
+}
+
+/* row buttons */
+body.light-theme .row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* main button */
+body.light-theme .go-btn {
+  --border-radius: 14px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+
+
+/* =========================================
+   ✅ Workflow Route UI
+========================================= */
+
+/* petite carte route (étape) */
+body.light-theme .erp-card {
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+/* texte dans la carte */
+body.light-theme .erp-card b {
+  color: #01050c;
+}
+
+/* zone des boutons ↑ ↓ supprimer */
+body.light-theme .route-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* IonButton fill="clear" : rendre visible sur fond sombre */
+body.light-theme .route-actions ion-button {
+  --color: #04142b;
+  --padding-start: 6px;
+  --padding-end: 6px;
+  height: 28px;
+}
+
+/* disabled */
+body.light-theme .route-actions ion-button[disabled] {
+  opacity: 0.35;
+}
+
+/* petit texte info */
+body.light-theme .muted {
+  color: #000000;
+  font-size: 12.5px;
+}
+
+/* file input meilleur look */
+input[type="file"].input-plain {
+  padding: 8px 10px;
+}
+
+/* option list (dans select) */
+option {
+  color: #111; /* options affichées dans dropdown system */
+}
+/* Badge base */
+
+
+
+/* 🔵 En stock (nouveau style) */
+body.light-theme .badge-stock {
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+  border: 1px solid rgba(0, 150, 255, 0.35);
+}
+/* Close button style (comme rappels) */
+body.light-theme .modal-close-btn {
+  --background: rgba(255, 255, 255, 0.82);
+  --color: #000307;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+
+  transition: all 0.25s ease;
+}
+
+/* hover effect */
+body.light-theme .modal-close-btn:hover {
+  --background: rgba(255, 80, 80, 0.2);
+  border: 1px solid rgba(255, 80, 80, 0.5);
+  transform: scale(1.08);
+}
+body.light-theme .card-tissu {
+  position: relative;
+}
+
+body.light-theme .tissu-edit-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 5;
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  
+  color: #8fedfad3;
+}
+
+body.light-theme .tissu-edit-btnn {
+  color: #e4746c;
+  position: absolute;
+  top: 26px;
+  right: 6px;
+  z-index: 5;
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+}
+
+
+
+
+body.light-theme .confirm-modal {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #000000;
+
+  width: 380px;          /* largeur comme un alert */
+  max-width: 90%;
+  border-radius: 16px;
+
+  margin: auto;          /* centre horizontal */
+  box-shadow: 0 15px 40px rgba(80, 120, 160, 0.22);
+}
+
+/* centre verticalement le contenu */
+
+
+body.light-theme .confirm-body {
+  margin: 20px 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+body.light-theme .confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+
+
+body.light-theme .btn-cancel {
+  --color: #e4746c;              /* texte vert */
+  --border-color: transparent;
+  --background:transparent ;
+  --border-radius: 10px;
+}
+body.light-theme ion-modal::part(content) {
+  /* background: transparent !important; */
+    --background: #f8fbff;
+}
+
+body.light-theme ion-modal {
+  --background: transparent;
+  --box-shadow: none;
+}
+/* modal confirmation seulement */
+body.light-theme ion-modal.confirm-delete-modal::part(content) {
+  width: 420px;
+  max-width: calc(100% - 24px);
+  height: auto;
+  border-radius: 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.light-theme ion-modal.confirm-delete-modal::part(backdrop) {
+  background: rgba(30, 41, 59, 0.18);
+}
+
+body.light-theme .confirm-delete-modal .confirm-modal {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #000000;
+  width: 100%;
+  border-radius: 16px;
+  margin: 0;
+  box-shadow: 0 15px 40px rgba(80, 120, 160, 0.22);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+body.light-theme .confirm-delete-modal .confirm-body {
+  margin: 20px 0;
+  font-size: 15px;
+  text-align: center;
+  color: #000000;
+  line-height: 1.5;
+}
+
+body.light-theme .confirm-delete-modal .confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+body.light-theme .confirm-delete-modal .btn-cancel {
+  --color: #000000;
+  --border-color: rgba(148,163,184,0.45);
+  --background: transparent;
+  --border-radius: 10px;
+}
+
+body.light-theme .confirm-delete-modal .btn-confirm {
+  --background: rgba(255, 80, 80, 0.18);
+  --color: #000000;
+  --border-color: rgba(255, 80, 80, 0.45);
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 10px;
+}
+
+.confirm-delete-modal body.light-theme .modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.confirm-delete-modal .modal-head h3 {
+  color: #000000;
+  font-weight: 800;
+  margin: 0;
+  font-size: 18px;
+}
+
+body.light-theme .confirm-delete-modal .modal-close-btn {
+  --background: rgba(255, 255, 255, 0.82);
+  --color: #000000;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+/* ===== confirmation modification sans flou arrière ===== */
+
+ion-modal.confirm-update-modal {
+  --background: transparent;
+  --box-shadow: none;
+}
+
+ion-modal.confirm-update-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+ion-modal.confirm-update-modal::part(content) {
+  width: 420px;
+  max-width: calc(100% - 24px);
+  height: auto;
+  min-height: auto;
+  border-radius: 20px;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+}
+
+body.light-theme .confirm-update-modal .confirm-modal {
+  padding: 20px;
+  background: #ffffff;
+  color: #000000;
+  width: 100%;
+  border-radius: 16px;
+  margin: 0;
+  box-shadow: 0 15px 40px rgba(80, 120, 160, 0.22);
+  border: 1px solid rgba(148, 163, 184, 0.35)
+}
+
+body.light-theme .confirm-update-modal .modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.confirm-update-modal .modal-head h3 {
+  color: #000000;
+  font-weight: 800;
+  margin: 0;
+  font-size: 18px;
+}
+
+body.light-theme .confirm-update-modal .confirm-body {
+  margin: 20px 0;
+  font-size: 15px;
+  text-align: center;
+  color: #000000;
+  line-height: 1.5;
+}
+
+body.light-theme .confirm-update-modal .confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+body.light-theme .confirm-update-modal .btn-cancel {
+  --color: #000000;
+  --border-color: rgba(148,163,184,0.45);
+  --background: transparent;
+  --border-radius: 10px;
+}
+
+body.light-theme .confirm-update-modal .btn-confirm {
+  --background: rgba(65, 46, 172, 0.678);
+  --color: #000000;
+  --border-color: rgba(3, 2, 37, 0.678);
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 10px;
+}
+
+body.light-theme .confirm-update-modal .modal-close-btn {
+  --background: rgba(255, 255, 255, 0.82);
+  --color: #000000;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+
+
+
+
+/* ===== confirmation done sans flou arrière ===== */
+
+ion-modal.confirm-done-modal {
+  --background: transparent;
+  --box-shadow: none;
+}
+
+ion-modal.confirm-done-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+ion-modal.confirm-done-modal::part(content) {
+  width: 420px;
+  max-width: calc(100% - 24px);
+  height: auto;
+  min-height: auto;
+  border-radius: 20px;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+}
+
+.confirm-done-modal .confirm-modal {
+  padding: 20px;
+  background: #ffffff;
+  color: #000000;
+  width: 100%;
+  border-radius: 16px;
+  margin: 0;
+  box-shadow: 0 15px 40px rgba(80, 120, 160, 0.22);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.confirm-done-modal .modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.confirm-done-modal .modal-head h3 {
+  color: #000000;
+  font-weight: 800;
+  margin: 0;
+  font-size: 18px;
+}
+
+.confirm-done-modal .confirm-body {
+  margin: 20px 0;
+  font-size: 15px;
+  text-align: center;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.confirm-done-modal .confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.confirm-done-modal .btn-cancel {
+  --color: #000000;
+  --border-color: rgba(148,163,184,0.45);
+  --background: transparent;
+  --border-radius: 10px;
+}
+
+.confirm-done-modal .btn-confirm {
+  --background: rgba(63, 201, 75, 0.678);
+  --color: #000000;
+  --border-color: rgba(140, 218, 88, 0.678);
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 10px;
+}
+
+.confirm-done-modal .modal-close-btn {
+  --background: rgba(255, 255, 255, 0.82);
+  --color: #000000;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.details-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.details-grid p {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(248, 250, 252, 0.9);
+  font-size: 14px;
+}
+
+.details-grid strong {
+  color: #0284c7;
+}
+.rgb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.rgb-input {
+  width: 70px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,0.45);
+  background: rgba(255,255,255,0.9);
+  color: #000000;
+  text-align: center;
+  outline: none;
+}
+
+.color-preview {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 2px solid white;
+}
+
+.rgb-text {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #000000;
+}
+.combo-box {
+  position: relative;
+  width: 100%;
+}
+
+.combo-input {
+  padding-right: 45px !important;
+}
+
+.combo-arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7dd3fc;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.combo-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  box-shadow: 0 18px 45px rgba(80, 120, 160, 0.22);
+  backdrop-filter: blur(18px);
+  z-index: 99999;
+  padding: 6px;
+}
+
+.combo-item {
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.combo-item:hover {
+  background: rgba(56, 189, 248, 0.18);
+  color: #000000;
+}
+
+.combo-add {
+  color: #7dd3fc;
+  font-weight: 600;
+}
+
+/* =========================================
+   FIX FINAL MODE JOUR - overrides
+========================================= */
+body.light-theme .page-bg {
+  --background: transparent;
+  background: url("/assets/bbb.png") center/cover no-repeat;
+}
+
+body.light-theme .page-bg::before {
+  background: rgba(240, 247, 255, 0.74) !important;
+}
+
+body.light-theme .card,
+body.light-theme .erp-card {
+  background: rgba(255, 255, 255, 0.76) !important;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  box-shadow: 0 10px 25px rgba(80, 120, 160, 0.16) !important;
+}
+
+body.light-theme .card-title,
+body.light-theme .modal-head h3,
+body.light-theme .erp-card b,
+body.light-theme .confirm-delete-modal .modal-head h3,
+body.light-theme .confirm-update-modal .modal-head h3,
+body.light-theme .confirm-done-modal .modal-head h3 {
+  color: #000000 !important;
+}
+
+body.light-theme .muted,
+body.light-theme .label,
+body.light-theme .confirm-body,
+body.light-theme .confirm-delete-modal .confirm-body,
+body.light-theme .confirm-update-modal .confirm-body,
+body.light-theme .confirm-done-modal .confirm-body {
+  color: #000000 !important;
+}
+
+body.light-theme .input-plain,
+body.light-theme .rgb-input {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #000000 !important;
+  border: 1px solid rgba(148, 163, 184, 0.45) !important;
+}
+
+body.light-theme .input-plain::placeholder {
+  color: #000000 !important;
+}
+
+body.light-theme .btn-main {
+  --background: rgba(255, 255, 255, 0.65);
+  --color: #000000;
+  --border-color: #38bdf8;
+}
+
+body.light-theme .btn-outline,
+body.light-theme .btn-outline::part(native) {
+  --background: rgba(255, 255, 255, 0.65);
+  --color: #00050e;
+  --border-color: rgba(148, 163, 184, 0.45);
+  color: #01050e;
+}
+
+body.light-theme .date-modal-content {
+  --background: #f8fbff !important;
+  color: #000307 !important;
+}
+
+body.light-theme .confirm-modal,
+body.light-theme .confirm-delete-modal .confirm-modal,
+body.light-theme .confirm-update-modal .confirm-modal,
+body.light-theme .confirm-done-modal .confirm-modal {
+  background: rgba(255, 255, 255, 0.97) !important;
+  color: #000000 !important;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  box-shadow: 0 15px 40px rgba(80, 120, 160, 0.22) !important;
+}
+
+body.light-theme .modal-close-btn,
+body.light-theme .confirm-delete-modal .modal-close-btn,
+body.light-theme .confirm-update-modal .modal-close-btn,
+body.light-theme .confirm-done-modal .modal-close-btn {
+  --background: rgba(255, 255, 255, 0.85);
+  --color: #000000;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+}
+
+body.light-theme .combo-list {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 18px 45px rgba(219, 230, 240, 0.22) !important;
+}
+
+body.light-theme .combo-item {
+  color: #000000 !important;
+}
+
+body.light-theme .combo-item:hover {
+  background: rgba(56, 189, 248, 0.14) !important;
+  color: #000000 !important;
+}
+
+body.light-theme .details-grid p {
+  background: rgba(241, 245, 249, 0.85) !important;
+  color: #000000 !important;
+}
+
+body.light-theme .details-grid strong {
+  color: #0284c7 !important;
+}
+/* MODAL DÉTAILS ARTICLE - MODE JOUR */
+body.light-theme ion-modal::part(content) {
+  background: #f8fbff !important;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+body.light-theme .date-modal-content,
+body.light-theme .details-modal-content,
+body.light-theme .modal-content {
+  --background: #f8fbff !important;
+  background: #f8fbff !important;
+  color: #000000 !important;
+}
+
+/* Header modal */
+body.light-theme .modal-head {
+  background: #f8fbff !important;
+  color: #000000 !important;
+  border-bottom: none !important;
+}
+
+body.light-theme .modal-head h3 {
+  color: #000000 !important;
+}
+
+/* Cartes dans le modal détails */
+body.light-theme .details-grid p,
+body.light-theme .erp-card,
+body.light-theme .card,
+body.light-theme .detail-box {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #000000 !important;
+  border: 1px solid rgba(190, 205, 225, 0.8) !important;
+  box-shadow: none !important;
+}
+
+/* Texte */
+body.light-theme .details-grid strong,
+body.light-theme .card-title,
+body.light-theme .muted {
+  color: #000000 !important;
+}
+
+/* Bouton X */
+body.light-theme .modal-close-btn {
+  --background: transparent !important;
+  --color: #2563eb !important;
+  border: none !important;
+}
+/* =========================================
+   MODAL HEADER - MODE JOUR
+========================================= */
+
+/* Header principal du modal */
+body.light-theme ion-modal .modal-head,
+body.light-theme .modal-head,
+body.light-theme ion-modal ion-header,
+body.light-theme ion-modal ion-toolbar {
+
+  --background: #f8fbff !important;
+  background: #f8fbff !important;
+
+  color: #000307 !important;
+
+  border-bottom: 1px solid rgba(190, 205, 225, 0.7) !important;
+
+  box-shadow: none !important;
+}
+
+
+/* =========================================
+   TITRE MODAL
+========================================= */
+
+body.light-theme ion-modal .modal-head h3,
+body.light-theme ion-modal ion-title {
+
+  color: #000000 !important;
+
+  font-weight: 700;
+}
+
+
+
+
+/* =========================================
+   FOND GLOBAL MODAL
+========================================= */
+
+body.light-theme ion-modal::part(content) {
+
+  background: #f8fbff !important;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+}
+/* ✅ Texte, titres et placeholders en noir dans le modal */
+body.light-theme ion-modal,
+body.light-theme ion-modal * {
+  color: #000000 !important;
+}
+
+/* Titre modal */
+body.light-theme ion-modal .modal-head h3,
+body.light-theme ion-modal ion-title {
+  color: #000000 !important;
+}
+
+/* Labels */
+body.light-theme ion-modal .label,
+body.light-theme ion-modal label {
+  color: #000000 !important;
+  font-weight: 500;
+}
+
+/* Inputs Ionic */
+body.light-theme ion-modal ion-input,
+body.light-theme ion-modal ion-textarea,
+body.light-theme ion-modal ion-select {
+  --color: #000000 !important;
+  --placeholder-color: #000000 !important;
+  --placeholder-opacity: 0.65 !important;
+}
+
+/* Input interne Ionic */
+body.light-theme ion-modal ion-input::part(native),
+body.light-theme ion-modal ion-textarea::part(native) {
+  color: #000000 !important;
+}
+
+body.light-theme ion-modal ion-input::part(native)::placeholder,
+body.light-theme ion-modal ion-textarea::part(native)::placeholder {
+  color: #000000 !important;
+  opacity: 0.65 !important;
+}
+
+/* Inputs normaux */
+body.light-theme ion-modal input,
+body.light-theme ion-modal textarea,
+body.light-theme ion-modal select {
+  color: #000000 !important;
+}
+
+body.light-theme ion-modal input::placeholder,
+body.light-theme ion-modal textarea::placeholder {
+  color: #000000 !important;
+  opacity: 0.65 !important;
+}
+
+/* Select / combo */
+body.light-theme ion-modal .input-plain,
+body.light-theme ion-modal .combo-input {
+  color: #000000 !important;
+  background: #ffffff !important;
+}
+
+body.light-theme ion-modal .combo-item {
+  color: #000000 !important;
+}
+body.light-theme .sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 15px;
+}
+body.light-theme .sensor-box {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  color: #0f172a;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .sensor-box ion-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #2563eb;
+}
+
+body.light-theme .sensor-box span {
+  display: block;
+  font-size: 14px;
+  color: #475569;
+}
+
+body.light-theme .sensor-box strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 22px;
+  color: #0f172a;
+}
+body.light-theme .user-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.light-theme .btn-delete {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+body.light-theme .btn-delete:hover {
+  background: #dc2626;
+  color: white;
+}
+
+body.light-theme .btn-restore {
+  border: none;
+  border-radius: 18px;
+  padding: 8px 12px;
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+  font-weight: 700;
+  cursor: pointer;
+}
+body.light-theme .btn-show-deleted {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+}

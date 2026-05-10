@@ -2,6 +2,7 @@ import { Client } from "@stomp/stompjs";
 import SockJS from "sockjs-client";
 import { APIform7 } from "../config/api";
 import { API_BASE } from "../config/api";
+import { APIform9 } from "../config/api";
 
 export interface EnergyMeasurement {
   id?: string;
@@ -51,3 +52,27 @@ export function connectEnergySocket(
   client.activate();
   return client;
 }
+// export const getMonthlyEnergyTotal = async (
+//   year: number,
+//   month: number
+// ) => {
+
+//   const token = localStorage.getItem("token");
+
+//   const response = await fetch(
+//     `${APIform9}/energy/monthly?year=${year}&month=${month}`,
+//     {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${token}`,
+//       },
+//     }
+//   );
+
+//   if (!response.ok) {
+//     throw new Error("Erreur API energy monthly");
+//   }
+
+//   return response.json();
+// };

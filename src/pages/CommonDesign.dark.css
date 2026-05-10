@@ -1,4 +1,4 @@
-.page-bg {
+body.dark-theme .page-bg {
 
   --background: transparent;
   position: relative;
@@ -7,14 +7,14 @@
   background: url("/assets/bbb.png") center/cover no-repeat;
 
 }
-.page-bg::before {
+body.dark-theme .page-bg::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(7, 34, 64, 0.70);
 }
 
-.container {
+body.dark-theme .container {
   max-width: 980px;
   margin: 0 auto;
   padding: 16px;
@@ -22,21 +22,21 @@
   
 }
 
-.top-row{
+body.dark-theme .top-row{
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-.top-row ion-searchbar{
+body.dark-theme .top-row ion-searchbar{
   flex: 1; /* prend tout l'espace disponible */
 }
 
-.btn-main{
+body.dark-theme .btn-main{
   white-space: nowrap; /* empêche le texte de passer à la ligne */
 }
 
-.card{
+body.dark-theme .card{
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 18px;
@@ -46,15 +46,15 @@
   cursor: pointer;
 }
 
-.card-title{
+body.dark-theme .card-title{
   color: #fff;
   font-size: 18px;
   font-weight: 700;
 }
 
-.muted{ color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.4; }
+body.dark-theme .muted{ color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.4; }
 
-.badge{
+body.dark-theme .badge{
   display:inline-block;
   padding: 6px 10px;
   border-radius: 999px;
@@ -63,10 +63,10 @@
   font-weight: 700;
 }
 
-.badge-ok{ background: rgba(46, 204, 113, .18); color:#b8ffd4; border:1px solid rgba(46,204,113,.30); }
-.badge-warn{ background: rgba(241, 196, 15, .18); color:#fff0b3; border:1px solid rgba(241,196,15,.30); }
+body.dark-theme .badge-ok{ background: rgba(46, 204, 113, .18); color:#b8ffd4; border:1px solid rgba(46,204,113,.30); }
+body.dark-theme .badge-warn{ background: rgba(241, 196, 15, .18); color:#fff0b3; border:1px solid rgba(241,196,15,.30); }
 
-.btn-main{
+body.dark-theme .btn-main{
   --border-radius: 14px;
 
   --background: transparent;
@@ -82,9 +82,9 @@
 }
 
  
-.machine-card { position: relative; }
+body.dark-theme .machine-card { position: relative; }
 
-.machine-actions{
+body.dark-theme .machine-actions{
   position: absolute;
   top: 10px;
   right: 10px;
@@ -92,16 +92,16 @@
   gap: 6px;
 }
 
-.machine-toggle-btn{
+body.dark-theme .machine-toggle-btn{
   margin-top: 10px;
   width: fit-content;
 }
 
-.machine-toggle-btn::part(native){
+body.dark-theme .machine-toggle-btn::part(native){
   border-radius: 14px;
 }
 
-.btn-outline::part(native){
+body.dark-theme .btn-outline::part(native){
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.25);
   color: #fff;
@@ -114,7 +114,7 @@
 
 
 
-.btn-outline{
+body.dark-theme .btn-outline{
   --border-radius: 14px;
   --background: transparent;
   --border-color: rgba(255,255,255,.25);
@@ -122,8 +122,8 @@
   font-weight: 700;
 }
 
-.row{ display:flex; gap:10px; margin-top: 10px; flex-wrap: wrap; }
-.file{ margin-top: 12px; }
+body.dark-theme .row{ display:flex; gap:10px; margin-top: 10px; flex-wrap: wrap; }
+body.dark-theme .file{ margin-top: 12px; }
 /* =========================================
    GLASS MODAL DESIGN (compatible workflow route)
 ========================================= */
@@ -147,7 +147,7 @@ ion-modal.date-modal::part(backdrop) {
 }
 
 /* content */
-.date-modal-content {
+body.dark-theme .date-modal-content {
   /* --background: transparent !important; */
     --background: #102342;
   color: #fff !important;
@@ -155,7 +155,7 @@ ion-modal.date-modal::part(backdrop) {
 }
 
 /* header */
-.modal-head {
+body.dark-theme .modal-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -164,7 +164,7 @@ ion-modal.date-modal::part(backdrop) {
   padding-left: 177px;
 }
 
-.modal-head h3 {
+body.dark-theme .modal-head h3 {
   color: #fff;
   font-weight: 800;
   margin: 0;
@@ -172,11 +172,11 @@ ion-modal.date-modal::part(backdrop) {
 }
 
 /* fields */
-.field {
+body.dark-theme .field {
   margin-bottom: 14px;
 }
 
-.label {
+body.dark-theme .label {
   display: block;
   font-size: 13px;
   font-weight: 250;
@@ -191,7 +191,7 @@ ion-modal.date-modal::part(backdrop) {
    - select normal
    - file input
 */
-.input-plain {
+body.dark-theme .input-plain {
   width: 98%;
   background: rgba(255, 255, 255, 0.04) !important;
   color: #fff !important;
@@ -202,7 +202,7 @@ ion-modal.date-modal::part(backdrop) {
 }
 
 /* si c'est un select */
-.input-plain select,
+body.dark-theme .input-plain select,
 select.input-plain {
   appearance: none;
   -webkit-appearance: none;
@@ -210,13 +210,13 @@ select.input-plain {
 }
 
 /* placeholder IonInput */
-.input-plain::placeholder {
+body.dark-theme .input-plain::placeholder {
   color: rgba(255, 255, 255, 0.55);
 }
 
 /* IonInput: parfois il faut forcer le texte interne */
-ion-input.input-plain,
-ion-textarea.input-plain {
+ion-input body.dark-theme .input-plain,
+ion-textarea body.dark-theme .input-plain {
   --background: transparent;
   --color: #fff;
   --placeholder-color: rgba(255,255,255,0.55);
@@ -225,7 +225,7 @@ ion-textarea.input-plain {
 }
 
 /* row buttons */
-.row {
+body.dark-theme .row {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -233,7 +233,7 @@ ion-textarea.input-plain {
 }
 
 /* main button */
-.go-btn {
+body.dark-theme .go-btn {
   --border-radius: 14px;
   font-weight: 800;
   letter-spacing: 0.2px;
@@ -246,7 +246,7 @@ ion-textarea.input-plain {
 ========================================= */
 
 /* petite carte route (étape) */
-.erp-card {
+body.dark-theme .erp-card {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
@@ -254,19 +254,19 @@ ion-textarea.input-plain {
 }
 
 /* texte dans la carte */
-.erp-card b {
+body.dark-theme .erp-card b {
   color: #fff;
 }
 
 /* zone des boutons ↑ ↓ supprimer */
-.route-actions {
+body.dark-theme .route-actions {
   display: flex;
   gap: 6px;
   align-items: center;
 }
 
 /* IonButton fill="clear" : rendre visible sur fond sombre */
-.route-actions ion-button {
+body.dark-theme .route-actions ion-button {
   --color: rgba(255,255,255,0.9);
   --padding-start: 6px;
   --padding-end: 6px;
@@ -274,12 +274,12 @@ ion-textarea.input-plain {
 }
 
 /* disabled */
-.route-actions ion-button[disabled] {
+body.dark-theme .route-actions ion-button[disabled] {
   opacity: 0.35;
 }
 
 /* petit texte info */
-.muted {
+body.dark-theme .muted {
   color: rgba(255,255,255,0.70);
   font-size: 12.5px;
 }
@@ -298,13 +298,13 @@ option {
 
 
 /* 🔵 En stock (nouveau style) */
-.badge-stock {
+body.dark-theme .badge-stock {
   background: rgba(0, 150, 255, 0.18);
   color: #4db8ff;
   border: 1px solid rgba(0, 150, 255, 0.35);
 }
 /* Close button style (comme rappels) */
-.modal-close-btn {
+body.dark-theme .modal-close-btn {
   --background: rgba(255, 255, 255, 0.08);
   --color: #fff;
   --border-radius: 50%;
@@ -320,16 +320,16 @@ option {
 }
 
 /* hover effect */
-.modal-close-btn:hover {
+body.dark-theme .modal-close-btn:hover {
   --background: rgba(255, 80, 80, 0.2);
   border: 1px solid rgba(255, 80, 80, 0.5);
   transform: scale(1.08);
 }
-.card-tissu {
+body.dark-theme .card-tissu {
   position: relative;
 }
 
-.tissu-edit-btn {
+body.dark-theme .tissu-edit-btn {
   position: absolute;
   top: 6px;
   right: 6px;
@@ -342,7 +342,7 @@ option {
   color: #8fedfad3;
 }
 
-.tissu-edit-btnn {
+body.dark-theme .tissu-edit-btnn {
   color: #e4746c;
   position: absolute;
   top: 26px;
@@ -357,7 +357,7 @@ option {
 
 
 
-.confirm-modal {
+body.dark-theme .confirm-modal {
   padding: 20px;
   background: rgba(7, 34, 64, 0.97);
   color: white;
@@ -373,13 +373,13 @@ option {
 /* centre verticalement le contenu */
 
 
-.confirm-body {
+body.dark-theme .confirm-body {
   margin: 20px 0;
   font-size: 15px;
   text-align: center;
 }
 
-.confirm-actions {
+body.dark-theme .confirm-actions {
   display: flex;
   justify-content: center;
   gap: 12px;
@@ -387,7 +387,7 @@ option {
 
 
 
-.btn-cancel {
+body.dark-theme .btn-cancel {
   --color: #e4746c;              /* texte vert */
   --border-color: transparent;
   --background:transparent ;
@@ -419,7 +419,7 @@ ion-modal.confirm-delete-modal::part(backdrop) {
   background: rgba(0, 0, 0, 0.35);
 }
 
-.confirm-delete-modal .confirm-modal {
+body.dark-theme .confirm-delete-modal .confirm-modal {
   padding: 20px;
   background: rgba(7, 34, 64, 0.97);
   color: white;
@@ -430,7 +430,7 @@ ion-modal.confirm-delete-modal::part(backdrop) {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.confirm-delete-modal .confirm-body {
+body.dark-theme .confirm-delete-modal .confirm-body {
   margin: 20px 0;
   font-size: 15px;
   text-align: center;
@@ -438,21 +438,21 @@ ion-modal.confirm-delete-modal::part(backdrop) {
   line-height: 1.5;
 }
 
-.confirm-delete-modal .confirm-actions {
+body.dark-theme .confirm-delete-modal .confirm-actions {
   display: flex;
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.confirm-delete-modal .btn-cancel {
+body.dark-theme .confirm-delete-modal .btn-cancel {
   --color: #ffffff;
   --border-color: rgba(255,255,255,0.25);
   --background: transparent;
   --border-radius: 10px;
 }
 
-.confirm-delete-modal .btn-confirm {
+body.dark-theme .confirm-delete-modal .btn-confirm {
   --background: rgba(255, 80, 80, 0.18);
   --color: #fff;
   --border-color: rgba(255, 80, 80, 0.45);
@@ -461,7 +461,7 @@ ion-modal.confirm-delete-modal::part(backdrop) {
   --border-radius: 10px;
 }
 
-.confirm-delete-modal .modal-head {
+.confirm-delete-modal body.dark-theme .modal-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -477,7 +477,7 @@ ion-modal.confirm-delete-modal::part(backdrop) {
   font-size: 18px;
 }
 
-.confirm-delete-modal .modal-close-btn {
+body.dark-theme .confirm-delete-modal .modal-close-btn {
   --background: rgba(255, 255, 255, 0.08);
   --color: #fff;
   --border-radius: 50%;
@@ -514,7 +514,7 @@ ion-modal.confirm-update-modal::part(content) {
   filter: none !important;
 }
 
-.confirm-update-modal .confirm-modal {
+body.dark-theme .confirm-update-modal .confirm-modal {
   padding: 20px;
   background: #0d2747;
   color: white;
@@ -525,7 +525,7 @@ ion-modal.confirm-update-modal::part(content) {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.confirm-update-modal .modal-head {
+body.dark-theme .confirm-update-modal .modal-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -541,7 +541,7 @@ ion-modal.confirm-update-modal::part(content) {
   font-size: 18px;
 }
 
-.confirm-update-modal .confirm-body {
+body.dark-theme .confirm-update-modal .confirm-body {
   margin: 20px 0;
   font-size: 15px;
   text-align: center;
@@ -549,21 +549,21 @@ ion-modal.confirm-update-modal::part(content) {
   line-height: 1.5;
 }
 
-.confirm-update-modal .confirm-actions {
+body.dark-theme .confirm-update-modal .confirm-actions {
   display: flex;
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.confirm-update-modal .btn-cancel {
+body.dark-theme .confirm-update-modal .btn-cancel {
   --color: #ffffff;
   --border-color: rgba(255,255,255,0.25);
   --background: transparent;
   --border-radius: 10px;
 }
 
-.confirm-update-modal .btn-confirm {
+body.dark-theme .confirm-update-modal .btn-confirm {
   --background: rgba(65, 46, 172, 0.678);
   --color: #fff;
   --border-color: rgba(3, 2, 37, 0.678);
@@ -572,7 +572,7 @@ ion-modal.confirm-update-modal::part(content) {
   --border-radius: 10px;
 }
 
-.confirm-update-modal .modal-close-btn {
+body.dark-theme .confirm-update-modal .modal-close-btn {
   --background: rgba(255, 255, 255, 0.08);
   --color: #fff;
   --border-radius: 50%;
@@ -614,7 +614,7 @@ ion-modal.confirm-done-modal::part(content) {
   filter: none !important;
 }
 
-.confirm-done-modal .confirm-modal {
+body.dark-theme .confirm-done-modal .confirm-modal {
   padding: 20px;
   background: #0d2747;
   color: white;
@@ -625,7 +625,7 @@ ion-modal.confirm-done-modal::part(content) {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.confirm-done-modal .modal-head {
+body.dark-theme .confirm-done-modal .modal-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -634,14 +634,14 @@ ion-modal.confirm-done-modal::part(content) {
   padding-left: 0;
 }
 
-.confirm-done-modal .modal-head h3 {
+body.dark-theme .confirm-done-modal .modal-head h3 {
   color: #fff;
   font-weight: 800;
   margin: 0;
   font-size: 18px;
 }
 
-.confirm-done-modal .confirm-body {
+body.dark-theme .confirm-done-modal .confirm-body {
   margin: 20px 0;
   font-size: 15px;
   text-align: center;
@@ -649,21 +649,21 @@ ion-modal.confirm-done-modal::part(content) {
   line-height: 1.5;
 }
 
-.confirm-done-modal .confirm-actions {
+body.dark-theme .confirm-done-modal .confirm-actions {
   display: flex;
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.confirm-done-modal .btn-cancel {
+body.dark-theme .confirm-done-modal .btn-cancel {
   --color: #ffffff;
   --border-color: rgba(255,255,255,0.25);
   --background: transparent;
   --border-radius: 10px;
 }
 
-.confirm-done-modal .btn-confirm {
+body.dark-theme .confirm-done-modal .btn-confirm {
   --background: rgba(63, 201, 75, 0.678);
   --color: #fff;
   --border-color: rgba(140, 218, 88, 0.678);
@@ -672,7 +672,7 @@ ion-modal.confirm-done-modal::part(content) {
   --border-radius: 10px;
 }
 
-.confirm-done-modal .modal-close-btn {
+body.dark-theme .confirm-done-modal .modal-close-btn {
   --background: rgba(255, 255, 255, 0.08);
   --color: #fff;
   --border-radius: 50%;
@@ -684,13 +684,13 @@ ion-modal.confirm-done-modal::part(content) {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
-.details-grid {
+body.dark-theme .details-grid {
   display: grid;
   gap: 10px;
   margin-top: 12px;
 }
 
-.details-grid p {
+body.dark-theme .details-grid p {
   margin: 0;
   padding: 10px 12px;
   border-radius: 12px;
@@ -698,17 +698,17 @@ ion-modal.confirm-done-modal::part(content) {
   font-size: 14px;
 }
 
-.details-grid strong {
+body.dark-theme .details-grid strong {
   color: #6ee7ff;
 }
-.rgb-row {
+body.dark-theme .rgb-row {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-top: 10px;
 }
 
-.rgb-input {
+body.dark-theme .rgb-input {
   width: 70px;
   height: 42px;
   border-radius: 12px;
@@ -719,28 +719,28 @@ ion-modal.confirm-done-modal::part(content) {
   outline: none;
 }
 
-.color-preview {
+body.dark-theme .color-preview {
   width: 44px;
   height: 44px;
   border-radius: 12px;
   border: 2px solid white;
 }
 
-.rgb-text {
+body.dark-theme .rgb-text {
   margin-top: 8px;
   font-size: 13px;
   color: #dbeafe;
 }
-.combo-box {
+body.dark-theme .combo-box {
   position: relative;
   width: 100%;
 }
 
-.combo-input {
+body.dark-theme .combo-input {
   padding-right: 45px !important;
 }
 
-.combo-arrow {
+body.dark-theme .combo-arrow {
   position: absolute;
   right: 16px;
   top: 50%;
@@ -750,7 +750,7 @@ ion-modal.confirm-done-modal::part(content) {
   pointer-events: none;
 }
 
-.combo-list {
+body.dark-theme .combo-list {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
@@ -766,7 +766,7 @@ ion-modal.confirm-done-modal::part(content) {
   padding: 6px;
 }
 
-.combo-item {
+body.dark-theme .combo-item {
   padding: 12px 14px;
   border-radius: 12px;
   color: #eaf6ff;
@@ -775,12 +775,94 @@ ion-modal.confirm-done-modal::part(content) {
   transition: 0.2s ease;
 }
 
-.combo-item:hover {
+body.dark-theme .combo-item:hover {
   background: rgba(56, 189, 248, 0.18);
   color: #ffffff;
 }
 
-.combo-add {
+body.dark-theme .combo-add {
   color: #7dd3fc;
   font-weight: 600;
+}
+body.dark-theme .sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 15px;
+}
+body.dark-theme .sensor-box {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+}
+
+body.dark-theme .sensor-box ion-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #38bdf8;
+}
+
+body.dark-theme .sensor-box span {
+  display: block;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+body.dark-theme .sensor-box strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 22px;
+  color: #ffffff;
+}
+body.dark-theme .user-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.dark-theme .btn-delete {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(239, 68, 68, 0.18);
+  color: #ff6b6b;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+body.dark-theme .btn-delete:hover {
+  background: #ef4444;
+  color: white;
+}
+
+body.dark-theme .btn-restore {
+  border: none;
+  border-radius: 18px;
+  padding: 8px 12px;
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+  font-weight: 700;
+  cursor: pointer;
+}
+body.dark-theme .btn-show-deleted {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+body.dark-theme .deleted-user-card,
+body.dark-theme .deleted-user-card strong,
+body.dark-theme .deleted-user-card div,
+body.dark-theme .deleted-user-card p {
+  color: #ffffff;
+}
+
+body.dark-theme .deleted-user-email {
+  color: #cbd5e1;
 }

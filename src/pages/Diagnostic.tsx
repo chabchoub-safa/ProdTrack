@@ -29,7 +29,8 @@ import {
 
 import Menusec from "../components/Menusec";
 import "./SuiviITP.css";
-import "./CommonDesign.css";
+import "./CommonDesign.dark.css";
+import "./CommonDesign.light.css";
 
 import {
   Diagnostic as DiagnosticType,

@@ -15,7 +15,8 @@ import { predictWaterPeriod } from "../services/waterPredictionService";
 import TopMenu from "../components/TopMenu";
 
 import { useWaterDashboard } from "../hook/useWaterRealtime";
-import "./WaterRealtimePage.css";
+import "./WaterRealtimePage.light.css";
+import "./WaterRealtimePage.dark.css";
 
 const WaterRealtimePage: React.FC = () => {
   const {
