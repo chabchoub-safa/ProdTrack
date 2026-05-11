@@ -234,7 +234,7 @@ const onRestore = async (id: string) => {
     </div>
 
     {deletedUsers.length === 0 ? (
-      <p>Aucun utilisateur supprimé.</p>
+      <p className="b">Aucun utilisateur supprimé.</p>
     ) : (
       deletedUsers.map((u) => (
         <div key={u.id} className="user-card">

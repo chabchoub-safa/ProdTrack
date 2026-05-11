@@ -1,11 +1,11 @@
-.page-bg{
+body.dark-theme .page-bg{
   --background: transparent;
   position: relative;
   min-height: 100vh;
   background: url("/assets/bbb.png") center/cover no-repeat;
 }
 
-.page-bg::before{
+body.dark-theme .page-bg::before{
   content:"";
   position:absolute;
   inset:0;
@@ -13,12 +13,12 @@
   z-index:0;
 }
 
-.page-bg ion-content,
-.page-bg::part(scroll){
+body.dark-theme .page-bg ion-content,
+body.dark-theme .page-bg::part(scroll){
   background: transparent !important;
 }
 
-.scan-container{
+body.dark-theme .scan-container{
   position: relative;
   z-index: 1;
   max-width: 1100px;
@@ -26,13 +26,13 @@
   padding: 18px;
 }
 
-.modal-wrap{
+body.dark-theme .modal-wrap{
   max-width: 1100px;
   margin: 0 auto;
   padding: 16px;
 }
 
-.glass-card{
+body.dark-theme .glass-card{
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 20px;
@@ -43,21 +43,21 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
-.section-title{
+body.dark-theme .section-title{
   color: #fff;
   font-size: 20px;
   font-weight: 800;
   margin-bottom: 14px;
 }
 
-.top-row{
+body.dark-theme .top-row{
   display:flex;
   gap:12px;
   align-items:center;
   flex-wrap: wrap;
 }
 
-.custom-searchbar{
+body.dark-theme .custom-searchbar{
   flex:1;
   min-width: 250px;
   --background: rgba(255,255,255,0.10);
@@ -67,20 +67,20 @@
   --border-radius: 16px;
 }
 
-.btn-main{
+body.dark-theme .btn-main{
   --background: linear-gradient(135deg, #2c7be5, #1f5fbf);
   --border-radius: 14px;
   font-weight: 700;
 }
 
-.tissu-list{
+body.dark-theme .tissu-list{
   display:flex;
   flex-direction: column;
   gap: 12px;
   margin-top: 14px;
 }
 
-.tissu-item{
+body.dark-theme .tissu-item{
   display:flex;
   justify-content: space-between;
   align-items:center;
@@ -93,51 +93,51 @@
   transition: 0.2s ease;
 }
 
-.tissu-item:hover{
+body.dark-theme .tissu-item:hover{
   transform: translateY(-2px);
   background: rgba(255,255,255,0.09);
 }
 
-.tissu-main{
+body.dark-theme .tissu-main{
   display:flex;
   flex-direction: column;
   gap:6px;
 }
 
-.tissu-id{
+body.dark-theme .tissu-id{
   color:#fff;
   font-weight:800;
   font-size:16px;
 }
 
-.tissu-client{
+body.dark-theme .tissu-client{
   color:rgba(255,255,255,0.82);
   font-size:14px;
 }
 
-.badge-status{
+body.dark-theme .badge-status{
   padding: 8px 12px;
   border-radius: 999px;
   font-weight: 700;
 }
 
-.badge-status.done{
+body.dark-theme .badge-status.done{
   background: rgba(46, 204, 113, 0.18);
   color: #7DFFAE;
 }
 
-.badge-status.progress{
+body.dark-theme .badge-status.progress{
   background: rgba(241, 196, 15, 0.18);
   color: #FFD95E;
 }
 
-.badge-status.idle{
+body.dark-theme .badge-status.idle{
   background: rgba(255,255,255,0.14);
   color: #fff;
 }
 
-.center-box,
-.empty-box{
+body.dark-theme .center-box,
+body.dark-theme .empty-box{
   color:#fff;
   display:flex;
   align-items:center;
@@ -145,41 +145,41 @@
   min-height:120px;
 }
 
-.workflow-modal::part(content),
-.scanner-modal::part(content){
+body.dark-theme .workflow-modal::part(content),
+body.dark-theme .scanner-modal::part(content){
   --background: #0b1930;
   border-radius: 20px 20px 0 0;
 }
 
-.modal-toolbar{
+body.dark-theme .modal-toolbar{
   --background: #c0cbdf;
   --color: #050000;
 }
 
-.modal-content{
+body.dark-theme .modal-content{
   /* --background:url("/assets/n.JPG") center/cover no-repeat; */
   --background: #102342;
 }
 
-.info-grid{
+body.dark-theme .info-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap:12px;
   color:#fff;
 }
 
-.alert-card{
+body.dark-theme .alert-card{
   border: 1px solid rgba(255, 99, 132, 0.35);
 }
 
-.alert-title{
+body.dark-theme .alert-title{
   display:flex;
   align-items:center;
   gap:8px;
   color:#ffd4dd;
 }
 
-.alert-item{
+body.dark-theme .alert-item{
   color:#fff;
   padding:12px;
   border-radius: 14px;
@@ -187,20 +187,20 @@
   border:1px solid rgba(255,255,255,0.08);
 }
 
-.workflow-list{
+body.dark-theme .workflow-list{
   display:flex;
   flex-direction:column;
   gap:14px;
 }
 
-.workflow-item{
+body.dark-theme .workflow-item{
   background: rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:18px;
   padding:14px;
 }
 
-.workflow-header{
+body.dark-theme .workflow-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -208,13 +208,13 @@
   margin-bottom:12px;
 }
 
-.machine-name{
+body.dark-theme .machine-name{
   color:#fff;
   font-size:17px;
   font-weight:800;
 }
 
-.workflow-info{
+body.dark-theme .workflow-info{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap:10px;
@@ -222,7 +222,7 @@
   margin-bottom: 12px;
 }
 
-.custom-input{
+body.dark-theme .custom-input{
   margin-top: 8px;
   margin-bottom: 14px;
   --background: rgba(255,255,255,0.10);
@@ -233,36 +233,36 @@
   border-radius: 14px;
 }
 
-.btn-row{
+body.dark-theme .btn-row{
   display:flex;
   gap:10px;
   flex-wrap: wrap;
 }
 
-.btn-start{
+body.dark-theme .btn-start{
   --background: linear-gradient(135deg, #00b894, #009f7f);
   --border-radius: 14px;
   font-weight:700;
 }
 
-.btn-stop{
+body.dark-theme .btn-stop{
   --border-color: #ff7b7b;
   --color: #ffb3b3;
   --border-radius: 14px;
   font-weight:700;
 }
 
-.scanner-wrap{
+body.dark-theme .scanner-wrap{
   padding:16px;
 }
 
-.scanner-help{
+body.dark-theme .scanner-help{
   color:#fff;
   text-align:center;
   margin-bottom: 12px;
 }
 
-.qr-reader-box{
+body.dark-theme .qr-reader-box{
   background:#fff;
   border-radius: 16px;
   overflow:hidden;
@@ -270,21 +270,43 @@
 }
 
 @media (max-width: 768px){
-  .tissu-item,
-  .workflow-header{
+  body.dark-theme .tissu-item,
+  body.dark-theme .workflow-header{
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .btn-row{
+  body.dark-theme .btn-row{
     width:100%;
   }
 
-  .btn-row ion-button{
+  body.dark-theme .btn-row ion-button{
     flex:1;
   }
 }
+body.dark-theme .scan-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
 
+/* choix article + recherche + bouton scan fixes */
+body.dark-theme .scan-container > .glass-card:first-child {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(7, 34, 64, 0.90);
+  backdrop-filter: blur(12px);
+}
+
+/* liste scrollable seulement */
+body.dark-theme .tissu-list {
+  max-height: 68vh;
+  overflow-y: auto;
+  padding-right: 6px;
+}
 
 
 

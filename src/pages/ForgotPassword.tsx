@@ -10,7 +10,9 @@ import {
   useIonRouter,
 } from "@ionic/react";
 import { mailOutline, arrowBackOutline } from "ionicons/icons";
-import "./ForgotPassword.css";
+import "./ForgotPassword.dark.css";
+import "./ForgotPassword.light.css";
+
 import { forgotPassword } from "../services/auth";
 
 const ForgotPassword: React.FC = () => {

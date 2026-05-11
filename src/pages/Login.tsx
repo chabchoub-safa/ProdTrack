@@ -8,7 +8,8 @@ import {
   useIonRouter,
   IonText
 } from "@ionic/react";
-import "./Login.css";
+import "./Login.light.css";
+import "./Login.dark.css";
 import { login } from "../services/auth";
 
 const Login: React.FC = () => {

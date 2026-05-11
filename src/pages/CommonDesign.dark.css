@@ -866,3 +866,132 @@ body.dark-theme .deleted-user-card p {
 body.dark-theme .deleted-user-email {
   color: #cbd5e1;
 }
+body.dark-theme .top-row {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 0;
+  background: rgba(7, 34, 64, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body.dark-theme .top-row ion-searchbar {
+  flex: 1;
+}
+
+body.dark-theme .top-row .btn-main {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+body.dark-theme .top-row {
+  position: sticky;
+  top: 74px; /* hauteur du menu */
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 8px;
+  margin-bottom: 18px;
+
+  background: rgba(7, 34, 64, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body.dark-theme .top-row ion-searchbar {
+  flex: 1;
+}
+
+body.dark-theme .top-row .btn-main,
+body.dark-theme .btn-main {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+body.dark-theme ion-modal .modal-head {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(7, 34, 64, 0.92)!important;
+  padding: 14px 18px;
+  margin: -18px -18px 14px -18px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.dark-theme ion-modal .modal-head h3 {
+  margin: 0;
+  text-align: center;
+  flex: 1;
+  color: #ffffff !important;
+}
+
+/* bouton X reste à droite */
+body.dark-theme ion-modal .modal-close-btn {
+  position: absolute;
+  right: 14px;
+}
+
+
+/* =========================
+   Contenu scrollable
+========================= */
+body.light-theme .date-modal-content,
+body.light-theme .details-modal-content,
+body.light-theme .modal-content,
+body.dark-theme .date-modal-content,
+body.dark-theme .details-modal-content,
+body.dark-theme .modal-content {
+  max-height: 86vh;
+  overflow-y: auto;
+}
+/* ✅ Supprimer le grand flou arrière du modal restauration */
+body.dark-theme ion-modal.confirm-restore-modal::part(content) {
+  width: 380px !important;
+  max-width: calc(100% - 32px) !important;
+  height: auto !important;
+  min-height: auto !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+
+  overflow: visible !important;
+}
+
+/* ✅ Important : supprimer le flou de IonContent derrière */
+body.dark-theme ion-modal.confirm-restore-modal ion-content,
+body.dark-theme ion-modal.confirm-restore-modal .date-modal-content,
+body.dark-theme ion-modal.confirm-restore-modal .modal-content,
+body.dark-theme ion-modal.confirm-restore-modal .details-modal-content {
+  --background: transparent !important;
+  background: transparent !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+
+  padding: 0 !important;
+}
+
+/* ✅ Garder seulement la petite carte */
+body.dark-theme .confirm-restore-modal .confirm-modal {
+  width: 100% !important;
+  margin: 0 !important;
+}

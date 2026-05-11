@@ -329,3 +329,15 @@ body.dark-theme .details-modal span,
 body.dark-theme .details-modal strong {
   color: #e5e7eb !important;
 }
+body.dark-theme .app-container > .card:first-child {
+  position: sticky;
+  top: 16px;
+  z-index: 999;
+
+  background: rgba(7, 34, 64, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+body.dark-theme .b{
+  color: #ffffff;
+}

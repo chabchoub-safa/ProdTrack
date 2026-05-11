@@ -1,0 +1,184 @@
+body.light-theme .general-page {
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+  background: url("/assets/bbb.png") center/cover no-repeat;
+}
+
+body.light-theme .general-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 248, 255, 0.78);
+}
+
+body.light-theme .general-container {
+  padding: 20px;
+  color: #0f172a;
+}
+
+body.light-theme .general-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+body.light-theme .multiplier-box {
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 16px;
+  padding: 12px;
+  backdrop-filter: blur(8px);
+}
+
+body.light-theme .multiplier-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+body.light-theme .multiplier-input {
+  --background: rgba(255, 255, 255, 0.9);
+  --color: #0f172a;
+  --padding-start: 10px;
+  border-radius: 10px;
+}
+
+body.light-theme .table-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  padding: 14px;
+  overflow-x: auto;
+  backdrop-filter: blur(10px);
+}
+
+body.light-theme .general-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+body.light-theme .general-table th,
+body.light-theme .general-table td {
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  padding: 12px;
+  text-align: center;
+  color: #0f172a;
+}
+
+body.light-theme .general-table th {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1e40af;
+  font-weight: 700;
+}
+
+body.light-theme .general-table td:nth-child(2),
+body.light-theme .general-table th:nth-child(2) {
+  text-align: left;
+}
+
+body.light-theme .total-row td {
+  background: rgba(234, 179, 8, 0.14);
+  font-weight: bold;
+  color: #854d0e;
+}
+
+body.light-theme .center-box {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+body.light-theme .simple-table {
+  min-width: 700px;
+}
+
+body.light-theme .simple-table th,
+body.light-theme .simple-table td {
+  text-align: left;
+}
+
+body.light-theme .simple-table th:nth-child(3),
+body.light-theme .simple-table th:nth-child(4),
+body.light-theme .simple-table th:nth-child(5),
+body.light-theme .simple-table td:nth-child(3),
+body.light-theme .simple-table td:nth-child(4),
+body.light-theme .simple-table td:nth-child(5) {
+  text-align: center;
+}
+body.light-theme .general-container {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  color: #0f172a;
+}
+
+/* barre fixe */
+body.light-theme .general-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+
+  padding: 12px;
+  border-radius: 18px;
+
+  background: transparent; /* <-- ici */
+  border: none;            /* <-- ici */
+  backdrop-filter: none;
+}
+
+/* scroll uniquement tableau */
+body.light-theme .table-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  padding: 14px;
+
+  max-height: 70vh;
+  overflow: auto;
+
+  backdrop-filter: blur(10px);
+}
+
+/* table */
+body.light-theme .general-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+/* header fixe */
+body.light-theme .general-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  background: rgba(241, 245, 249, 0.98);
+  color: #1e40af;
+  font-weight: 700;
+}
+
+body.light-theme .general-table th,
+body.light-theme .general-table td {
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  padding: 12px;
+  text-align: center;
+  color: #0f172a;
+}
+
+body.light-theme .general-table tbody tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.04);
+}

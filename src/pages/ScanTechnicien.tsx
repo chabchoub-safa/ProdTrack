@@ -27,8 +27,8 @@ import {
 
 
 import MenuTech from "../components/MenuTech";
-import "./ScanTechnicien.css";
-
+import "./ScanTechnicien.dark.css";
+import "./ScanTechnicien.light.css";
 import { listTissus } from "../services/tissus.service";
 import {
   getWorkflowByTissu,

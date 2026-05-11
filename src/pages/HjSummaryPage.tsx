@@ -8,7 +8,8 @@ import {
   IonButton,
 } from "@ionic/react";
 import { listHjSummary, HjSummaryRow } from "../services/hjSummary.service";
-import "./HjSummaryPage.css";
+import "./HjSummaryPage.dark.css";
+import "./HjSummaryPage.light.css";
 import Menusec from "../components/Menusec";
 
 const HjSummaryPage: React.FC = () => {

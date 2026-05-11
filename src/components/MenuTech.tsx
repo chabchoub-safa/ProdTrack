@@ -11,9 +11,13 @@ import {
 } from "ionicons/icons";
 import { useLocation } from "react-router";
 import { useIonRouter } from "@ionic/react";
-import "./TopMenu.css";
+import "./TopMenu.dark.css";
+import "./TopMenu.light.css";
 import { personAddOutline } from "ionicons/icons";
-
+import {  IonToggle } from '@ionic/react';
+import { sunny, moon } from 'ionicons/icons';
+import { useTheme } from '../context/ThemeContext';
+import './ThemeToggle.css';
 type Props = {
   title: string;
   onMenuClick?: () => void; // si tu as un side menu plus tard
@@ -23,7 +27,7 @@ type Props = {
 const MenuTech: React.FC<Props> = ({ title, onMenuClick, showLogout = true }) => {
   const router = useIonRouter();
   const location = useLocation();
-
+  const { theme, toggleTheme } = useTheme();
   const go = (path: string) => {
     if (location.pathname !== path) router.push(path, "root", "replace");
   };
@@ -53,6 +57,15 @@ const MenuTech: React.FC<Props> = ({ title, onMenuClick, showLogout = true }) =>
 
           
         </div>
+
+ <div className="theme-toggle-wrapper">
+      <IonIcon icon={sunny} className="toggle-icon" />
+      <IonToggle
+        checked={theme === 'dark'}
+        onIonChange={toggleTheme}
+      />
+      <IonIcon icon={moon} className="toggle-icon" />
+    </div>
 
         {showLogout && (
           <div className="topbar-right">

@@ -28,7 +28,8 @@ import {
 } from "ionicons/icons";
 
 import Menusec from "../components/Menusec";
-import "./SuiviITP.css";
+import "./SuiviITP.dark.css";
+import "./SuiviITP.light.css";
 import "./CommonDesign.dark.css";
 import "./CommonDesign.light.css";
 

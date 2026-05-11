@@ -347,3 +347,12 @@ body.light-theme .recharts-tooltip-label,
 body.light-theme .recharts-tooltip-item {
   color: #000000 !important;
 }
+body.light-theme .filters-card {
+  position: sticky;
+  top: 88px;
+  z-index: 999;
+
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}

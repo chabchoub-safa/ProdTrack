@@ -325,3 +325,12 @@ body.light-theme .tissu-code{
 body.light-theme .muted{
   color: rgba(0,0,0,0.75);
 }
+body.light-theme .app-container > .card:first-child {
+  position: sticky;
+  top: 16px;
+  z-index: 999;
+
+  background: rgba(248, 251, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}

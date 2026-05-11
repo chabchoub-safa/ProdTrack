@@ -1,0 +1,183 @@
+body.dark-theme  .general-page {
+ 
+--background: transparent;
+  position: relative;
+  min-height: 100vh;
+
+  background: url("/assets/bbb.png") center/cover no-repeat;
+
+}
+body.dark-theme  .general-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 34, 64, 0.70);
+}
+
+body.dark-theme  .general-container {
+  padding: 20px;
+  color: white;
+}
+
+body.dark-theme  .general-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+body.dark-theme  .multiplier-box {
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 12px;
+  backdrop-filter: blur(8px);
+}
+
+body.dark-theme  .multiplier-box label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #d9ecff;
+}
+
+body.dark-theme  .multiplier-input {
+  --background: rgba(255,255,255,0.08);
+  --color: white;
+  --padding-start: 10px;
+  border-radius: 10px;
+}
+
+body.dark-theme  .table-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 14px;
+  overflow-x: auto;
+  backdrop-filter: blur(10px);
+}
+
+body.dark-theme  .general-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+body.dark-theme  .general-table th,
+body.dark-theme  .general-table td {
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 12px;
+  text-align: center;
+}
+
+body.dark-theme  .general-table th {
+  background: rgba(89, 178, 255, 0.16);
+  color: #9fd0ff;
+  font-weight: 700;
+}
+
+body.dark-theme  .general-table td:nth-child(2),
+body.dark-theme  .general-table th:nth-child(2) {
+  text-align: left;
+}
+
+body.dark-theme  .total-row td {
+  background: rgba(174, 255, 0, 0.14);
+  font-weight: bold;
+  color: #f6ffb2;
+}
+
+body.dark-theme  .center-box {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+body.dark-theme  .simple-table {
+  min-width: 700px;
+}
+
+body.dark-theme  .simple-table th,
+body.dark-theme  .simple-table td {
+  text-align: left;
+}
+
+body.dark-theme  .simple-table th:nth-child(3),
+body.dark-theme  .simple-table th:nth-child(4),
+body.dark-theme  .simple-table th:nth-child(5),
+body.dark-theme  .simple-table td:nth-child(3),
+body.dark-theme  .simple-table td:nth-child(4),
+body.dark-theme  .simple-table td:nth-child(5) {
+  text-align: center;
+}
+body.dark-theme .general-container {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  color: white;
+}
+
+/* barre fixe */
+body.dark-theme .general-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+
+  padding: 12px;
+  border-radius: 18px;
+
+   background: transparent; /* <-- ici */
+  border: none;            /* <-- ici */
+  backdrop-filter: none;
+}
+
+/* scroll uniquement tableau */
+body.dark-theme .table-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  padding: 14px;
+
+  max-height: 70vh;
+  overflow: auto;
+
+  backdrop-filter: blur(10px);
+}
+
+/* table */
+body.dark-theme .general-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+/* header fixe */
+body.dark-theme .general-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  background: rgba(16, 35, 66, 0.98);
+  color: #9fd0ff;
+  font-weight: 700;
+}
+
+body.dark-theme .general-table th,
+body.dark-theme .general-table td {
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 12px;
+  text-align: center;
+}
+
+body.dark-theme .general-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.04);
+}

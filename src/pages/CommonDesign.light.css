@@ -564,7 +564,7 @@ body.light-theme .confirm-update-modal .btn-cancel {
 }
 
 body.light-theme .confirm-update-modal .btn-confirm {
-  --background: rgba(65, 46, 172, 0.678);
+  --background: rgba(128, 112, 218, 0.678);
   --color: #000000;
   --border-color: rgba(3, 2, 37, 0.678);
   --border-width: 1px;
@@ -1127,4 +1127,277 @@ body.light-theme .btn-show-deleted {
   padding: 10px 14px;
   font-weight: 800;
   cursor: pointer;
+}
+body.light-theme .top-row {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 0;
+  background: rgba(248, 251, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body.light-theme .top-row ion-searchbar {
+  flex: 1;
+}
+
+body.light-theme .top-row .btn-main {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+body.light-theme .top-row {
+  position: sticky;
+  top: 74px; /* hauteur du menu */
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 8px;
+  margin-bottom: 18px;
+
+  background: rgba(248, 251, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body.light-theme .top-row ion-searchbar {
+  flex: 1;
+}
+
+body.light-theme .top-row .btn-main,
+body.light-theme .btn-main {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+body.light-theme ion-modal .modal-head {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f8fbff !important;
+  padding: 14px 18px;
+  margin: -18px -18px 14px -18px;
+
+  border-bottom: 1px solid rgba(190, 205, 225, 0.7);
+}
+
+body.light-theme ion-modal .modal-head h3 {
+  margin: 0;
+  text-align: center;
+  flex: 1;
+  color: #000000 !important;
+}
+
+/* bouton X reste à droite */
+body.light-theme ion-modal .modal-close-btn {
+  position: absolute;
+  right: 14px;
+}
+
+/* =========================================
+   FIX CONFIRMATION MODALS - LIGHT ONLY
+   Suppression / Modification / Done
+========================================= */
+
+body.light-theme ion-modal.confirm-delete-modal::part(content),
+body.light-theme ion-modal.confirm-update-modal::part(content),
+body.light-theme ion-modal.confirm-done-modal::part(content) {
+  width: 380px !important;
+  max-width: calc(100% - 32px) !important;
+  height: auto !important;
+  min-height: auto !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible !important;
+}
+
+body.light-theme ion-modal.confirm-delete-modal::part(backdrop),
+body.light-theme ion-modal.confirm-update-modal::part(backdrop),
+body.light-theme ion-modal.confirm-done-modal::part(backdrop) {
+  background: rgba(15, 23, 42, 0.18) !important;
+}
+
+/* ✅ carte interne du modal */
+body.light-theme .confirm-delete-modal .confirm-modal,
+body.light-theme .confirm-update-modal .confirm-modal,
+body.light-theme .confirm-done-modal .confirm-modal {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: #ffffff !important;
+  color: #000000 !important;
+
+  border-radius: 14px !important;
+  border: 1px solid rgba(203, 213, 225, 0.9) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
+
+  overflow: hidden !important;
+}
+
+/* ✅ titre */
+body.light-theme .confirm-delete-modal .modal-head,
+body.light-theme .confirm-update-modal .modal-head,
+body.light-theme .confirm-done-modal .modal-head {
+  position: relative !important;
+  top: auto !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  height: 74px !important;
+  padding: 0 52px !important;
+  margin: 0 !important;
+
+  background: #f8fbff !important;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.9) !important;
+}
+
+body.light-theme .confirm-delete-modal .modal-head h3,
+body.light-theme .confirm-update-modal .modal-head h3,
+body.light-theme .confirm-done-modal .modal-head h3 {
+  margin: 0 !important;
+  text-align: center !important;
+  color: #000000 !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+
+/* ✅ bouton X */
+body.light-theme .confirm-delete-modal .modal-close-btn,
+body.light-theme .confirm-update-modal .modal-close-btn,
+body.light-theme .confirm-done-modal .modal-close-btn {
+  position: absolute !important;
+  right: 16px !important;
+  top: 19px !important;
+
+  width: 34px !important;
+  height: 34px !important;
+
+  --background: transparent !important;
+  --color: #000000 !important;
+  --box-shadow: none !important;
+
+  border: none !important;
+}
+
+/* ✅ texte */
+body.light-theme .confirm-delete-modal .confirm-body,
+body.light-theme .confirm-update-modal .confirm-body,
+body.light-theme .confirm-done-modal .confirm-body {
+  margin: 0 !important;
+  padding: 22px 20px 14px !important;
+
+  text-align: center !important;
+  color: #000000 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+/* ✅ boutons */
+body.light-theme .confirm-delete-modal .confirm-actions,
+body.light-theme .confirm-update-modal .confirm-actions,
+body.light-theme .confirm-done-modal .confirm-actions {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 14px !important;
+
+  padding: 14px 20px 24px !important;
+  margin: 0 !important;
+}
+
+/* Annuler */
+body.light-theme .confirm-delete-modal .btn-cancel,
+body.light-theme .confirm-update-modal .btn-cancel,
+body.light-theme .confirm-done-modal .btn-cancel {
+  --background: transparent !important;
+  --color: #000000 !important;
+  --border-color: rgba(148, 163, 184, 0.7) !important;
+  --border-width: 2px !important;
+  --border-style: solid !important;
+  --border-radius: 10px !important;
+
+  font-weight: 800 !important;
+}
+
+/* Supprimer */
+body.light-theme .confirm-delete-modal .btn-confirm {
+  --background: #ff3b3b !important;
+  --color: #ffffff !important;
+  --border-radius: 10px !important;
+
+  font-weight: 800 !important;
+}
+
+/* Modifier */
+body.light-theme .confirm-update-modal .btn-confirm {
+  --background: #6890e7 !important;
+  --color: #ffffff !important;
+  --border-radius: 10px !important;
+
+  font-weight: 800 !important;
+}
+
+/* Done / confirmer */
+body.light-theme .confirm-done-modal .btn-confirm {
+  --background: #16a34a !important;
+  --color: #ffffff !important;
+  --border-radius: 10px !important;
+
+  font-weight: 800 !important;
+}
+/* ✅ Supprimer le grand flou arrière du modal restauration - MODE JOUR */
+body.light-theme ion-modal.confirm-restore-modal::part(content) {
+  width: 380px !important;
+  max-width: calc(100% - 32px) !important;
+  height: auto !important;
+  min-height: auto !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+
+  overflow: visible !important;
+}
+
+/* ✅ Supprimer le flou de IonContent derrière - MODE JOUR */
+body.light-theme ion-modal.confirm-restore-modal ion-content,
+body.light-theme ion-modal.confirm-restore-modal .date-modal-content,
+body.light-theme ion-modal.confirm-restore-modal .modal-content,
+body.light-theme ion-modal.confirm-restore-modal .details-modal-content {
+  --background: transparent !important;
+  background: transparent !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+
+  padding: 0 !important;
+}
+
+/* ✅ Garder seulement la petite carte - MODE JOUR */
+body.light-theme .confirm-restore-modal .confirm-modal {
+  width: 100% !important;
+  margin: 0 !important;
 }

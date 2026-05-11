@@ -320,3 +320,12 @@ body.dark-theme .prediction-result span {
   font-size: 13px;
   opacity: 0.7;
 }
+body.dark-theme .filters-card {
+  position: sticky;
+  top: 88px;
+  z-index: 999;
+
+  background: #102342;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}

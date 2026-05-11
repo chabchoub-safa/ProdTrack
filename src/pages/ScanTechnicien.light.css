@@ -1,0 +1,308 @@
+body.light-theme .page-bg {
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+  background: url("/assets/bbb.png") center/cover no-repeat;
+}
+
+body.light-theme .page-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 248, 255, 0.78);
+  z-index: 0;
+}
+
+body.light-theme .page-bg ion-content,
+body.light-theme .page-bg::part(scroll) {
+  background: transparent !important;
+}
+
+body.light-theme .scan-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+body.light-theme .modal-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+body.light-theme .glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+body.light-theme .section-title {
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+body.light-theme .top-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+body.light-theme .custom-searchbar {
+  flex: 1;
+  min-width: 250px;
+  --background: rgba(255, 255, 255, 0.9);
+  --color: #0f172a;
+  --placeholder-color: rgba(15, 23, 42, 0.55);
+  --icon-color: #0f172a;
+  --border-radius: 16px;
+}
+
+body.light-theme .btn-main {
+  --background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  --border-radius: 14px;
+  font-weight: 700;
+}
+
+body.light-theme .tissu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+body.light-theme .tissu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  transition: 0.2s ease;
+}
+
+body.light-theme .tissu-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+body.light-theme .tissu-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+body.light-theme .tissu-id {
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+body.light-theme .tissu-client {
+  color: rgba(15, 23, 42, 0.75);
+  font-size: 14px;
+}
+
+body.light-theme .badge-status {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+body.light-theme .badge-status.done {
+  background: rgba(34, 197, 94, 0.16);
+  color: #15803d;
+}
+
+body.light-theme .badge-status.progress {
+  background: rgba(234, 179, 8, 0.18);
+  color: #854d0e;
+}
+
+body.light-theme .badge-status.idle {
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
+body.light-theme .center-box,
+body.light-theme .empty-box {
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+body.light-theme .workflow-modal::part(content),
+body.light-theme .scanner-modal::part(content) {
+  --background: #ffffff;
+  border-radius: 20px 20px 0 0;
+}
+
+body.light-theme .modal-toolbar {
+  --background: #f8fafc;
+  --color: #0f172a;
+}
+
+body.light-theme .modal-content {
+  --background: #ffffff;
+}
+
+body.light-theme .info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  color: #0f172a;
+}
+
+body.light-theme .alert-card {
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+body.light-theme .alert-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b91c1c;
+}
+
+body.light-theme .alert-item {
+  color: #0f172a;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.14);
+}
+
+body.light-theme .workflow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+body.light-theme .workflow-item {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+body.light-theme .workflow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+body.light-theme .machine-name {
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+body.light-theme .workflow-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  color: rgba(15, 23, 42, 0.82);
+  margin-bottom: 12px;
+}
+
+body.light-theme .custom-input {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  --background: rgba(255, 255, 255, 0.9);
+  --color: #0f172a;
+  --placeholder-color: rgba(15, 23, 42, 0.55);
+  --padding-start: 14px;
+  --padding-end: 14px;
+  border-radius: 14px;
+}
+
+body.light-theme .btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+body.light-theme .btn-start {
+  --background: linear-gradient(135deg, #16a34a, #15803d);
+  --border-radius: 14px;
+  font-weight: 700;
+}
+
+body.light-theme .btn-stop {
+  --border-color: #dc2626;
+  --color: #dc2626;
+  --border-radius: 14px;
+  font-weight: 700;
+}
+
+body.light-theme .scanner-wrap {
+  padding: 16px;
+}
+
+body.light-theme .scanner-help {
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+body.light-theme .qr-reader-box {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  body.light-theme .tissu-item,
+  body.light-theme .workflow-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  body.light-theme .btn-row {
+    width: 100%;
+  }
+
+  body.light-theme .btn-row ion-button {
+    flex: 1;
+  }
+}
+body.light-theme .scan-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+/* choix article + recherche + bouton scan fixes */
+body.light-theme .scan-container > .glass-card:first-child {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+/* liste scrollable seulement */
+body.light-theme .tissu-list {
+  max-height: 68vh;
+  overflow-y: auto;
+  padding-right: 6px;
+}

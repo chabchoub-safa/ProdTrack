@@ -409,7 +409,7 @@ const isTriger1 =
   </div>
 </IonModal>
 
-<IonModal
+<IonModal className="confirm-restore-modal"
   isOpen={confirmRestoreOpen}
   onDidDismiss={() => setConfirmRestoreOpen(false)}
 >

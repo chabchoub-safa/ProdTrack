@@ -1,0 +1,89 @@
+body.light-theme .hj-page {
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+  background: url("/assets/bbb.png") center/cover no-repeat;
+}
+
+body.light-theme .hj-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 248, 255, 0.78);
+}
+
+body.light-theme .hj-container {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+body.light-theme .hj-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+body.light-theme .hj-topbar ion-searchbar {
+  flex: 1;
+}
+
+body.light-theme .hj-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 240px;
+}
+
+body.light-theme .hj-table-wrap {
+  max-height: 70vh;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 18px;
+  padding: 14px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+body.light-theme .hj-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  color: #0f172a;
+}
+
+body.light-theme .hj-table th,
+body.light-theme .hj-table td {
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  padding: 12px;
+  text-align: center;
+  color: #0f172a;
+}
+
+body.light-theme .hj-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(241, 245, 249, 0.98);
+  color: #1e40af;
+  font-weight: 700;
+}
+
+body.light-theme .hj-table tbody tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.04);
+}
+
+body.light-theme .hj-table tfoot th {
+  background: rgba(241, 245, 249, 0.95);
+  color: #0f172a;
+  font-weight: 800;
+}

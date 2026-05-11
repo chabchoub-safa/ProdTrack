@@ -142,7 +142,8 @@ import {
   IonText,
 } from "@ionic/react";
 import { getGeneralSummary, GeneralResumeRow } from "../services/general.service";
-import "./GeneralSummaryPage.css";
+import "./GeneralSummaryPage.dark.css";
+import "./GeneralSummaryPage.light.css";
 import Menusec from "../components/Menusec";
 
 const formatNumber = (value: number) => {

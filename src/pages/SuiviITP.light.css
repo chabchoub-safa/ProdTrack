@@ -1,0 +1,486 @@
+
+
+body.light-theme  .suivi-page-bg {
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+  background: url("/assets/n.JPG") center/cover no-repeat;
+}
+
+body.light-theme  .suivi-page-bg::before {
+content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 248, 255, 0.78);
+}
+
+body.light-theme  .suivi-page-wrap {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+}
+
+body.light-theme  .soft-header ion-toolbar {
+ --background: rgba(255, 255, 255, 0.85);
+  --color: #0f172a;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+body.light-theme  .glass-card {
+ background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 16px;
+  color: #0f172a;
+}
+
+body.light-theme  .top-toolbar-card {
+  margin-bottom: 16px;
+}
+
+body.light-theme  .top-toolbar-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+body.light-theme  .suivi-searchbar {
+  --background: rgba(255, 255, 255, 0.9);
+  --color: #0f172a;
+  --placeholder-color: rgba(15, 23, 42, 0.55);
+  --icon-color: rgba(15, 23, 42, 0.7);
+  --clear-button-color: rgba(15, 23, 42, 0.7);
+  --border-radius: 14px;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+body.light-theme  .add-btn {
+ height: 44px;
+  --border-radius: 14px;
+  --background: transparent;
+  --color: #2563eb;
+  --border-color: #2563eb;
+  --border-width: 2px;
+  --border-style: solid;
+  font-weight: 700;
+}
+
+body.light-theme  .loading-wrap,
+body.light-theme  .empty-card {
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  color: #0f172a;
+}
+
+body.light-theme  .suivi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+body.light-theme  .suivi-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+body.light-theme  .suivi-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+body.light-theme  .suivi-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+body.light-theme  .suivi-card-subtitle {
+  font-size: 13px;
+   color: rgba(15, 23, 42, 0.65);
+  margin-top: 4px;
+}
+
+body.light-theme  .mini-badge {
+ background: rgba(37, 99, 235, 0.08);
+  color: #1e40af;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+}
+
+body.light-theme  .info-grid {
+  display: grid;
+  gap: 8px;
+color: rgba(15, 23, 42, 0.82);
+  font-size: 14px;
+}
+
+body.light-theme  .actions-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ===== modal global ===== */
+ion-modal::part(content) {
+ --background: #ffffff;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+ion-modal::part(backdrop) {
+   background: rgba(15, 23, 42, 0.25);
+}
+
+ion-modal {
+  --background: transparent;
+  --box-shadow: none;
+}
+
+/* header modal */
+ion-modal ion-header ion-toolbar {
+ --background: rgba(255, 255, 255, 0.96);
+  --color: #0f172a;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+ion-modal ion-title {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+ion-modal ion-buttons ion-button {
+  color: #0f172a;
+}
+
+/* contenu modal */
+body.light-theme  .modal-content {
+ --background: #ffffff;
+  color: #0f172a;
+}
+
+body.light-theme  .form-wrap,
+body.light-theme  .details-wrap {
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+body.light-theme .form-card,
+body.light-theme .detail-card {
+  display: grid;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+body.light-theme .section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+body.light-theme .form-actions {
+  display: grid;
+  gap: 10px;
+}
+
+body.light-theme .form-actions ion-button:first-child {
+  --border-radius: 14px;
+  --background: transparent;
+  --color: #2563eb;
+  --border-color: #2563eb;
+  --border-width: 2px;
+  --border-style: solid;
+  font-weight: 800;
+}
+
+body.light-theme .form-actions ion-button:last-child {
+  --border-radius: 14px;
+  --background: transparent;
+  --color: #334155;
+  --border-color: rgba(15, 23, 42, 0.22);
+  --border-width: 1px;
+  --border-style: solid;
+  font-weight: 700;
+}
+
+/* champs Ionic dans formulaire */
+body.light-theme .form-card ion-item {
+  --background: rgba(255, 255, 255, 0.92);
+  --border-color: rgba(15, 23, 42, 0.12);
+  --highlight-color-focused: #2563eb;
+  --color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 14px;
+  margin-bottom: 2px;
+}
+
+body.light-theme .form-card ion-label {
+  color: rgba(15, 23, 42, 0.75) !important;
+  font-weight: 500;
+}
+
+body.light-theme .form-card ion-input,
+body.light-theme .form-card ion-textarea {
+  --color: #0f172a;
+  --placeholder-color: rgba(15, 23, 42, 0.45);
+}
+
+body.light-theme .form-card ion-input input,
+body.light-theme .form-card ion-textarea textarea {
+  color: #0f172a !important;
+}
+
+/* détail */
+body.light-theme .details-grid {
+  display: grid;
+  gap: 10px;
+  color: rgba(15, 23, 42, 0.82);
+  font-size: 14px;
+}
+
+body.light-theme .details-grid strong {
+  color: #0f172a;
+}
+
+body.light-theme .obs-box {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(248, 250, 252, 0.9);
+  color: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+/* ===== table si présente ===== */
+body.light-theme .table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+body.light-theme .table-scroll {
+  overflow-x: auto;
+}
+
+body.light-theme .itp-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+}
+
+body.light-theme .itp-table thead tr {
+  background: rgba(241, 245, 249, 0.95);
+}
+
+body.light-theme .itp-table th,
+body.light-theme .itp-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+  font-size: 13px;
+  vertical-align: top;
+}
+
+body.light-theme .itp-table th {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+body.light-theme .itp-table tbody tr:hover {
+  background: rgba(37, 99, 235, 0.06);
+}
+
+body.light-theme .obs-cell {
+  min-width: 220px;
+  white-space: pre-wrap;
+}
+
+body.light-theme .row-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+body.light-theme .row-actions ion-button {
+  --color: rgba(37, 99, 235, 0.95);
+}
+
+body.light-theme .row-actions ion-button[color="danger"] {
+  --color: #ef4444;
+}
+
+/* ===== confirmation suppression / modification ===== */
+/* style IonAlert */
+body.light-theme ion-alert.custom-confirm-alert {
+  --backdrop-opacity: 0.35;
+}
+
+body.light-theme ion-alert.custom-confirm-alert::part(message) {
+  color: rgba(15, 23, 42, 0.82);
+}
+
+body.light-theme ion-alert.custom-confirm-alert::part(header) {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+body.light-theme ion-alert.custom-confirm-alert::part(button) {
+  color: #2563eb;
+}
+
+body.light-theme ion-alert.custom-confirm-alert::part(wrapper) {
+  background: rgba(255, 255, 255, 0.97);
+  color: #0f172a;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+body.light-theme ion-alert.custom-confirm-alert .alert-button-role-cancel {
+  color: #334155 !important;
+}
+
+body.light-theme ion-alert.custom-confirm-alert .alert-button-role-destructive {
+  color: #ef4444 !important;
+}
+
+@media (max-width: 768px) {
+  body.light-theme .top-toolbar-row {
+    grid-template-columns: 1fr;
+  }
+
+  body.light-theme .actions-row {
+    flex-direction: column;
+  }
+
+  body.light-theme .form-wrap,
+  body.light-theme .details-wrap {
+    padding: 14px;
+  }
+
+  body.light-theme .itp-table th,
+  body.light-theme .itp-table td {
+    font-size: 12px;
+    padding: 10px 8px;
+  }
+}
+
+body.light-theme .native-datalist-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #0f172a;
+  font-size: 15px;
+  padding: 12px 0 6px;
+}
+
+body.light-theme .complement-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 44px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+body.light-theme .complement-row ion-item {
+  width: 100%;
+  height: 82px;
+  min-height: 82px;
+  max-height: 82px;
+  --background: rgba(255, 255, 255, 0.92);
+  --border-color: rgba(15, 23, 42, 0.12);
+  --border-radius: 14px;
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  border-radius: 14px;
+}
+
+body.light-theme .complement-row ion-item::part(native) {
+  height: 82px;
+}
+
+body.light-theme .complement-row .native-datalist-input,
+body.light-theme .complement-row ion-input {
+  width: 100%;
+  height: 34px;
+  font-size: 15px;
+}
+
+body.light-theme .delete-complement-btn {
+  width: 44px;
+  height: 44px;
+  margin: 18px 0 0 0;
+  --border-radius: 12px;
+  --background: rgba(239, 68, 68, 0.12);
+  --color: #ef4444;
+}
+
+body.light-theme .delete-complement-btn ion-icon {
+  font-size: 21px;
+}
+
+body.light-theme .add-complement-btn {
+  width: 100%;
+  height: 46px;
+  margin-top: 18px;
+  --border-radius: 14px;
+  --background: rgba(37, 99, 235, 0.1);
+  --background-hover: rgba(37, 99, 235, 0.18);
+  --border-color: #2563eb;
+  --color: #2563eb;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+/* barre de recherche fixe, ne scroll pas */
+body.light-theme .top-toolbar-card {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  margin-bottom: 16px;
+}
+
+/* le scroll reste seulement dans le tableau */
+body.light-theme .table-card {
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+/* scroll vertical + horizontal du contenu table */
+body.light-theme .table-scroll {
+  max-height: 70vh;
+  overflow: auto;
+}
+
+/* titre/header du tableau fixe */
+body.light-theme .itp-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(241, 245, 249, 0.98);
+  color: #0f172a;
+}

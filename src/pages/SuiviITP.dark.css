@@ -1,33 +1,33 @@
 
 
-.suivi-page-bg {
+body.dark-theme .suivi-page-bg {
   --background: transparent;
   position: relative;
   min-height: 100vh;
   background: url("/assets/n.JPG") center/cover no-repeat;
 }
 
-.suivi-page-bg::before {
+body.dark-theme .suivi-page-bg::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(7, 34, 64, 0.72);
 }
 
-.suivi-page-wrap {
+body.dark-theme .suivi-page-wrap {
   position: relative;
   z-index: 1;
   padding: 16px;
 }
 
-.soft-header ion-toolbar {
+body.dark-theme .soft-header ion-toolbar {
   --background: rgba(255, 255, 255, 0.08);
   --color: #ffffff;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.glass-card {
+body.dark-theme .glass-card {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -37,18 +37,18 @@
   color: #fff;
 }
 
-.top-toolbar-card {
+body.dark-theme .top-toolbar-card {
   margin-bottom: 16px;
 }
 
-.top-toolbar-row {
+body.dark-theme .top-toolbar-row {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 12px;
   align-items: center;
 }
 
-.suivi-searchbar {
+body.dark-theme .suivi-searchbar {
   --background: rgba(255, 255, 255, 0.08);
   --color: #fff;
   --placeholder-color: rgba(255,255,255,0.6);
@@ -59,7 +59,7 @@
   padding-inline-end: 0;
 }
 
-.add-btn {
+body.dark-theme .add-btn {
   height: 44px;
   --border-radius: 14px;
   --background: transparent;
@@ -70,8 +70,8 @@
   font-weight: 700;
 }
 
-.loading-wrap,
-.empty-card {
+body.dark-theme .loading-wrap,
+body.dark-theme .empty-card {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,38 +79,38 @@
   color: #fff;
 }
 
-.suivi-grid {
+body.dark-theme .suivi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 16px;
 }
 
-.suivi-card {
+body.dark-theme .suivi-card {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.suivi-card-head {
+body.dark-theme .suivi-card-head {
   display: flex;
   justify-content: space-between;
   gap: 12px;
   align-items: flex-start;
 }
 
-.suivi-card-title {
+body.dark-theme .suivi-card-title {
   font-size: 18px;
   font-weight: 700;
   color: #fff;
 }
 
-.suivi-card-subtitle {
+body.dark-theme .suivi-card-subtitle {
   font-size: 13px;
   color: rgba(255,255,255,0.72);
   margin-top: 4px;
 }
 
-.mini-badge {
+body.dark-theme .mini-badge {
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
   border-radius: 999px;
@@ -121,14 +121,14 @@
   border: 1px solid rgba(255,255,255,0.14);
 }
 
-.info-grid {
+body.dark-theme .info-grid {
   display: grid;
   gap: 8px;
   color: rgba(255,255,255,0.86);
   font-size: 14px;
 }
 
-.actions-row {
+body.dark-theme .actions-row {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -172,20 +172,20 @@ ion-modal ion-buttons ion-button {
 }
 
 /* contenu modal */
-.modal-content {
+body.dark-theme .modal-content {
   --background: #102342;
   color: #fff;
 }
 
-.form-wrap,
-.details-wrap {
+body.dark-theme .form-wrap,
+body.dark-theme .details-wrap {
   padding: 18px;
   display: grid;
   gap: 16px;
 }
 
-.form-card,
-.detail-card {
+body.dark-theme .form-card,
+body.dark-theme .detail-card {
   display: grid;
   gap: 12px;
   background: rgba(255,255,255,0.04);
@@ -194,19 +194,19 @@ ion-modal ion-buttons ion-button {
   padding: 14px;
 }
 
-.section-title {
+body.dark-theme .section-title {
   font-size: 16px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 4px;
 }
 
-.form-actions {
+body.dark-theme .form-actions {
   display: grid;
   gap: 10px;
 }
 
-.form-actions ion-button:first-child {
+body.dark-theme .form-actions ion-button:first-child {
   --border-radius: 14px;
   --background: transparent;
   --color: #fff;
@@ -216,7 +216,7 @@ ion-modal ion-buttons ion-button {
   font-weight: 800;
 }
 
-.form-actions ion-button:last-child {
+body.dark-theme .form-actions ion-button:last-child {
   --border-radius: 14px;
   --background: transparent;
   --color: #fff;
@@ -227,7 +227,7 @@ ion-modal ion-buttons ion-button {
 }
 
 /* champs Ionic dans formulaire */
-.form-card ion-item {
+body.dark-theme .form-card ion-item {
   --background: rgba(255,255,255,0.04);
   --border-color: rgba(255,255,255,0.1);
   --highlight-color-focused: #4da3ff;
@@ -237,35 +237,35 @@ ion-modal ion-buttons ion-button {
   margin-bottom: 2px;
 }
 
-.form-card ion-label {
+body.dark-theme .form-card ion-label {
   color: rgba(255,255,255,0.85) !important;
   font-weight: 500;
 }
 
-.form-card ion-input,
-.form-card ion-textarea {
+body.dark-theme .form-card ion-input,
+body.dark-theme .form-card ion-textarea {
   --color: #fff;
   --placeholder-color: rgba(255,255,255,0.55);
 }
 
-.form-card ion-input input,
-.form-card ion-textarea textarea {
+body.dark-theme .form-card ion-input input,
+body.dark-theme .form-card ion-textarea textarea {
   color: #fff !important;
 }
 
 /* détail */
-.details-grid {
+body.dark-theme .details-grid {
   display: grid;
   gap: 10px;
   color: rgba(255,255,255,0.88);
   font-size: 14px;
 }
 
-.details-grid strong {
+body.dark-theme .details-grid strong {
   color: #fff;
 }
 
-.obs-box {
+body.dark-theme .obs-box {
   margin-top: 10px;
   padding: 12px;
   border-radius: 14px;
@@ -275,27 +275,27 @@ ion-modal ion-buttons ion-button {
 }
 
 /* ===== table si présente ===== */
-.table-card {
+body.dark-theme .table-card {
   padding: 0;
   overflow: hidden;
 }
 
-.table-scroll {
+body.dark-theme .table-scroll {
   overflow-x: auto;
 }
 
-.itp-table {
+body.dark-theme .itp-table {
   width: 100%;
   border-collapse: collapse;
   min-width: 1200px;
 }
 
-.itp-table thead tr {
+body.dark-theme .itp-table thead tr {
   background: rgba(255,255,255,0.08);
 }
 
-.itp-table th,
-.itp-table td {
+body.dark-theme .itp-table th,
+body.dark-theme .itp-table td {
   padding: 12px 10px;
   text-align: left;
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -304,54 +304,54 @@ ion-modal ion-buttons ion-button {
   vertical-align: top;
 }
 
-.itp-table th {
+body.dark-theme .itp-table th {
   font-weight: 700;
   white-space: nowrap;
 }
 
-.itp-table tbody tr:hover {
+body.dark-theme .itp-table tbody tr:hover {
   background: rgba(255,255,255,0.04);
 }
 
-.obs-cell {
+body.dark-theme .obs-cell {
   min-width: 220px;
   white-space: pre-wrap;
 }
 
-.row-actions {
+body.dark-theme .row-actions {
   display: flex;
   gap: 6px;
   align-items: center;
 }
 
-.row-actions ion-button {
+body.dark-theme .row-actions ion-button {
   --color: rgba(255,255,255,0.9);
 }
 
-.row-actions ion-button[color="danger"] {
+body.dark-theme .row-actions ion-button[color="danger"] {
   --color: #ff8a80;
 }
 
 /* ===== confirmation suppression / modification ===== */
 /* style IonAlert */
-ion-alert.custom-confirm-alert {
+ion-alertbody.dark-theme .custom-confirm-alert {
   --backdrop-opacity: 0.35;
 }
 
-ion-alert.custom-confirm-alert::part(message) {
+ion-alertbody.dark-theme .custom-confirm-alert::part(message) {
   color: rgba(255,255,255,0.86);
 }
 
-ion-alert.custom-confirm-alert::part(header) {
+ion-alertbody.dark-theme .custom-confirm-alert::part(header) {
   color: #fff;
   font-weight: 800;
 }
 
-ion-alert.custom-confirm-alert::part(button) {
+ion-alertbody.dark-theme .custom-confirm-alert::part(button) {
   color: #fff;
 }
 
-ion-alert.custom-confirm-alert::part(wrapper) {
+ion-alertbody.dark-theme .custom-confirm-alert::part(wrapper) {
   background: rgba(7, 34, 64, 0.97);
   color: #fff;
   border-radius: 18px;
@@ -360,35 +360,35 @@ ion-alert.custom-confirm-alert::part(wrapper) {
   backdrop-filter: blur(14px);
 }
 
-ion-alert.custom-confirm-alert .alert-button-role-cancel {
+ion-alertbody.dark-theme .custom-confirm-alert .alert-button-role-cancel {
   color: #fff !important;
 }
 
-ion-alert.custom-confirm-alert .alert-button-role-destructive {
+ion-alertbody.dark-theme .custom-confirm-alert .alert-button-role-destructive {
   color: #ff8a80 !important;
 }
 
 @media (max-width: 768px) {
-  .top-toolbar-row {
+  body.dark-theme .top-toolbar-row {
     grid-template-columns: 1fr;
   }
 
-  .actions-row {
+  body.dark-theme .actions-row {
     flex-direction: column;
   }
 
-  .form-wrap,
-  .details-wrap {
+  body.dark-theme .form-wrap,
+  body.dark-theme .details-wrap {
     padding: 14px;
   }
 
-  .itp-table th,
-  .itp-table td {
+  body.dark-theme .itp-table th,
+  body.dark-theme .itp-table td {
     font-size: 12px;
     padding: 10px 8px;
   }
 }
-.native-datalist-input {
+body.dark-theme .native-datalist-input {
   width: 100%;
   background: transparent;
   border: none;
@@ -398,7 +398,7 @@ ion-alert.custom-confirm-alert .alert-button-role-destructive {
   padding: 12px 0 6px;
 }
 
-.complement-row {
+body.dark-theme .complement-row {
   display: grid;
   grid-template-columns: 1fr 1fr 44px;
   gap: 12px;
@@ -406,7 +406,7 @@ ion-alert.custom-confirm-alert .alert-button-role-destructive {
   margin-bottom: 16px;
 }
 
-.complement-row ion-item {
+body.dark-theme .complement-row ion-item {
   width: 100%;
   height: 82px;
   min-height: 82px;
@@ -419,18 +419,18 @@ ion-alert.custom-confirm-alert .alert-button-role-destructive {
   border-radius: 14px;
 }
 
-.complement-row ion-item::part(native) {
+body.dark-theme .complement-row ion-item::part(native) {
   height: 82px;
 }
 
-.complement-row .native-datalist-input,
-.complement-row ion-input {
+body.dark-theme .complement-row .native-datalist-input,
+body.dark-theme .complement-row ion-input {
   width: 100%;
   height: 34px;
   font-size: 15px;
 }
 
-.delete-complement-btn {
+body.dark-theme .delete-complement-btn {
   width: 44px;
   height: 44px;
   margin: 18px 0 0 0;
@@ -454,4 +454,32 @@ ion-alert.custom-confirm-alert .alert-button-role-destructive {
   --color: #f7fbfd;
   font-weight: 800;
   letter-spacing: 0.8px;
+}
+/* barre de recherche fixe, ne scroll pas */
+body.dark-theme .top-toolbar-card {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  margin-bottom: 16px;
+}
+
+/* le scroll reste seulement dans le tableau */
+body.dark-theme .table-card {
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+/* scroll vertical + horizontal du contenu table */
+body.dark-theme .table-scroll {
+  max-height: 70vh;
+  overflow: auto;
+}
+
+/* titre/header du tableau fixe */
+body.dark-theme .itp-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(16, 35, 66, 0.98);
+  color: #fff;
 }

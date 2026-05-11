@@ -18,7 +18,8 @@ import {
   getMyDiscussion,
   sendClientMessage,
 } from "../services/discussionService";
-import "./ClientDiscussionPage.css";
+import "./ClientDiscussionPage.dark.css";
+import "./ClientDiscussionPage.light.css";
 import Menuclient from "../components/Menuclient";
 import { markClientMessagesRead } from "../services/discussionService";
 
