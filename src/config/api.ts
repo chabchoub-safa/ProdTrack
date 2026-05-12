@@ -1,5 +1,5 @@
 // src/config/api.ts
-export const API_HOST = "http://192.168.0.71";
+export const API_HOST = "http://172.16.0.31";
 export const API_PORT = 8081;
 
 export const API_BASE = `${API_HOST}:${API_PORT}`;
