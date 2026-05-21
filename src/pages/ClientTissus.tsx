@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
   IonPage, IonContent, IonSearchbar, IonModal,
-  IonHeader, IonToolbar, IonTitle, IonButton, IonIcon, IonToast
+  IonHeader, IonToolbar, IonTitle, IonButton, IonIcon, IonToast,
+  IonSelect, IonSelectOption
 } from "@ionic/react";
 import { closeOutline, downloadOutline } from "ionicons/icons";
 import "./CommonDesign.dark.css";
@@ -39,18 +40,36 @@ const loadMachineCodes = async () => {
 
 useEffect(() => {
   loadMachineCodes();
-}, []);  const load = async () => {
-    try {
-      const data = await listMyTissus(q.trim() ? q.trim() : undefined);
-      setItems(data);
-    } catch (e: any) {
-      setToast({ open: true, msg: e?.response?.data || "❌ Erreur chargement" });
-    }
-  };
+}, []); 
+//  const load = async () => {
+//     try {
+//       const data = await listMyTissus(q.trim() ? q.trim() : undefined);
+//       setItems(data);
+//     } catch (e: any) {
+//       setToast({ open: true, msg: e?.response?.data || "❌ Erreur chargement" });
+//     }
+//   };
+const load = async () => {
+  try {
+    const data = await listMyTissus(q.trim() ? q.trim() : undefined);
 
+    const filtered =
+      etatFilter === "ALL"
+        ? data
+        : data.filter((t: any) => t.statut === etatFilter);
+
+    setItems(filtered);
+  } catch (e: any) {
+    setToast({ open: true, msg: e?.response?.data || "❌ Erreur chargement" });
+  }
+};
+const [etatFilter, setEtatFilter] = useState<string>("ALL");
   useEffect(() => { load(); }, []);
-  useEffect(() => { const t = setTimeout(load, 300); return () => clearTimeout(t); }, [q]);
-
+  // useEffect(() => { const t = setTimeout(load, 300); return () => clearTimeout(t); }, [q]);
+useEffect(() => {
+  const t = setTimeout(load, 300);
+  return () => clearTimeout(t);
+}, [q, etatFilter]);
   const openDetails = async (t: any) => {
     try {
       setSelected(t);
@@ -90,6 +109,17 @@ useEffect(() => {
               onIonChange={(e) => setQ(e.detail.value!)}
               placeholder="Rechercher un Article..."
             />
+            <IonSelect
+  className="etat-filter"
+  value={etatFilter}
+  interface="popover"
+  onIonChange={(e) => setEtatFilter(e.detail.value)}
+>
+  <IonSelectOption value="ALL">Tous</IonSelectOption>
+  <IonSelectOption value="EN_STOCK">En stock</IonSelectOption>
+  <IonSelectOption value="EN_TRAITEMENT">En traitement</IonSelectOption>
+  <IonSelectOption value="LIVRE">Livré</IonSelectOption>
+</IonSelect>
             {/* ✅ pas de bouton Ajouter */}
           </div>
 

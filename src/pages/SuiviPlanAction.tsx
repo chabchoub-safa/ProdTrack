@@ -1617,22 +1617,53 @@ useEffect(() => {
           </IonContent>
         </IonModal>
 
-        <IonAlert
-          isOpen={confirmDeleteOpen}
-          onDidDismiss={() => setConfirmDeleteOpen(false)}
-          header="Confirmation"
-          message={`Supprimer l'enregistrement ${
-            itemToDelete?.entreprise || ""
-          } ?`}
-          buttons={[
-            { text: "Annuler", role: "cancel" },
-            {
-              text: "Supprimer",
-              role: "destructive",
-              handler: handleDelete,
-            },
-          ]}
-        />
+       <IonModal
+                 isOpen={confirmDeleteOpen}
+                 onDidDismiss={() => {
+                   setConfirmDeleteOpen(false);
+                   setItemToDelete(null);
+                 }}
+                 className="confirm-delete-modal"
+               >
+                 <div className="confirm-modal">
+                   <div className="modal-head">
+                     <h3>Confirmation</h3>
+       
+                     <IonButton
+                       fill="clear"
+                       className="modal-close-btn"
+                       onClick={() => {
+                         setConfirmDeleteOpen(false);
+                         setItemToDelete(null);
+                       }}
+                     >
+                       <IonIcon icon={closeOutline} />
+                     </IonButton>
+                   </div>
+       
+                   <div className="confirm-body">
+                     Voulez-vous vraiment supprimer l'enregistrement{" "}
+                     <strong>{itemToDelete?.entreprise || ""}</strong> ?
+                   </div>
+       
+                   <div className="confirm-actions">
+                     <IonButton
+                       className="btn-cancel"
+                       fill="outline"
+                       onClick={() => {
+                         setConfirmDeleteOpen(false);
+                         setItemToDelete(null);
+                       }}
+                     >
+                       Annuler
+                     </IonButton>
+       
+                     <IonButton className="btn-confirm" onClick={handleDelete}>
+                       Oui, supprimer
+                     </IonButton>
+                   </div>
+                 </div>
+               </IonModal>
 
         <IonToast
           isOpen={!!toast}
