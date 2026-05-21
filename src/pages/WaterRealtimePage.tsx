@@ -11,14 +11,22 @@ import {
   AreaChart,
   Area,
 } from "recharts";
-import { predictWaterPeriod } from "../services/waterPredictionService";
-import TopMenu from "../components/TopMenu";
+import { predictWaterPeriod  } from "../services/waterPredictionService";
+import { getWaterHistoryByRange  } from "../services/water.service";
 
+import TopMenu from "../components/TopMenu";
+import { IonSelect, IonSelectOption, IonButton } from "@ionic/react";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+import html2canvas from "html2canvas";
+import { useRef } from "react";
 import { useWaterDashboard } from "../hook/useWaterRealtime";
 import "./WaterRealtimePage.light.css";
 import "./WaterRealtimePage.dark.css";
 
 const WaterRealtimePage: React.FC = () => {
+  const [selectedMachine, setSelectedMachine] = useState("ALL");
+
   const {
     
     period,
@@ -33,7 +41,16 @@ const WaterRealtimePage: React.FC = () => {
     stats,
     chartData,
     reload,
-  } = useWaterDashboard();
+  } = useWaterDashboard(selectedMachine);
+  const chartRef = useRef<HTMLDivElement>(null);
+
+
+const machineOptions = [
+  { id: "ALL", label: "Toutes les machines" },
+  { id: "ESP32S3__01", label: "Machine 1" },
+  { id: "ESP32S3_EAU_01", label: "Machine 2" },
+  
+];
   const [startDate, setStartDate] = useState("");
 const [endDate, setEndDate] = useState("");
 const [prediction, setPrediction] = useState<any>(null);
@@ -55,6 +72,178 @@ const handlePredictWaterPeriod = async () => {
     setLoadingPrediction(false);
   }
 };
+const downloadWaterPdf = async () => {
+  const pdf = new jsPDF("p", "mm", "a4");
+
+  const pageWidth = pdf.internal.pageSize.getWidth();
+
+  const getValue = (row: any, keys: string[]) => {
+    for (const key of keys) {
+      if (row[key] !== undefined && row[key] !== null) {
+        return Number(row[key]).toFixed(3);
+      }
+    }
+    return "-";
+  };
+
+  const tableRows = chartData.slice(-30);
+
+  // ===== Header =====
+  pdf.setFillColor(15, 23, 42);
+  pdf.rect(0, 0, pageWidth, 32, "F");
+
+  pdf.setTextColor(255, 255, 255);
+  pdf.setFontSize(18);
+  pdf.setFont("helvetica", "bold");
+  pdf.text("Rapport consommation d'eau", 14, 14);
+
+  pdf.setFontSize(10);
+  pdf.setFont("helvetica", "normal");
+  pdf.text("Système IoT - Suivi consommation eau", 14, 23);
+
+  // ===== Infos =====
+  pdf.setTextColor(30, 41, 59);
+  pdf.setFontSize(11);
+  pdf.setFont("helvetica", "bold");
+
+  pdf.text("Machine :", 14, 42);
+  pdf.setFont("helvetica", "normal");
+  pdf.text(selectedMachine === "ALL" ? "Toutes les machines" : selectedMachine, 38, 42);
+
+  pdf.setFont("helvetica", "bold");
+  pdf.text("Date export :", 14, 50);
+  pdf.setFont("helvetica", "normal");
+  pdf.text(new Date().toLocaleString(), 42, 50);
+
+  // ===== Cartes stats =====
+  const cards = [
+    ["Consommation", `${stats?.totalConsumption?.toFixed?.(3) ?? "0.000"} L`],
+    ["Débit moyen", `${stats?.avgFlow?.toFixed?.(3) ?? "0.000"} L/min`],
+    // ["Pic débit", `${stats?.maxFlow?.toFixed?.(3) ?? "0.000"} L/min`],
+    ["Mesures", `${stats?.count ?? chartData.length}`],
+  ];
+
+  let x = 14;
+  cards.forEach(([title, value]) => {
+    pdf.setFillColor(226, 232, 240);
+    pdf.roundedRect(x, 60, 42, 20, 3, 3, "F");
+
+    pdf.setTextColor(71, 85, 105);
+    pdf.setFontSize(8);
+    pdf.setFont("helvetica", "bold");
+    pdf.text(title, x + 4, 68);
+
+    pdf.setTextColor(15, 23, 42);
+    pdf.setFontSize(11);
+    pdf.text(value, x + 4, 76);
+
+    x += 46;
+  });
+
+  // ===== Graphique =====
+  if (chartRef.current) {
+    const canvas = await html2canvas(chartRef.current, {
+      scale: 2,
+      backgroundColor: "#ffffff",
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+
+    pdf.setFontSize(13);
+    pdf.setFont("helvetica", "bold");
+    pdf.setTextColor(15, 23, 42);
+    pdf.text("Courbes de consommation", 14, 92);
+
+    pdf.addImage(imgData, "PNG", 14, 98, 182, 80);
+  }
+
+  // ===== Tableau =====
+  autoTable(pdf, {
+    startY: 188,
+    head: [["Date", "Débit (L/min)", "Total litres"]],
+    body: tableRows.map((row: any) => [
+      row.time || row.date || "-",
+      getValue(row, ["flow", "flowLMin", "debit"]),
+      getValue(row, ["total", "totalLiters", "cumulative", "consumption"]),
+    ]),
+    theme: "grid",
+    headStyles: {
+      fillColor: [15, 23, 42],
+      textColor: [255, 255, 255],
+      fontStyle: "bold",
+      halign: "center",
+    },
+    bodyStyles: {
+      textColor: [30, 41, 59],
+      fontSize: 9,
+    },
+    alternateRowStyles: {
+      fillColor: [241, 245, 249],
+    },
+    styles: {
+      cellPadding: 3,
+      lineColor: [203, 213, 225],
+      lineWidth: 0.2,
+    },
+  });
+
+  // ===== Footer =====
+  const pageCount = pdf.getNumberOfPages();
+
+  for (let i = 1; i <= pageCount; i++) {
+    pdf.setPage(i);
+    pdf.setFontSize(8);
+    pdf.setTextColor(100, 116, 139);
+    pdf.text(`Page ${i} / ${pageCount}`, pageWidth - 30, 290);
+    pdf.text("Généré automatiquement par la plateforme CETTEX IoT", 14, 290);
+  }
+
+  pdf.save(`rapport-eau-${selectedMachine}.pdf`);
+};
+// const downloadWaterPdf = async () => {
+//   const pdf = new jsPDF("p", "mm", "a4");
+
+//   pdf.setFontSize(16);
+//   pdf.text("Rapport consommation d'eau", 14, 15);
+
+//   pdf.setFontSize(10);
+//   pdf.text(
+//     `Machine : ${
+//       selectedMachine === "ALL" ? "Toutes les machines" : selectedMachine
+//     }`,
+//     14,
+//     23
+//   );
+
+//   if (chartRef.current) {
+//     const canvas = await html2canvas(chartRef.current);
+//     const imgData = canvas.toDataURL("image/png");
+//     pdf.addImage(imgData, "PNG", 10, 35, 190, 80);
+//   }
+
+//  const getValue = (row: any, keys: string[]) => {
+//   for (const key of keys) {
+//     if (row[key] !== undefined && row[key] !== null) {
+//       return Number(row[key]).toFixed(3);
+//     }
+//   }
+//   return "-";
+// };
+
+// const tableRows = chartData.slice(-30);
+
+// autoTable(pdf, {
+//   startY: 125,
+//   head: [["Date", "Débit (L/min)", "Total litres"]],
+//   body: tableRows.map((row: any) => [
+//     row.time || row.date || "-",
+//     getValue(row, ["flow", "flowLMin", "debit"]),
+//     getValue(row, ["total", "totalLiters", "cumulative", "consumption"]),
+//   ]),
+// });
+
+//   pdf.save("rapport-eau.pdf");
+// };
   return (
     <IonPage>
       <IonContent fullscreen className="water-page">
@@ -73,6 +262,18 @@ const handlePredictWaterPeriod = async () => {
 
           <div className="filters-card">
             <div className="filters-top">
+              <IonSelect
+  className="machine-filter"
+  value={selectedMachine}
+  interface="popover"
+  onIonChange={(e) => setSelectedMachine(e.detail.value)}
+>
+  {machineOptions.map((m) => (
+    <IonSelectOption key={m.id} value={m.id}>
+      {m.label}
+    </IonSelectOption>
+  ))}
+</IonSelect>
               <button
                 className={period === "today" ? "active" : ""}
                 onClick={() => setPeriod("today")}
@@ -104,7 +305,9 @@ const handlePredictWaterPeriod = async () => {
 >
   Prédiction IA - Eau
 </button>
-
+<button className="pdf-btn" onClick={downloadWaterPdf}>
+  Télécharger PDF
+</button>
 
               <div className={`status-chip ${connected ? "online" : "offline"}`}>
               {connected ? "Capteur connecté" : "Capteur déconnecté"}
@@ -181,7 +384,7 @@ const handlePredictWaterPeriod = async () => {
   </div>
 )}
           </div>
-
+<div ref={chartRef}>
           <div className="stats-grid">
              <div className="stat-card">
               <span>Appareil</span>
@@ -265,7 +468,7 @@ const handlePredictWaterPeriod = async () => {
               </div>
             </div>
           </div>
-
+</div>
           {/* <div className="bottom-grid">
             <div className="card">
               <div className="card-head">

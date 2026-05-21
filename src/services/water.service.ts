@@ -19,13 +19,43 @@ export interface DateRange {
   end: string;
 }
 
+// export async function getWaterHistoryByRange(
+//   start: string,
+//   end: string
+// ): Promise<WaterMeasurement[]> {
+//   const res = await fetch(
+//     `${API_BASE}/api/water/history?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`
+//   );
+
+//   if (!res.ok) {
+//     throw new Error("Erreur chargement historique eau");
+//   }
+
+//   return res.json();
+// }
 export async function getWaterHistoryByRange(
   start: string,
-  end: string
+  end: string,
+  deviceId: string = "ALL"
 ): Promise<WaterMeasurement[]> {
-  const res = await fetch(
-    `${API_BASE}/api/water/history?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`
-  );
+  const params = new URLSearchParams();
+
+  params.append("start", start);
+  params.append("end", end);
+
+  if (deviceId && deviceId !== "ALL") {
+    params.append("deviceId", deviceId);
+  }
+
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`${API_BASE}/api/water/history?${params.toString()}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+  });
 
   if (!res.ok) {
     throw new Error("Erreur chargement historique eau");
@@ -86,3 +116,31 @@ export function connectWaterSocket(
 
 //   return response.json();
 // };
+export async function getWaterTodayHistory(
+  deviceId: string = "ALL"
+): Promise<WaterMeasurement[]> {
+  const params = new URLSearchParams();
+
+  if (deviceId && deviceId !== "ALL") {
+    params.append("deviceId", deviceId);
+  }
+
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(
+    `${API_BASE}/api/water/history/today${params.toString() ? `?${params.toString()}` : ""}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Erreur chargement historique eau aujourd'hui");
+  }
+
+  return res.json();
+}

@@ -1401,3 +1401,29 @@ body.light-theme .confirm-restore-modal .confirm-modal {
   width: 100% !important;
   margin: 0 !important;
 }
+body.light-theme .top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+body.light-theme .top-row ion-searchbar {
+  flex: 1;
+}
+
+body.light-theme .etat-filter {
+  width: 170px;
+  height: 44px;
+  border-radius: 14px;
+  padding: 0 12px;
+  font-weight: 600;
+
+  --background: rgba(255, 255, 255, 0.95);
+  --color: #1e293b;
+  --placeholder-color: #64748b;
+
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}

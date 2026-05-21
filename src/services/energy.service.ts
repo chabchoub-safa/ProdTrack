@@ -16,19 +16,61 @@ export interface EnergyMeasurement {
   receivedAt: string;
 }
 
-export async function getEnergyHistoryByRange(start: string, end: string): Promise<EnergyMeasurement[]> {
-  const res = await fetch(
-    `${APIform7}/history?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`
-  );
+export async function getEnergyHistoryByRange(
+  start: string,
+  end: string,
+  deviceId: string = "ALL"
+): Promise<EnergyMeasurement[]> {
+  const params = new URLSearchParams();
+
+  params.append("start", start);
+  params.append("end", end);
+
+  if (deviceId && deviceId !== "ALL") {
+    params.append("deviceId", deviceId);
+  }
+
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`${APIform7}/history?${params.toString()}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+  });
+
   if (!res.ok) throw new Error("Erreur chargement historique énergie");
+
   return res.json();
 }
 
-export async function getEnergyStats(start: string, end: string) {
-  const res = await fetch(
-    `${APIform7}/stats?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`
-  );
+export async function getEnergyStats(
+  start: string,
+  end: string,
+  deviceId: string = "ALL"
+) {
+  const params = new URLSearchParams();
+
+  params.append("start", start);
+  params.append("end", end);
+
+  if (deviceId && deviceId !== "ALL") {
+    params.append("deviceId", deviceId);
+  }
+
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`${APIform7}/stats?${params.toString()}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+  });
+
   if (!res.ok) throw new Error("Erreur chargement stats énergie");
+
   return res.json();
 }
 

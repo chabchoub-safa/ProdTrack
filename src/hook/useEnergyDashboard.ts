@@ -40,8 +40,7 @@ function getRange(period: PeriodType, customStart?: string, customEnd?: string) 
   };
 }
 
-export function useEnergyDashboard() {
-  const [period, setPeriod] = useState<PeriodType>("today");
+export function useEnergyDashboard(selectedMachine: string = "ALL") {  const [period, setPeriod] = useState<PeriodType>("today");
   const [customStart, setCustomStart] = useState("");
   const [customEnd, setCustomEnd] = useState("");
   const [history, setHistory] = useState<EnergyMeasurement[]>([]);
@@ -50,14 +49,16 @@ export function useEnergyDashboard() {
 
   const loadData = useCallback(async () => {
     const range = getRange(period, customStart, customEnd);
-    const data = await getEnergyHistoryByRange(range.start, range.end);
-    const ordered = [...data].sort(
+const data = await getEnergyHistoryByRange(
+  range.start,
+  range.end,
+  selectedMachine
+);    const ordered = [...data].sort(
       (a, b) => new Date(a.receivedAt).getTime() - new Date(b.receivedAt).getTime()
     );
     setHistory(ordered);
     setLatest(ordered.length ? ordered[ordered.length - 1] : null);
-  }, [period, customStart, customEnd]);
-
+}, [period, customStart, customEnd, selectedMachine]);
   useEffect(() => {
     loadData().catch(console.error);
   }, [loadData]);

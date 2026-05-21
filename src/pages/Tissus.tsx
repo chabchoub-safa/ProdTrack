@@ -10,6 +10,8 @@ import {
   IonSearchbar,
   IonButton,
   IonIcon,
+  IonSelect,
+IonSelectOption,
   IonModal,
   IonInput,
   IonToast,
@@ -41,7 +43,6 @@ type ComboBoxProps = {
 
 function ComboBox({ value, options, placeholder, onChange, onAddNew }: ComboBoxProps) {
   const [open, setOpen] = useState(false);
-
   const filtered = options.filter((op) =>
     op.toLowerCase().includes((value || "").toLowerCase())
   );
@@ -102,6 +103,7 @@ function ComboBox({ value, options, placeholder, onChange, onAddNew }: ComboBoxP
 }
 
 export default function Tissus() {
+  const [etatFilter, setEtatFilter] = useState<string>("ALL");
   const [q, setQ] = useState("");
   const [items, setItems] = useState<any[]>([]);
   const [selected, setSelected] = useState<any>(null);
@@ -267,10 +269,20 @@ export default function Tissus() {
     }
   };
 
+  // const load = async () => {
+  //   const data = await listTissus(q.trim() ? q.trim() : undefined);
+  //   setItems(data);
+  // };
   const load = async () => {
-    const data = await listTissus(q.trim() ? q.trim() : undefined);
-    setItems(data);
-  };
+  const data = await listTissus(q.trim() ? q.trim() : undefined);
+
+  const filtered =
+    etatFilter === "ALL"
+      ? data
+      : data.filter((t: any) => t.statut === etatFilter);
+
+  setItems(filtered);
+};
 
   const loadMachines = async () => {
     const ms = await listMachines();
@@ -290,10 +302,15 @@ export default function Tissus() {
     load();
   }, []);
 
-  useEffect(() => {
-    const t = setTimeout(load, 300);
-    return () => clearTimeout(t);
-  }, [q]);
+  // useEffect(() => {
+  //   const t = setTimeout(load, 300);
+  //   return () => clearTimeout(t);
+  // }, [q]);
+
+useEffect(() => {
+  const t = setTimeout(load, 300);
+  return () => clearTimeout(t);
+}, [q, etatFilter]);
 
   const openDetails = async (t: any) => {
     setSelected(t);
@@ -324,6 +341,7 @@ export default function Tissus() {
   const onCreate = async () => {
     try {
       if (!form.code.trim()) return setToast({ open: true, msg: "Code Article obligatoire" });
+
       if (!form.demande.client.trim()) return setToast({ open: true, msg: "Client obligatoire" });
       if (form.routeMachineIds.length === 0)
         return setToast({ open: true, msg: "Workflow machines obligatoire" });
@@ -453,6 +471,7 @@ export default function Tissus() {
     try {
       if (!editId) return;
       if (!editForm.code.trim()) return setToast({ open: true, msg: "Code Article obligatoire" });
+
       if (!editForm.demande.numeroDemande.trim())
         return setToast({ open: true, msg: "N° Demande obligatoire" });
       if (!editForm.demande.client.trim()) return setToast({ open: true, msg: "Client obligatoire" });
@@ -476,18 +495,43 @@ export default function Tissus() {
         <TopMenu title="🧵 Articles" />
 
         <div className="container">
-          <div className="top-row">
+          {/* <div className="top-row">
             <IonSearchbar
-              value={q}
-              onIonChange={(e) => setQ(e.detail.value!)}
-              placeholder="Rechercher un Article..."
-            />
+  value={q}
+  debounce={0}
+  onIonInput={(e) => setQ(String(e.detail.value ?? ""))}
+  placeholder="Rechercher un Article..."
+/>
             <IonButton className="btn-main" onClick={() => setAddOpen(true)}>
               <IonIcon icon={addOutline} slot="start" />
               Ajouter
             </IonButton>
-          </div>
+          </div> */}
+<div className="top-row">
+  <IonSearchbar
+    value={q}
+    debounce={0}
+    onIonInput={(e) => setQ(String(e.detail.value ?? ""))}
+    placeholder="Rechercher un Article..."
+  />
 
+  <IonSelect
+    className="etat-filter"
+    value={etatFilter}
+    interface="popover"
+    onIonChange={(e) => setEtatFilter(e.detail.value)}
+  >
+    <IonSelectOption value="ALL">Tous</IonSelectOption>
+    <IonSelectOption value="EN_STOCK">En stock</IonSelectOption>
+    <IonSelectOption value="EN_TRAITEMENT">En traitement</IonSelectOption>
+    <IonSelectOption value="LIVRE">Livré</IonSelectOption>
+  </IonSelect>
+
+  <IonButton className="btn-main" onClick={() => setAddOpen(true)}>
+    <IonIcon icon={addOutline} slot="start" />
+    Ajouter
+  </IonButton>
+</div>
           {items.map((t) => (
             <div key={t.id} className="card card-tissu" onClick={() => openDetails(t)}>
               <IonButton
@@ -531,7 +575,7 @@ export default function Tissus() {
             </div>
 
             <div className="field">
-              <label className="label">Code Article</label>
+              <label className="label">*Code Article</label>
               <IonInput
                 className="input-plain"
                 value={form.code}
@@ -622,7 +666,7 @@ export default function Tissus() {
             </div>
 
             <div className="field">
-              <label className="label">Client</label>
+              <label className="label">*Client</label>
               <ComboBox
                 value={form.demande.client ? `${form.demande.client} - ${form.clientEmail}` : ""}
                 options={clientOptions}
@@ -878,7 +922,7 @@ export default function Tissus() {
             </div>
 
             <div className="field">
-              <label className="label">Quantite</label>
+              <label className="label">Quantite (K)</label>
               <IonInput
                 className="input-plain"
                 value={form.demande.Quantite}
@@ -890,7 +934,7 @@ export default function Tissus() {
             </div>
 
             <div className="field">
-              <label className="label">Prix</label>
+              <label className="label">Prix (DT)</label>
               <IonInput
                 className="input-plain"
                 value={form.demande.Prix}
@@ -914,7 +958,7 @@ export default function Tissus() {
             </div>
 
             <div className="field">
-              <label className="label">Workflow machines (ordre)</label>
+              <label className="label">*Workflow machines (ordre)</label>
               <ComboBox
                 value={selectedMachineId}
                 options={machineOptions}

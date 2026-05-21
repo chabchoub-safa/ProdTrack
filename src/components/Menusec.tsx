@@ -126,6 +126,8 @@ import {
   flaskOutline,
   schoolOutline,
   gridOutline,
+   peopleOutline,
+  businessOutline,
   logOutOutline,
 } from "ionicons/icons";
 import { useLocation } from "react-router";
@@ -154,6 +156,7 @@ const Menusec: React.FC<Props> = ({ title, onMenuClick, showLogout = true }) => 
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
+    localStorage.removeItem("isLoggedIn");
     router.push("/login", "root", "replace");
   };
 
@@ -169,8 +172,8 @@ const Menusec: React.FC<Props> = ({ title, onMenuClick, showLogout = true }) => 
 
         <div className="topbar-nav">
           <button
-            className={`topnav-btn ${location.pathname === "/ITP" ? "active" : ""}`}
-            onClick={() => go("/ITP")}
+            className={`topnav-btn ${location.pathname === "/itp" ? "active" : ""}`}
+            onClick={() => go("/itp")}
           >
             <IonIcon icon={documentTextOutline} />
             <span>ITS</span>
@@ -181,7 +184,7 @@ const Menusec: React.FC<Props> = ({ title, onMenuClick, showLogout = true }) => 
             onClick={() => go("/plan")}
           >
             <IonIcon icon={clipboardOutline} />
-            <span>Suivi Plan Action</span>
+            <span> Plan Action</span>
           </button>
 
           <button
@@ -222,6 +225,20 @@ const Menusec: React.FC<Props> = ({ title, onMenuClick, showLogout = true }) => 
           >
             <IonIcon icon={gridOutline} />
             <span>General Dashboard</span>
+          </button>
+          {/* <button
+            className={`topnav-btn ${location.pathname === "/personnel" ? "active" : ""}`}
+            onClick={() => go("/personnel")}
+          >
+            <IonIcon icon={peopleOutline} />
+            <span>personnel</span>
+          </button> */}
+          <button
+            className={`topnav-btn ${location.pathname === "/Entreprise" ? "active" : ""}`}
+            onClick={() => go("/entreprise")}
+          >
+            <IonIcon icon={businessOutline} />
+            <span>Entreprise</span>
           </button>
         </div>
 

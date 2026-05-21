@@ -145,10 +145,11 @@ const [selectedRappel, setSelectedRappel] = useState<any>(null);
           {/* ✅ top-row + searchbar + btn-main comme Tissus */}
           <div className="top-row">
             <IonSearchbar
-              value={q}
-              onIonChange={(e) => setQ(e.detail.value!)}
-              placeholder="Rechercher un rappel..."
-            />
+  value={q}
+  debounce={0}
+  onIonInput={(e) => setQ(String(e.detail.value ?? ""))}
+  placeholder="Rechercher un rappel..."
+/>
             <IonButton className="btn-main" onClick={openAdd}>
               <IonIcon icon={addOutline} slot="start" />
               Ajouter

@@ -329,3 +329,6 @@ body.dark-theme .filters-card {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
+body.dark-theme .machine-filter{
+  color: #e8edf5;
+}

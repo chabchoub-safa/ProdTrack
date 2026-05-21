@@ -130,19 +130,48 @@ const onRestore = async (id: string) => {
     );
   }, [items, q]);
 
+  // const openDetails = async (u: User) => {
+  //   setSelected(u);
+  //   setOpen(true);
+  //   setLoadingTissus(true);
+  //   try {
+  //     const data = mode === "clients"
+  //       ? await listTissusByClient(u.id)
+  //       : await listTissusByTechnicien(u.id);
+  //     setTissus(data);
+  //   } finally {
+  //     setLoadingTissus(false);
+  //   }
+  // };
   const openDetails = async (u: User) => {
-    setSelected(u);
-    setOpen(true);
-    setLoadingTissus(true);
-    try {
-      const data = mode === "clients"
-        ? await listTissusByClient(u.id)
-        : await listTissusByTechnicien(u.id);
-      setTissus(data);
-    } finally {
-      setLoadingTissus(false);
+  setSelected(u);
+  setOpen(true);
+  setLoadingTissus(true);
+  setTissus([]);
+
+  try {
+    let data: TissuLite[] = [];
+
+    if (mode === "clients") {
+      data = await listTissusByClient(u.id);
+    } else if (mode === "techs") {
+      data = await listTissusByTechnicien();
+    } else {
+      data = [];
     }
-  };
+
+    console.log("MODE =", mode);
+    console.log("USER ID =", u.id);
+    console.log("ARTICLES =", data);
+
+    setTissus(data);
+  } catch (e) {
+    console.error("Erreur chargement articles liés =", e);
+    setTissus([]);
+  } finally {
+    setLoadingTissus(false);
+  }
+};
 
   return (
     <IonPage className="page-bg">
@@ -350,9 +379,20 @@ const onRestore = async (id: string) => {
             </div>
 
             <div className="card">
-              <h2 style={{ marginTop: 0 }}>
-                {mode === "clients" ? "🧵 Article du client" : "🧵 Article en cours (technicien)"}
-              </h2>
+              {(mode === "clients" || mode === "techs") && (
+  <h2 style={{ marginTop: 0 }}>
+    {mode === "clients"
+      ? "🧵 Article du client"
+      : "🧵 Article en cours (technicien)"}
+  </h2>
+)}
+              {/* <h2 style={{ marginTop: 0 }}>
+  {mode === "clients"
+    ? "🧵 Article du client"
+    : mode === "techs"
+    ? "🧵 Article en cours (technicien)"
+    : ""}
+</h2> */}
 
               {loadingTissus ? (
                 <div className="muted">Chargement...</div>

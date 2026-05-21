@@ -17,6 +17,8 @@ import {
   IonItem,
   IonLabel,
   IonAlert,
+IonSelect,
+IonSelectOption,
 } from "@ionic/react";
 
 import {
@@ -26,7 +28,8 @@ import {
   trashOutline,
   eyeOutline,
 } from "ionicons/icons";
-
+import type { EntrepriseStats } from "../services/entrepriseService";
+import { getEntreprises } from "../services/entrepriseService";
 import Menusec from "../components/Menusec";
 import "./SuiviITP.dark.css";
 import "./SuiviITP.light.css";
@@ -41,6 +44,7 @@ import {
   updateAssTech,
   deleteAssTech,
 } from "../services/assTech.service";
+import { ComplementOption, listComplements } from "../services/hjSummary.service";
 
 const emptyForm: AssTechType = {
   cat: "",
@@ -97,7 +101,8 @@ const AssTech: React.FC = () => {
   const [itemToDelete, setItemToDelete] = useState<AssTechType | null>(null);
 
   const [categories, setCategories] = useState<string[]>([]);
-  const [entreprises, setEntreprises] = useState<string[]>([]);
+  // const [entreprises, setEntreprises] = useState<string[]>([]);
+  const [entreprises, setEntreprises] = useState<EntrepriseStats[]>([]);
   const [complementNames, setComplementNames] = useState<string[]>([
     "abdlhmid",
     "insaf",
@@ -105,7 +110,11 @@ const AssTech: React.FC = () => {
     "majdi",
     "chourouk",
   ]);
+const [complementOptions, setComplementOptions] = useState<ComplementOption[]>([]);
 
+useEffect(() => {
+  listComplements().then(setComplementOptions);
+}, []);
   const load = async (searchText?: string) => {
     try {
       setLoading(true);
@@ -124,15 +133,7 @@ const AssTech: React.FC = () => {
         )
       );
 
-      setEntreprises(
-        Array.from(
-          new Set(
-            dataList
-              .map((x) => x.entreprise?.trim())
-              .filter((x): x is string => !!x)
-          )
-        )
-      );
+   
 
       const allComplements = dataList
         .flatMap((x) => x.complements || [])
@@ -153,7 +154,11 @@ const AssTech: React.FC = () => {
   useEffect(() => {
     load();
   }, []);
-
+useEffect(() => {
+  getEntreprises(false)
+    .then(setEntreprises)
+    .catch(console.error);
+}, []);
   const filteredItems = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return items;
@@ -483,7 +488,7 @@ const AssTech: React.FC = () => {
                   </datalist>
                 </IonItem>
 
-                <IonItem>
+                {/* <IonItem>
                   <IonLabel position="stacked">Entreprise</IonLabel>
                   <input
                     className="native-datalist-input"
@@ -499,8 +504,29 @@ const AssTech: React.FC = () => {
                       <option key={e} value={e} />
                     ))}
                   </datalist>
-                </IonItem>
+                </IonItem> */}
+<IonItem>
+  <IonLabel position="stacked">Entreprise</IonLabel>
 
+  <input
+    className="native-datalist-input"
+    list="entreprises-ass-tech-list"
+    value={form.entreprise || ""}
+    placeholder="Choisir ou saisir une entreprise"
+    onChange={(e) =>
+      setForm({
+        ...form,
+        entreprise: e.target.value,
+      })
+    }
+  />
+
+  <datalist id="entreprises-ass-tech-list">
+    {entreprises.map((ent) => (
+      <option key={ent.id} value={ent.nomEntreprise} />
+    ))}
+  </datalist>
+</IonItem>
                 <IonItem>
                   <IonLabel position="stacked">Objet</IonLabel>
                   <IonInput
@@ -622,7 +648,7 @@ const AssTech: React.FC = () => {
               <div className="glass-card form-card">
                 <div className="section-title">Compléments</div>
 
-                {(form.complements || []).map((comp, index) => (
+                {/* {(form.complements || []).map((comp, index) => (
                   <div key={index} className="complement-row">
                     <IonItem>
                       <IonLabel position="stacked">Nom complément</IonLabel>
@@ -661,8 +687,59 @@ const AssTech: React.FC = () => {
                       <IonIcon icon={trashOutline} />
                     </IonButton>
                   </div>
-                ))}
+                ))} */}
+{(form.complements || []).map((c, index) => (
+  <div key={index} className="complement-row">
+    <IonItem>
+      <IonLabel position="stacked">Nom complément</IonLabel>
 
+      <select
+        className="native-datalist-input"
+        value={c.nom}
+        onChange={(e) => {
+          const copy = [...(form.complements || [])];
+          copy[index] = { ...copy[index], nom: e.target.value };
+          setForm({ ...form, complements: copy });
+        }}
+      >
+        <option value="">Choisir complément</option>
+
+        {complementOptions.map((opt) => (
+          <option key={opt.id} value={opt.nom}>
+            {opt.nom}
+          </option>
+        ))}
+      </select>
+    </IonItem>
+
+    <IonItem>
+      <IonLabel position="stacked">Valeur</IonLabel>
+
+      <IonInput
+        type="number"
+        value={c.valeur}
+        placeholder="Valeur H/J"
+        onIonInput={(e) => {
+          const copy = [...(form.complements || [])];
+          copy[index] = {
+            ...copy[index],
+            valeur: e.detail.value || "",
+          };
+          setForm({ ...form, complements: copy });
+        }}
+      />
+    </IonItem>
+
+    <IonButton
+      fill="clear"
+      color="danger"
+      className="delete-complement-btn"
+      onClick={() => removeComplement(index)}
+    >
+      <IonIcon icon={trashOutline} />
+    </IonButton>
+  </div>
+))}
                 <datalist id="complements-ass-tech-list">
                   {complementNames.map((c) => (
                     <option key={c} value={c} />
@@ -746,6 +823,7 @@ const AssTech: React.FC = () => {
                 >
                   Annuler
                 </IonButton>
+              
               </div>
             </div>
           </IonContent>

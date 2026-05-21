@@ -11,7 +11,11 @@ import {
   AreaChart,
   Area,
 } from "recharts";
-
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+import html2canvas from "html2canvas";
+import { useRef } from "react";
+import { IonSelect, IonSelectOption } from "@ionic/react";
 import { useEnergyDashboard } from "../hook/useEnergyDashboard";
 import "./WaterRealtimePage.light.css";
 import "./WaterRealtimePage.dark.css";
@@ -22,6 +26,8 @@ import { PeriodType } from "../services/water.service";
 import { predictenergyPeriod } from "../services/waterPredictionService";
 
 const EnergyDashboardPage: React.FC = () => {
+  const chartRef = useRef<HTMLDivElement>(null);
+  const [selectedMachine, setSelectedMachine] = useState("ALL");
   const {
     period,
     setPeriod,
@@ -34,7 +40,7 @@ const EnergyDashboardPage: React.FC = () => {
     stats,
     chartData,
     reload,
-  } = useEnergyDashboard();
+  } = useEnergyDashboard(selectedMachine);
 const [startDate, setStartDate] = useState("");
 const [endDate, setEndDate] = useState("");
 const [prediction, setPrediction] = useState<any>(null);
@@ -56,6 +62,114 @@ const handlePredictWaterPeriod = async () => {
     setLoadingPrediction(false);
   }
 };
+const downloadEnergyPdf = async () => {
+  const pdf = new jsPDF("p", "mm", "a4");
+  const pageWidth = pdf.internal.pageSize.getWidth();
+
+  const tableRows = chartData.slice(-30);
+
+  pdf.setFillColor(15, 23, 42);
+  pdf.rect(0, 0, pageWidth, 32, "F");
+
+  pdf.setTextColor(255, 255, 255);
+  pdf.setFontSize(18);
+  pdf.setFont("helvetica", "bold");
+  pdf.text("Rapport consommation électrique", 14, 14);
+
+  pdf.setFontSize(10);
+  pdf.setFont("helvetica", "normal");
+  pdf.text("Système IoT - Suivi énergie", 14, 23);
+
+  pdf.setTextColor(30, 41, 59);
+  pdf.setFontSize(11);
+  pdf.setFont("helvetica", "bold");
+  pdf.text("Machine :", 14, 42);
+  pdf.setFont("helvetica", "normal");
+  pdf.text(selectedMachine === "ALL" ? "Toutes les machines" : selectedMachine, 38, 42);
+
+  pdf.setFont("helvetica", "bold");
+  pdf.text("Date export :", 14, 50);
+  pdf.setFont("helvetica", "normal");
+  pdf.text(new Date().toLocaleString(), 42, 50);
+
+  const cards = [
+    ["Consommation", `${stats?.totalConsumption?.toFixed?.(3) ?? "0.000"} kWh`],
+    ["Puissance moy.", `${stats?.avgPower?.toFixed?.(2) ?? "0.00"} W`],
+    ["Pic puissance", `${stats?.peakPower?.toFixed?.(2) ?? "0.00"} W`],
+    ["Tension moy.", `${stats?.avgVoltage?.toFixed?.(2) ?? "0.00"} V`],
+  ];
+
+  let x = 14;
+  cards.forEach(([title, value]) => {
+    pdf.setFillColor(226, 232, 240);
+    pdf.roundedRect(x, 60, 42, 20, 3, 3, "F");
+
+    pdf.setTextColor(71, 85, 105);
+    pdf.setFontSize(8);
+    pdf.setFont("helvetica", "bold");
+    pdf.text(title, x + 4, 68);
+
+    pdf.setTextColor(15, 23, 42);
+    pdf.setFontSize(10);
+    pdf.text(value, x + 4, 76);
+
+    x += 46;
+  });
+
+  if (chartRef.current) {
+    const canvas = await html2canvas(chartRef.current, {
+      scale: 2,
+      backgroundColor: "#ffffff",
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+
+    pdf.setFontSize(13);
+    pdf.setFont("helvetica", "bold");
+    pdf.setTextColor(15, 23, 42);
+    pdf.text("Courbes de consommation électrique", 14, 92);
+
+    pdf.addImage(imgData, "PNG", 14, 98, 182, 80);
+  }
+
+  autoTable(pdf, {
+    startY: 188,
+    head: [["Date", "Puissance (W)", "Énergie (kWh)", "Courant (A)", "Tension (V)"]],
+    body: tableRows.map((row: any) => [
+      row.time || "-",
+      Number(row.power ?? 0).toFixed(2),
+      Number(row.energy ?? 0).toFixed(3),
+      Number(row.current ?? 0).toFixed(2),
+      Number(row.voltage ?? 0).toFixed(2),
+    ]),
+    theme: "grid",
+    headStyles: {
+      fillColor: [15, 23, 42],
+      textColor: [255, 255, 255],
+      fontStyle: "bold",
+      halign: "center",
+    },
+    alternateRowStyles: {
+      fillColor: [241, 245, 249],
+    },
+    styles: {
+      cellPadding: 3,
+      fontSize: 8,
+    },
+  });
+
+  const pageCount = pdf.getNumberOfPages();
+
+  for (let i = 1; i <= pageCount; i++) {
+    pdf.setPage(i);
+    pdf.setFontSize(8);
+    pdf.setTextColor(100, 116, 139);
+    pdf.text(`Page ${i} / ${pageCount}`, pageWidth - 30, 290);
+    pdf.text("Généré automatiquement par la plateforme CETTEX IoT", 14, 290);
+  }
+
+  pdf.save(`rapport-energie-${selectedMachine}.pdf`);
+};
   return (
     <IonPage>
       <IonContent fullscreen className="water-page">
@@ -69,16 +183,30 @@ const handlePredictWaterPeriod = async () => {
 
           <div className="filters-card">
             <div className="filters-top">
+              <IonSelect
+  className="machine-filter"
+  value={selectedMachine}
+  interface="popover"
+  onIonChange={(e) => setSelectedMachine(e.detail.value)}
+>
+  <IonSelectOption value="ALL">Toutes les machines</IonSelectOption>
+  <IonSelectOption value="PZEM_01">Machine 1</IonSelectOption>
+  <IonSelectOption value="PZEM_02">Machine 2</IonSelectOption>
+</IonSelect>
               <button className={period === "today" ? "active" : ""} onClick={() => setPeriod("today")}>Aujourd’hui</button>
               <button className={period === "7d" ? "active" : ""} onClick={() => setPeriod("7d")}>7 jours</button>
               <button className={period === "30d" ? "active" : ""} onClick={() => setPeriod("30d")}>30 jours</button>
              
               <button className={period === "custom" ? "active" : ""} onClick={() => setPeriod("custom")}>Personnalisée</button>
+             
               <button
   className={period === "prediction" ? "active" : ""}
   onClick={() => setPeriod("prediction")}
 >
   Prédiction IA - Énergie
+</button>
+ <button className="pdf-btn" onClick={downloadEnergyPdf}>
+  Télécharger PDF
 </button>
                <div className={`status-chip ${connected ? "online" : "offline"}`}>
               {connected ? "Capteur connecté" : "Capteur déconnecté"}
@@ -142,7 +270,7 @@ const handlePredictWaterPeriod = async () => {
   </div>
 )}
           </div>
-
+<div ref={chartRef}>
           <div className="stats-grid">
             <div className="stat-card">
               <span>Appareil</span>
@@ -245,7 +373,7 @@ const handlePredictWaterPeriod = async () => {
                 </div>
               </div>
             </div>
-
+</div>
             {/* <div className="card">
               <div className="card-head">
                 <h3>État</h3>

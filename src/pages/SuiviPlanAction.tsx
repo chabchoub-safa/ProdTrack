@@ -748,7 +748,7 @@ import {
   trashOutline,
   eyeOutline,
 } from "ionicons/icons";
-
+import { getEntreprises, EntrepriseStats } from "../services/entrepriseService";
 import Menusec from "../components/Menusec";
 import "./SuiviITP.dark.css";
 import "./SuiviITP.light.css";
@@ -763,6 +763,7 @@ import {
   updateSuiviPlanAction,
   deleteSuiviPlanAction,
 } from "../services/suiviPlanAction.service";
+import { ComplementOption, listComplements } from "../services/hjSummary.service";
 
 const emptyForm: SuiviPlanActionType = {
   categorie: "",
@@ -818,8 +819,7 @@ const SuiviPlanAction: React.FC = () => {
     useState<SuiviPlanActionType | null>(null);
 
   const [categories, setCategories] = useState<string[]>([]);
-  const [entreprises, setEntreprises] = useState<string[]>([]);
-  const [complementNames, setComplementNames] = useState<string[]>([
+const [entreprises, setEntreprises] = useState<EntrepriseStats[]>([]);  const [complementNames, setComplementNames] = useState<string[]>([
     "abdlhmid",
     "insaf",
     "rachida",
@@ -846,15 +846,7 @@ const SuiviPlanAction: React.FC = () => {
         )
       );
 
-      setEntreprises(
-        Array.from(
-          new Set(
-            dataList
-              .map((x) => x.entreprise?.trim())
-              .filter((x): x is string => !!x)
-          )
-        )
-      );
+     
 
       const allComplements = dataList
         .flatMap((x) => x.complements || [])
@@ -875,7 +867,11 @@ const SuiviPlanAction: React.FC = () => {
   useEffect(() => {
     load();
   }, []);
-
+useEffect(() => {
+  getEntreprises(false)
+    .then(setEntreprises)
+    .catch(console.error);
+}, []);
   const filteredItems = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return items;
@@ -927,7 +923,11 @@ const SuiviPlanAction: React.FC = () => {
     setSelected(item);
     setOpenDetails(true);
   };
+const [complementOptions, setComplementOptions] = useState<ComplementOption[]>([]);
 
+useEffect(() => {
+  listComplements().then(setComplementOptions);
+}, []);
   const updateComplement = (
     index: number,
     field: keyof Complement,
@@ -1204,18 +1204,23 @@ const SuiviPlanAction: React.FC = () => {
 
                 <IonItem>
                   <IonLabel position="stacked">Entreprise</IonLabel>
+                
                   <input
                     className="native-datalist-input"
-                    list="entreprises-plan-list"
+                    list="entreprises-ass-tech-list"
                     value={form.entreprise || ""}
                     placeholder="Choisir ou saisir une entreprise"
                     onChange={(e) =>
-                      setForm({ ...form, entreprise: e.target.value })
+                      setForm({
+                        ...form,
+                        entreprise: e.target.value,
+                      })
                     }
                   />
-                  <datalist id="entreprises-plan-list">
-                    {entreprises.map((e) => (
-                      <option key={e} value={e} />
+                
+                  <datalist id="entreprises-ass-tech-list">
+                    {entreprises.map((ent) => (
+                      <option key={ent.id} value={ent.nomEntreprise} />
                     ))}
                   </datalist>
                 </IonItem>
@@ -1356,46 +1361,59 @@ const SuiviPlanAction: React.FC = () => {
               <div className="glass-card form-card">
                 <div className="section-title">Compléments</div>
 
-                {(form.complements || []).map((comp, index) => (
-                  <div key={index} className="complement-row">
-                    <IonItem>
-                      <IonLabel position="stacked">Nom complément</IonLabel>
-                      <input
-                        className="native-datalist-input"
-                        list="complements-plan-list"
-                        value={comp.nom}
-                        placeholder="Choisir ou saisir"
-                        onChange={(e) =>
-                          updateComplement(index, "nom", e.target.value)
-                        }
-                      />
-                    </IonItem>
+                {(form.complements || []).map((c, index) => (
+  <div key={index} className="complement-row">
+    <IonItem>
+      <IonLabel position="stacked">Nom complément</IonLabel>
 
-                    <IonItem>
-                      <IonLabel position="stacked">Valeur</IonLabel>
-                      <IonInput
-                        value={comp.valeur}
-                        placeholder="Entrer la valeur"
-                        onIonInput={(e) =>
-                          updateComplement(
-                            index,
-                            "valeur",
-                            e.detail.value || ""
-                          )
-                        }
-                      />
-                    </IonItem>
+      <select
+        className="native-datalist-input"
+        value={c.nom}
+        onChange={(e) => {
+          const copy = [...(form.complements || [])];
+          copy[index] = { ...copy[index], nom: e.target.value };
+          setForm({ ...form, complements: copy });
+        }}
+      >
+        <option value="">Choisir complément</option>
 
-                    <IonButton
-                      fill="clear"
-                      color="danger"
-                      className="delete-complement-btn"
-                      onClick={() => removeComplement(index)}
-                    >
-                      <IonIcon icon={trashOutline} />
-                    </IonButton>
-                  </div>
-                ))}
+        {complementOptions.map((opt) => (
+          <option key={opt.id} value={opt.nom}>
+            {opt.nom}
+          </option>
+        ))}
+      </select>
+    </IonItem>
+
+    <IonItem>
+      <IonLabel position="stacked">Valeur</IonLabel>
+
+      <IonInput
+        type="number"
+        value={c.valeur}
+        placeholder="Valeur H/J"
+        onIonInput={(e) => {
+          const copy = [...(form.complements || [])];
+          copy[index] = {
+            ...copy[index],
+            valeur: e.detail.value || "",
+          };
+          setForm({ ...form, complements: copy });
+        }}
+      />
+    </IonItem>
+
+    <IonButton
+      fill="clear"
+      color="danger"
+      className="delete-complement-btn"
+      onClick={() => removeComplement(index)}
+    >
+      <IonIcon icon={trashOutline} />
+    </IonButton>
+  </div>
+))}
+
 
                 <datalist id="complements-plan-list">
                   {complementNames.map((c) => (

@@ -469,11 +469,12 @@ const getMachineLabel = (machineId?: string | null) => {
 
             <div className="top-row">
               <IonSearchbar
-                value={q}
-                onIonChange={(e) => setQ(e.detail.value!)}
-                placeholder="Rechercher un Article..."
-                className="custom-searchbar"
-              />
+  value={q}
+  debounce={0}
+  onIonInput={(e) => setQ(String(e.detail.value ?? ""))}
+  placeholder="Rechercher un Article..."
+  className="custom-searchbar"
+/>
 
               <IonButton className="btn-main" onClick={openScannerForTissu}>
                 <IonIcon icon={qrCodeOutline} slot="start" />

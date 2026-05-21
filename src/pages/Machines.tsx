@@ -281,10 +281,11 @@ const isTriger1 =
         <div className="container">
           <div className="top-row">
             <IonSearchbar
-              value={q}
-              onIonChange={(e) => setQ(e.detail.value!)}
-              placeholder="Rechercher une machine..."
-            />
+  value={q}
+  debounce={0}
+  onIonInput={(e) => setQ(String(e.detail.value ?? ""))}
+  placeholder="Rechercher une machine..."
+/>
 <IonButton fill="outline" className="btn-outline" onClick={openTrash}>
   <IonIcon icon={trashBinOutline} slot="start" />
   Corbeille
@@ -491,7 +492,7 @@ const isTriger1 =
             </div>
 
             <div className="field">
-              <label className="label">Code machine</label>
+              <label className="label">*Code machine</label>
               <IonInput className="input-plain" value={form.code}
                 placeholder="M-01"
                 onIonInput={(e) => setForm({ ...form, code: String(e.detail.value ?? "") })}
@@ -499,7 +500,7 @@ const isTriger1 =
             </div>
 
             <div className="field">
-              <label className="label">Nom machine</label>
+              <label className="label">*Nom machine</label>
               <IonInput className="input-plain" value={form.nom}
                 placeholder="Jigger 1"
                 onIonInput={(e) => setForm({ ...form, nom: String(e.detail.value ?? "") })}

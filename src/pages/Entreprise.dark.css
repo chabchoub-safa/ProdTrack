@@ -1,0 +1,244 @@
+body.dark-theme .entreprise-page{
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+  background: url("/assets/bbb.png") center/cover no-repeat;
+}
+
+body.dark-theme .entreprise-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 34, 64, 0.70);
+}
+
+body.dark-theme .entreprise-container {
+  padding: 18px;
+}
+
+body.dark-theme .entreprise-toolbar {
+  --background: #132848;
+  --color: white;
+}
+
+body.dark-theme .entreprise-search {
+  --background: #20385c;
+  --color: white;
+  --placeholder-color: rgba(255, 255, 255, 0.55);
+  --icon-color: white;
+  margin-bottom: 18px;
+}
+
+body.dark-theme .entreprise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+body.dark-theme .entreprise-card {
+  background: linear-gradient(145deg, #1f3a63, #182f52);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 16px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+}
+
+body.dark-theme .entreprise-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+body.dark-theme .entreprise-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+body.dark-theme .entreprise-card p {
+  margin: 5px 0;
+  opacity: 0.8;
+}
+
+body.dark-theme .entreprise-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 14px;
+  background: #2f80ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+body.dark-theme .stars {
+  margin-top: 14px;
+  color: #ffd166;
+  font-size: 20px;
+}
+
+body.dark-theme .activity {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+body.dark-theme .card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+body.dark-theme .modal-content {
+  --background: #152b4d;
+  color: white;
+  padding: 15px;
+}
+
+body.dark-theme .modal-content ion-item {
+  --background: #20385c;
+  --color: white;
+  --border-color: rgba(255, 255, 255, 0.12);
+  margin-bottom: 10px;
+  border-radius: 12px;
+}
+
+body.dark-theme .modal-content ion-input,
+body.dark-theme .modal-content ion-textarea {
+  --color: white;
+}
+
+body.dark-theme .save-btn {
+  margin: 20px;
+  --background: #2f80ed;
+  --border-radius: 14px;
+}
+
+body.dark-theme .details-box {
+  margin: 20px;
+  padding: 20px;
+  background: #20385c;
+  border-radius: 18px;
+  color: white;
+}
+
+body.dark-theme .details-box h2 {
+  margin-top: 0;
+}
+
+body.dark-theme .extension-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body.dark-theme .extension-list span {
+  background: #2f80ed;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+body.dark-theme .entreprise-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+body.dark-theme .entreprise-search {
+  flex: 1;
+  margin-bottom: 0 !important;
+}
+
+body.dark-theme .entreprise-add-btn {
+  height: 44px;
+  --border-radius: 14px;
+  font-weight: 700;
+}
+
+body.dark-theme .entreprise-segment {
+  margin-bottom: 18px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+body.dark-theme .delete-confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-theme .delete-confirm-box {
+  width: 380px;
+  max-width: 90%;
+  background: #062747;
+  color: white;
+  border-radius: 14px;
+  border: 1px solid rgba(120, 180, 255, 0.25);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+body.dark-theme .delete-confirm-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.dark-theme .delete-confirm-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+body.dark-theme .delete-confirm-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  --color: #0d8cff;
+}
+
+body.dark-theme .delete-confirm-content {
+  padding: 26px 28px;
+  text-align: center;
+}
+
+body.dark-theme .delete-confirm-content p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+body.dark-theme .delete-confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 22px 24px;
+}
+
+body.dark-theme .delete-confirm-cancel {
+  --color: #ffffff;
+  --border-color: rgba(170, 200, 230, 0.7);
+  --border-radius: 8px;
+  --background: transparent;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+body.dark-theme .delete-confirm-delete {
+  --background: #ff4b55;
+  --background-hover: #ff3540;
+  --color: #ffffff;
+  --border-radius: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}

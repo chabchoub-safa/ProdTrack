@@ -87,3 +87,55 @@ body.light-theme .hj-table tfoot th {
   color: #0f172a;
   font-weight: 800;
 }
+
+body.light-theme .hj-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+}
+
+body.light-theme .hj-search-big {
+  flex: 1.8;
+  min-width: 320px;
+  --background: #ffffff;
+  --color: #0f172a;
+  --placeholder-color: #64748b;
+  --icon-color: #0f172a;
+}
+
+body.light-theme .hj-search-big input {
+  color: #0f172a !important;
+}
+
+body.light-theme .hj-input-small {
+  flex: 0.7;
+  max-width: 190px;
+  min-height: 42px;
+  color: #0f172a;
+  --color: #0f172a;
+  --placeholder-color: #64748b;
+  background: #ffffff;
+  border-radius: 12px;
+  padding-left: 12px !important;
+}
+
+body.light-theme .hj-btn-icon {
+  width: 52px;
+  height: 42px;
+  --border-radius: 10px;
+}
+
+body.light-theme .hj-trash-box {
+  margin: 0 20px 16px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-theme .hj-trash-box h3,
+body.light-theme .hj-trash-row span {
+  color: #0f172a;
+}

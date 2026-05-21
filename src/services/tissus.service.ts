@@ -164,8 +164,8 @@ export async function listTissusByClient(clientId: string) {
   return res.data as TissuLite[];
 }
 
-export async function listTissusByTechnicien(techId: string) {
-  const res = await http.get(`${API_BASE}/api/tissus/by-technicien/${techId}`);
+export async function listTissusByTechnicien() {
+  const res = await http.get(`${API_BASE}/api/tissus/for-technicien`);
   return res.data as TissuLite[];
 }
 export async function listMyTissus(q?: string) {

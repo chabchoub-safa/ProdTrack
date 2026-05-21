@@ -1,0 +1,171 @@
+body.light-theme .entreprise-page {
+
+  --background: transparent;
+  position: relative;
+  min-height: 100vh;
+
+  background: url("/assets/bbb.png") center/cover no-repeat;
+
+}
+body.light-theme .entreprise-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 247, 255, 0.74);
+}
+
+body.light-theme .entreprise-container {
+  padding: 18px;
+}
+
+body.light-theme .entreprise-toolbar {
+  --background: #ffffff;
+  --color: #17365d;
+}
+
+body.light-theme .entreprise-search {
+  --background: #ffffff;
+  --color: #17365d;
+  --placeholder-color: rgba(23, 54, 93, 0.55);
+  --icon-color: #17365d;
+  margin-bottom: 18px;
+  border-radius: 14px;
+}
+
+body.light-theme .entreprise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+body.light-theme .entreprise-card {
+  background: #ffffff;
+  border: 1px solid rgba(23, 54, 93, 0.12);
+  border-radius: 18px;
+  padding: 16px;
+  color: #17365d;
+  box-shadow: 0 10px 25px rgba(23, 54, 93, 0.12);
+}
+
+body.light-theme .entreprise-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+body.light-theme .entreprise-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #132848;
+}
+
+body.light-theme .entreprise-card p {
+  margin: 5px 0;
+  color: #53657d;
+}
+
+body.light-theme .entreprise-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 14px;
+  background: #2f80ed;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+body.light-theme .stars {
+  margin-top: 14px;
+  color: #f4b400;
+  font-size: 20px;
+}
+
+body.light-theme .activity {
+  font-size: 13px;
+  margin-top: 8px;
+  color: #53657d;
+}
+
+body.light-theme .card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+body.light-theme .modal-content {
+  --background: #f4f7fb;
+  color: #17365d;
+  padding: 15px;
+}
+
+body.light-theme .modal-content ion-item {
+  --background: #ffffff;
+  --color: #17365d;
+  --border-color: rgba(23, 54, 93, 0.12);
+  margin-bottom: 10px;
+  border-radius: 12px;
+}
+
+body.light-theme .modal-content ion-input,
+body.light-theme .modal-content ion-textarea {
+  --color: #17365d;
+}
+
+body.light-theme .save-btn {
+  margin: 20px;
+  --background: #2f80ed;
+  --border-radius: 14px;
+}
+
+body.light-theme .details-box {
+  margin: 20px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  color: #17365d;
+  box-shadow: 0 10px 25px rgba(23, 54, 93, 0.12);
+}
+
+body.light-theme .details-box h2 {
+  margin-top: 0;
+  color: #132848;
+}
+
+body.light-theme .extension-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body.light-theme .extension-list span {
+  background: #e8f1ff;
+  color: #2f80ed;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+body.light-theme .entreprise-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+body.light-theme .entreprise-search {
+  flex: 1;
+  margin-bottom: 0 !important;
+}
+
+body.light-theme .entreprise-add-btn {
+  height: 44px;
+  --border-radius: 14px;
+  font-weight: 700;
+}
+
+body.light-theme .entreprise-segment {
+  margin-bottom: 18px;
+  border-radius: 14px;
+  overflow: hidden;
+}

@@ -48,7 +48,7 @@ function getRange(period: PeriodType, customStart?: string, customEnd?: string) 
   };
 }
 
-export function useWaterDashboard() {
+export function useWaterDashboard(selectedMachine: string = "ALL") {
   const [period, setPeriod] = useState<PeriodType>("today");
   const [customStart, setCustomStart] = useState("");
   const [customEnd, setCustomEnd] = useState("");
@@ -62,8 +62,11 @@ export function useWaterDashboard() {
     setLoading(true);
 
     try {
-      const data = await getWaterHistoryByRange(range.start, range.end);
-      const ordered = [...data].sort(
+const data = await getWaterHistoryByRange(
+  range.start,
+  range.end,
+  selectedMachine
+);      const ordered = [...data].sort(
         (a, b) =>
           new Date(a.receivedAt).getTime() - new Date(b.receivedAt).getTime()
       );
@@ -88,8 +91,7 @@ export function useWaterDashboard() {
     } finally {
       setLoading(false);
     }
-  }, [period, customStart, customEnd]);
-
+}, [period, customStart, customEnd, selectedMachine]);
   useEffect(() => {
     loadData();
   }, [loadData]);

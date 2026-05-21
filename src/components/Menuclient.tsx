@@ -38,6 +38,7 @@ const Menuclient: React.FC<Props> = ({ title, onMenuClick, showLogout = true }) 
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
+    localStorage.removeItem("isLoggedIn");
     router.push("/login", "root", "replace");
   };
 const [discussionCount, setDiscussionCount] = useState(0);

@@ -388,6 +388,7 @@ ion-alertbody.dark-theme .custom-confirm-alert .alert-button-role-destructive {
     padding: 10px 8px;
   }
 }
+
 body.dark-theme .native-datalist-input {
   width: 100%;
   background: transparent;
@@ -396,7 +397,9 @@ body.dark-theme .native-datalist-input {
   color: var(--ion-text-color);
   font-size: 15px;
   padding: 12px 0 6px;
+ 
 }
+
 
 body.dark-theme .complement-row {
   display: grid;
@@ -428,6 +431,7 @@ body.dark-theme .complement-row ion-input {
   width: 100%;
   height: 34px;
   font-size: 15px;
+ 
 }
 
 body.dark-theme .delete-complement-btn {

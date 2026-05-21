@@ -36,45 +36,39 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await login({ email, password });
+  const res = await login({ email, password });
 
-      const token = res.token;
-      const role = res.role;
+  const token = res.token;
+  // const role = res.role;
+  const role = String(res.role || "").trim().toUpperCase();
+// console.log("LOGIN RESPONSE:", res);
+// console.log("ROLE EXACT:", role);
+// console.log("TOKEN:", token);
+  localStorage.setItem("token", token);
+  localStorage.setItem("role", role);
+  localStorage.setItem("isLoggedIn", "true");
 
-      localStorage.setItem("token", token);
-      localStorage.setItem("role", role);
-
-      // ✅ navigation selon rôle
-      if (role === "ROLE_ADMIN") {
-        ionRouter.push("/tissus", "root", "replace");
-      }
-      if (role === "ROLE_TECHNICIEN") {
-        ionRouter.push("/scan", "root", "replace");
-      } 
-      if (role === "ROLE_CLIENT")  {
-        ionRouter.push("/client/tissus", "root", "replace");
-      }
-      if (role === "ROLE_SECRETAIRE") {
-  ionRouter.push("/ITP", "root", "replace");
+  if (role === "ROLE_ADMIN") {
+  window.location.replace("/tissus");
+} else if (role === "ROLE_TECHNICIEN") {
+  window.location.replace("/scan");
+} else if (role === "ROLE_CLIENT") {
+  window.location.replace("/client/tissus");
+} else if (role === "ROLE_SECRETAIRE") {
+  window.location.replace("/itp");
+} else {
+  window.location.replace("/login");
 }
-    // } catch (e: any) {
-    //   const status = e?.response?.status;
-    //   const msg = e?.response?.data;
 
-    //   if (status === 401) showToast(msg || "Email ou mot de passe incorrect");
-    //   else if (status === 403) showToast("Accès refusé");
-    //   else showToast("Erreur serveur. Réessayez.");
-    // } finally {
-    //   setLoading(false);
-    // }
+    
     } catch (e: any) {
   const status = e?.response?.status;
   const msg = e?.response?.data;
 
   // 👇 Ajoute ça temporairement
-  console.log("ERREUR STATUS:", status);
-  console.log("ERREUR MSG:", msg);
-  console.log("ERREUR FULL:", JSON.stringify(e?.message));
+  // console.log("ERREUR STATUS:", status);
+  // console.log("ERREUR MSG:", msg);
+  // console.log("ERREUR FULL:", JSON.stringify(e?.message));
 
   if (status === 401) showToast(msg || "Email ou mot de passe incorrect");
   else if (status === 403) showToast("Accès refusé");
@@ -103,8 +97,7 @@ finally {
               <IonButton
   fill="clear"
   className="home-btn"
-  onClick={() => ionRouter.push("/home", "root", "replace")}
->
+onClick={() => ionRouter.push("/Home", "root", "replace")}>
   ⬅ Retour à l’accueil
 </IonButton>
 
@@ -114,8 +107,7 @@ finally {
             <div className="login-right">
               <h2>Se connecter</h2>
 
-              <form  className="form">
-                <label className="label">Email</label>
+<form className="form">                <label className="label">Email</label>
                 <IonInput
                   className="input"
                   placeholder="Email"
@@ -144,7 +136,7 @@ finally {
                     fill="outline"
                     disabled={loading}
                   > */}
-                  <IonButton
+                <IonButton
   type="button"
   className="go-btn"
   fill="outline"

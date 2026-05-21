@@ -995,3 +995,82 @@ body.dark-theme .confirm-restore-modal .confirm-modal {
   width: 100% !important;
   margin: 0 !important;
 }
+/* ===== Filtre état + bouton Ajouter - DARK ===== */
+
+body.dark-theme .top-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+body.dark-theme .top-row ion-searchbar {
+  flex: 1;
+}
+
+/* Combobox filtre état */
+body.dark-theme .etat-filter {
+  width: 170px;
+  height: 44px;
+
+  --background: #0f172a;
+  --color: #ffffff;
+  --placeholder-color: #ffffff;
+  --border-radius: 14px;
+  --padding-start: 14px;
+  --padding-end: 14px;
+
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  border-radius: 14px;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.35);
+}
+
+/* Texte dans IonSelect */
+body.dark-theme .etat-filter::part(text) {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Icône flèche */
+body.dark-theme .etat-filter::part(icon) {
+  color: #38bdf8;
+  opacity: 1;
+}
+
+/* Bouton Ajouter */
+body.dark-theme .top-row .btn-main {
+  height: 44px;
+  --background: #2563eb;
+  --background-hover: #1d4ed8;
+  --color: #ffffff;
+  --border-radius: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+body.dark-theme ion-popover {
+  --background: #0f172a;
+  --color: #ffffff;
+}
+
+body.dark-theme ion-popover ion-item {
+  --background: #0f172a;
+  --color: #ffffff;
+}
+
+body.dark-theme ion-popover ion-item:hover {
+  --background: #1e293b;
+}
+body.dark-theme  .empty-trash-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 35px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+}
