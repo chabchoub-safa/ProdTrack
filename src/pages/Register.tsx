@@ -104,7 +104,20 @@ const Register: React.FC = () => {
     set("dateNaissance", fixed);
     setDateOpen(false);
   };
-
+const resetForm = () => {
+  setForm({
+    nom: "",
+    prenom: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    pays: "",
+    notRobot: false,
+    numero: "",
+    dateNaissance: "",
+    role: "ROLE_USER" as Role,
+  });
+};
   const onSubmit = async (ev?: React.FormEvent) => {
     ev?.preventDefault();
 
@@ -134,9 +147,14 @@ if (!form.role) return showToast("Veuillez choisir un rôle");
         isNotRobot: form.notRobot,
       };
 
+      // const msg = await register(payload);
+      // showToast(typeof msg === "string" ? msg : "Inscription réussie ✅");
+      // setTimeout(() => ionRouter.push("/register", "root", "replace"), 900);
       const msg = await register(payload);
+      
       showToast(typeof msg === "string" ? msg : "Inscription réussie ✅");
-      setTimeout(() => ionRouter.push("/register", "root", "replace"), 900);
+
+      resetForm(); // ✅ vider tous les champs après création
     } catch (e: any) {
       const msg =
         typeof e?.response?.data === "string"

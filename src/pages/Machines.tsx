@@ -551,7 +551,7 @@ const isTriger1 =
         <IonModal isOpen={!!selected} onDidDismiss={() => { setSelected(null); setDetails(null); }}>
          <IonHeader>
   <IonToolbar>
-    <IonTitle>Détails Article</IonTitle>
+    <IonTitle>Détails Machine</IonTitle>
 
     <IonButtons slot="end">
       <IonButton
