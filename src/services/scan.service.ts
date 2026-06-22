@@ -1,4 +1,4 @@
-import { APIScan } from "../config/api"; // adapte selon ton projet
+import { APIScan } from "../config/api"; 
 import { http } from "./http";
 
 
